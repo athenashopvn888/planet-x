@@ -74,6 +74,7 @@ export default function Footer() {
               <Link href="/info/cheap-weed-york">Cheap Weed North York</Link>
               <Link href="/info/native-cigarettes-york">Native Cigarettes</Link>
               <Link href="/info/weed-store-near-mississauga">Weed Store Near Mississauga</Link>
+              <Link href="/weed-dispensary-north-york/">Planet x Cannabis Weed Dispensary in North York</Link>
               <Link href="/contact">Contact Us</Link>
               <a
                 href="https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9"
