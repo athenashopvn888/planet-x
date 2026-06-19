@@ -25,7 +25,7 @@ export const gbpLocation = {
   ],
   menuUrl: "/",
   directionsUrl: "https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9",
-  mapEmbedUrl: "https://maps.google.com/maps?q=Planet%20x%20Cannabis%203005%20Islington%20Ave%20unit%201%2C%20North%20York%2C%20ON%20M9L%202K9&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  mapEmbedUrl: "https://maps.google.com/maps?q=3005%20Islington%20Ave%20unit%201%2C%20North%20York%2C%20ON%20M9L%202K9&t=&z=15&ie=UTF8&iwloc=&output=embed",
   latitude: "43.7554",
   longitude: "-79.5645",
   hours: ["Open 24 Hours"],
