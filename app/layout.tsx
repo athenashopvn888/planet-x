@@ -101,20 +101,9 @@ const jsonLd = {
       closes: "23:59",
     },
   ],
-  sameAs: [
-    "https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9",
-    "https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9",
-  ],
-  hasMap: "https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9",
   areaServed: {
     "@type": "City",
     name: "North York",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "15",
-    bestRating: "5",
   },
 };
 

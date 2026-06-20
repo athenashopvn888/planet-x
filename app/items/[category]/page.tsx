@@ -123,14 +123,6 @@ export default async function ItemsCategoryPage({
             <p className={styles.visitText}>
               3005 Islington Ave unit 1, North York, ON M9L 2K9 · Open 24 Hours
             </p>
-            <a
-              href="https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.visitBtn}
-            >
-              📍 Get Directions
-            </a>
           </div>
         </div>
       </section>

@@ -44,14 +44,6 @@ export default function ContactPage() {
                 <br />
                 <span className={styles.infoMuted}>Islington Ave & Steeles Ave W</span>
               </p>
-              <a
-                href="https://maps.google.com/?q=3005+Islington+Ave+unit+1,+North+York,+ON+M9L+2K9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.infoBtn}
-              >
-                Get Directions →
-              </a>
             </div>
 
             {/* Hours */}
@@ -128,16 +120,6 @@ export default function ContactPage() {
 
           {/* Map */}
           <div className={styles.mapSection}>
-            <iframe
-              src="https://maps.google.com/maps?q=3005%20Islington%20Ave%20unit%201,+North%20York,+ON+M9L%202K9&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Planet x Cannabis — 3005 Islington Ave unit 1, North York"
-            ></iframe>
           </div>
         </div>
       </section>
