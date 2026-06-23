@@ -215,11 +215,11 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
   "ADD ONS": {
     banner: "/banners/05_Accessories.webp",
     name: "Accessories", slug: "add-ons", color: "#34d399", icon: "➕",
-    seoTitle: "Cannabis Accessories North York — Grinders, Papers, Lighters & More",
-    seoIntro: "Essential cannabis accessories at Planet x Cannabis, North York. Grinders, rolling papers, lighters, trays, and more.",
-    seoDescription: "Planet x Cannabis carries all the accessories you need for the perfect smoke session. From premium grinders and rolling papers to lighters, trays, and storage containers, we have everything in stock. Visit us at 3005 Islington Ave unit 1, North York.",
+    seoTitle: "Cannabis Accessories in North York | Planet X Cannabis",
+    seoIntro: "Browse accessories category information at Planet X Cannabis in North York.",
+    seoDescription: "Review accessory-related menu categories at Planet X Cannabis in North York and confirm current menu details before visiting. This page is intended for general category browsing and does not promise current product availability.",
     faqs: [
-      { q: "What accessories do you sell?", a: "We carry grinders, rolling papers, filter tips, lighters, rolling trays, storage jars, and more." },
+      { q: "What accessory information can shoppers review?", a: "Customers can review accessory-related category information and confirm current menu details before visiting Planet X Cannabis." },
     ],
   },
   "MAGIC & OTHERS": {
