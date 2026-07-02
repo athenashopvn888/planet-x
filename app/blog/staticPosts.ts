@@ -25,7 +25,7 @@ export const STORE_BLOG_CONFIG = {
   storeCode: "PLX01",
   storeName: "Planet X Cannabis",
   city: "North York",
-  domain: "theplanetx.ca",
+  domain: "www.theplanetx.ca",
   storePath: "/weed-dispensary-north-york",
 };
 
