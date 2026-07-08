@@ -39,7 +39,7 @@ export const STATIC_POSTS: StaticBlogPost[] = [
     meta_description: "Adult 19+ guide to Planet X Cannabis around North York, with local store-page checks, menu-category context, and safe visit planning.",
     h1: "Planet X Cannabis Menu Category Guide for Adults 19+",
     excerpt: "Planet X Cannabis guide for adults 19+ reviewing store information around North York.",
-    author: "Athena SEO Team",
+    author: "The Planet X Cannabis Team",
     date: "2026-07-02",
     category: "Store Guide",
     readTime: "4 min",
