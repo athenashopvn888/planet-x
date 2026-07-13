@@ -5,17 +5,17 @@ import AgeGate from "./components/AgeGate";
 export const metadata: Metadata = {
   metadataBase: new URL("https://theplanetx.ca"),
   title: {
-    default: "24 Hour North York Dispensary | Planet x Cannabis",
-    template: "%s | Planet x Cannabis",
+    default: "24 Hour North York Dispensary | Planet X Cannabis",
+    template: "%s | Planet X Cannabis",
   },
   description:
-    "Planet x Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
+    "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
   keywords: [
     "cannabis dispensary North York",
     "weed store North York",
     "exotic flower North York",
     "premium cannabis",
-    "Planet x Cannabis",
+    "Planet X Cannabis",
     "cheap weed North York",
     "dispensary near me",
     "THC flower",
@@ -24,29 +24,30 @@ export const metadata: Metadata = {
     "vapes",
     "pre-rolls",
     "native cigarettes North York",
-    "weed store Mississauga",
+    "weed store Islington and Steeles",
   ],
   openGraph: {
     type: "website",
     locale: "en_CA",
     url: "https://theplanetx.ca",
-    siteName: "Planet x Cannabis",
-    title: "24 Hour North York Dispensary | Planet x Cannabis",
+    siteName: "Planet X Cannabis",
+    title: "24 Hour North York Dispensary | Planet X Cannabis",
     description:
-      "Planet x Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
+      "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: [
       {
         url: "https://theplanetx.ca/wp-content/uploads/2026/04/46Oi5.jpg",
         width: 1200,
         height: 630,
-        alt: "Planet x Cannabis — Premium Cannabis Dispensary North York",
+        alt: "Planet X Cannabis — Premium Cannabis Dispensary North York",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "24 Hour North York Dispensary | Planet x Cannabis",
-    description: "Planet x Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
+    title: "24 Hour North York Dispensary | Planet X Cannabis",
+    description:
+      "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: ["https://theplanetx.ca/wp-content/uploads/2026/04/46Oi5.jpg"],
   },
   robots: {
@@ -68,14 +69,15 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── JSON-LD Structured Data ── */
+/* JSON-LD Structured Data */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
   additionalType: "https://schema.org/Store",
   "@id": "https://theplanetx.ca",
-  name: "Planet x Cannabis",
-  description: "Cannabis dispensary at 3005 Islington Ave unit 1 in North York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
+  name: "Planet X Cannabis",
+  description:
+    "Cannabis dispensary at 3005 Islington Ave unit 1 in North York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
   url: "https://theplanetx.ca",
   telephone: "+12265453005",
   image: "https://theplanetx.ca/wp-content/uploads/2026/04/7Clmh.jpg",
@@ -96,7 +98,15 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
       opens: "00:00",
       closes: "23:59",
     },
@@ -129,7 +139,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMF97NLZZP"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MMF97NLZZP"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -137,7 +150,7 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-MMF97NLZZP');
-            `
+            `,
           }}
         />
       </head>
