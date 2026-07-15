@@ -212,6 +212,17 @@ export default function HomePage() {
       </section>
 
       {/* ── BENTO MOSAIC HERO ── */}
+      <section className={styles.hiringCallout} aria-label="Hiring at Planet X Cannabis" style={{ "--hire-accent": "#38bdf8", "--hire-accent-soft": "rgba(56, 189, 248, 0.14)", "--hire-accent-border": "rgba(56, 189, 248, 0.32)" } as React.CSSProperties}>
+        <div className={styles.hiringCalloutInner}>
+          <div>
+            <span className={styles.hiringEyebrow}>Budtenders / Managers Wanted</span>
+            <h2>Join Planet X</h2>
+            <p>Planet X is looking for motivated people who can stay clear, curious, and helpful through busy shifts. Online applications only. Please do not call the store about hiring.</p>
+          </div>
+          <Link href="/careers/budtender" className={styles.hiringButton}>Apply Online</Link>
+        </div>
+      </section>
+
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroOverlay} />

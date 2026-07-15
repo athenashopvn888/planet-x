@@ -26,10 +26,10 @@ export const SEO_PAGES: SeoPageData[] = [
       {
         heading:
           "A Local Cannabis Stop Near Islington Avenue and Steeles Avenue West",
-        body: "Planet X Cannabis is located at 3005 Islington Ave unit 1, North York, ON M9L 2K9. This page is built for shoppers around Islington Avenue, Steeles Avenue West, Humber Summit, York University, Humber College, North York, TTC who want clear store information and simple menu paths before visiting.",
+        body: "Planet X Cannabis is located at 3005 Islington Ave unit 1, North York, ON M9L 2K9. This page is built for shoppers around Islington Avenue, Steeles Avenue West, Humber Summit, York University, Humber College, North York, TTC who want clear store information and simple menu categories before visiting.",
       },
       {
-        heading: "Flower Tiers And Menu Paths",
+        heading: "Flower Tiers And Menu Categories",
         body: "Planet X Cannabis organizes flower into clear tiers, from Exotic and Premium to AAA+, AA, and Budget. You can also browse edibles, vapes, concentrates, pre-rolls, cigarettes, and accessories through the live menu before stopping in.",
       },
       {

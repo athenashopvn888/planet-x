@@ -31,7 +31,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     intro: "A practical resource hub for North York, Islington, and Steeles shoppers. Use it to move from local search intent to the right menu shelf: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
     cards: [
       { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan the stop around Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the right category before jumping into product pages." },
+      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the matching category before opening product pages." },
       { title: "Flower Tier Guide", href: "/resources/flower-guide", text: "Compare Exotic, Premium, AAA+, AA, and Budget with 3g and 6g deal math." },
       { title: "Value Guide", href: "/resources/value-guide", text: "A cleaner path for cheap weed, budget weed, and affordable flower searches." },
       { title: "Native Smokes Prices", href: "/resources/native-smokes", text: "Brand and price notes for cigarettes, Backwoods, grabba, and pouch listings." }
@@ -39,12 +39,12 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     sections: [
       {
         heading: "Local Search, Useful Next Step",
-        body: "Planet x Cannabis is listed at 3005 Islington Ave unit 1, North York, ON M9L 2K9. These resources support the protected GBP landing page, not replace it. Start with the local page for address and visit context, then use the resource guides for menu decisions.",
-        bullets: ["GBP landing page: /weed-dispensary-north-york", "Local areas: Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes", "Store hours shown in the site data: Open 24 Hours"]
+        body: "Planet x Cannabis is listed at 3005 Islington Ave unit 1, North York, ON M9L 2K9. These resources support the local store page, not replace it. Start with the local page for address and visit context, then use the resource guides for menu decisions.",
+        bullets: ["local store page: /weed-dispensary-north-york", "Local areas: Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes", "Store hours shown in the site data: Open 24 Hours"]
       },
       {
-        heading: "Built Around Real Menu Paths",
-        body: "The pages are organized around high-intent keywords shoppers actually use: weed dispensary near North York, cannabis store North York, cheap weed, budget weed, pre-rolls, edibles, THC vapes, concentrates, Native cigarettes, Backwoods, and grabba."
+        heading: "Built Around Real Menu Categories",
+        body: "The pages are organized around common customer questions: weed dispensary near North York, cannabis store North York, cheap weed, budget weed, pre-rolls, edibles, THC vapes, concentrates, Native cigarettes, Backwoods, and grabba."
       }
     ],
   },
@@ -56,8 +56,8 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     eyebrow: "Visit Guide",
     intro: "Use this page when the search starts local: weed dispensary near North York, cannabis store near 3005 Islington Ave unit 1, or a quick menu check before visiting from Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes.",
     cards: [
-      { title: "GBP Store Page", href: "/weed-dispensary-north-york", text: "Use the main local landing page for address, directions, hours, and NAP details." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the product lane before opening deep menu pages." },
+      { title: "Store Page", href: "/weed-dispensary-north-york", text: "Use the main local store page for address, directions, hours, and contact details." },
+      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the product category before opening detailed menu pages." },
       { title: "Value Guide", href: "/resources/value-guide", text: "Fast help for affordable flower and budget weed searches." }
     ],
     sections: [
@@ -66,9 +66,9 @@ export const RESOURCE_PAGES: ResourcePage[] = [
         body: "Planet x Cannabis is listed at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Keep that address as the local anchor, then use the resource pages to decide whether the trip is about flower, pre-rolls, edibles, THC vapes, concentrates, accessories, or cigarettes."
       },
       {
-        heading: "Neighborhood Search Paths",
+        heading: "Neighborhood Visit Areas",
         body: "North York shoppers around Islington and Steeles may also search from Humber Summit, York University, Humber College, or nearby TTC routes, so the resources focus on direct local intent.",
-        bullets: ["Islington Avenue cannabis store search path", "Steeles Avenue West cannabis store search path", "North York cannabis store search path", "Humber Summit cannabis store search path", "York University cannabis store search path", "Humber College cannabis store search path", "TTC cannabis store search path"]
+        bullets: ["Islington Avenue cannabis store local visit area", "Steeles Avenue West cannabis store local visit area", "North York cannabis store local visit area", "Humber Summit cannabis store local visit area", "York University cannabis store local visit area", "Humber College cannabis store local visit area", "TTC cannabis store local visit area"]
       },
       {
         heading: "Best First Click",
@@ -80,24 +80,24 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     slug: "menu-guide",
     title: "Planet x Cannabis Menu Guide",
     seoTitle: "Planet x Cannabis Menu Guide | Flower, Pre-Rolls, Edibles, Vapes And Cigarettes",
-    description: "A category-first menu guide for Planet x Cannabis, covering flower tiers, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, and Native smokes.",
+    description: "A category-based menu guide for Planet x Cannabis, covering flower tiers, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, and Native smokes.",
     eyebrow: "Menu Guide",
-    intro: "The menu gets easier when you choose the lane first. Flower has tier math. Pre-rolls have format details. Edibles, THC vapes, concentrates, and accessories need category notes. Cigarettes need brand and price checks.",
+    intro: "The menu gets easier when you start with the product type. Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes are simpler to compare in their own sections.",
     cards: [
       { title: "Flower Tiers", href: "/resources/flower-guide", text: "Start here for Exotic, Premium, AAA+, AA, and Budget flower." },
       { title: "Pre-Rolls", href: "/resources/pre-roll-guide", text: "Use this for ready-to-smoke singles, packs, and quick-trip browsing." },
       { title: "Cigarettes", href: "/items/cigarettes", text: "Open the cigarette category for current Native smokes listings." },
-      { title: "GBP Store Page", href: "/weed-dispensary-north-york", text: "Return to the protected local store page." }
+      { title: "Store Page", href: "/weed-dispensary-north-york", text: "Return to the local store page." }
     ],
     sections: [
       {
         heading: "Pick The Shelf First",
-        body: "For North York, Islington, and Steeles shoppers, the best menu path is simple: flower shoppers compare tiers, pre-roll shoppers compare format, edible and vape shoppers read product notes, and cigarette shoppers compare brand, full/light/menthol style, and price.",
-        bullets: ["Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes each need their own pass.", "Use current category pages for live product details.", "Use resources for shopping logic and local planning."]
+        body: "For North York, Islington, and Steeles shoppers, the best menu category is simple: flower shoppers compare tiers, pre-roll shoppers compare format, edible and vape shoppers read item details, and cigarette shoppers compare brand, full/light/menthol style, and price.",
+        bullets: ["Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes are easier to compare separately.", "Use current category pages for live product details.", "Use resources for shopping notes and local planning."]
       },
       {
-        heading: "Local Keywords Without The Mess",
-        body: "This page supports searches like weed dispensary near North York, cannabis store North York, cheap weed near me, Native cigarettes, and THC vape menu while keeping the actual shopper path clear."
+        heading: "Local Visit Questions",
+        body: "This page answers common questions about weed dispensary near North York, cannabis store North York, cheap weed near me, Native cigarettes, and THC vape menu while keeping the actual customer visit step clear."
       }
     ],
   },
@@ -131,7 +131,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     slug: "value-guide",
     title: "Planet x Cannabis Value Weed Guide",
     seoTitle: "Planet x Cannabis Value Weed Guide | Cheap Weed Near North York",
-    description: "A value shopping guide for Planet x Cannabis, covering cheap weed, budget weed, AA flower, AAA+ deals, 6g tier math, and affordable menu paths.",
+    description: "A value shopping guide for Planet x Cannabis, covering cheap weed, budget weed, AA flower, AAA+ deals, 6g tier math, and affordable menu categories.",
     eyebrow: "Value Guide",
     intro: "For North York and Islington value shopping, value shopping works best when the shelf is clear. Start with Budget, AA, and AAA+ before jumping into higher tiers or mixed categories.",
     cards: [
@@ -147,7 +147,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Compare Inside The Category",
-        body: "Value means something different for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes. Keep each comparison inside the right category so the decision does not get muddy."
+        body: "Value means something different for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes. Keep each comparison inside the matching category so the decision stays clear."
       }
     ],
   },
@@ -232,11 +232,11 @@ export const RESOURCE_PAGES: ResourcePage[] = [
   },
   {
     slug: "resource-centre-launch",
-    title: "Planet x Cannabis Resource Centre Update",
-    seoTitle: "Planet x Cannabis Resource Centre Update | Local Menu Guides",
-    description: "Planet x Cannabis resource centre update with local visit planning, menu guide pages, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
+    title: "Planet X Cannabis Resource Hub Update",
+    seoTitle: "Planet X Cannabis Resource Hub Update | Local Menu Guides",
+    description: "Planet X Cannabis resource hub update with local visit planning, menu guide pages, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
     eyebrow: "Resource Update",
-    intro: "The resource centre has been rebuilt around real shopper paths: local visit planning, category-first browsing, flower tier math, value shopping, pre-roll shortcuts, and cigarette price notes.",
+    intro: "The resource centre has been rebuilt around real customer visit steps: local visit planning, category-based browsing, flower tier math, value shopping, pre-roll shortcuts, and cigarette price notes.",
     cards: [
       { title: "Resource Home", href: "/resources", text: "Start at the main resource hub." },
       { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan around Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes." },
@@ -246,7 +246,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     sections: [
       {
         heading: "What Changed",
-        body: "The resources now sound like Planet x Cannabis and North York, not a copied store template. Each page supports a specific shopper task and points back to the right category or local landing page."
+        body: "The resources now focus on Planet X Cannabis and North York. Each page answers a specific customer question and points back to the matching category or local store page."
       },
       {
         heading: "What Stayed Protected",
