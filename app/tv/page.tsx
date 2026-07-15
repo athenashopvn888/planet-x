@@ -672,7 +672,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
    ============================================================ */
 const TICKER_SLIDES = [
   "🔥 Planet x Cannabis — 3005 Islington Ave unit 1, North York",
-  "200+ Strains In Stock",
+  "Browse Current Flower Menu",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
   "🎮 Play Games at theplanetx.ca/games",

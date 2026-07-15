@@ -1,7 +1,6 @@
-// Auto-generated Google Business Profile Local SEO Location Configuration
 export const gbpLocation = {
   storeName: "Planet x Cannabis",
-  domain: "theplanetx.ca",
+  domain: "www.theplanetx.ca",
   city: "North York",
   province: "ON",
   country: "CA",

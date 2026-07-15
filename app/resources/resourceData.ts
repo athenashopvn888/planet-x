@@ -28,7 +28,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     seoTitle: "Planet x Cannabis Resources | North York Menu And Visit Guides",
     description: "Planet x Cannabis resource pages for North York shoppers, with local visit planning, menu shortcuts, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
     eyebrow: "North York Resource Hub",
-    intro: "A practical resource hub for North York, Islington, and Steeles shoppers. Use it to move from local search intent to the right menu shelf: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
+    intro: "A practical resource hub for North York, Islington, and Steeles shoppers. Use it to find the relevant menu section for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
     cards: [
       { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan the stop around Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes." },
       { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the matching category before opening product pages." },
@@ -170,7 +170,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Useful For Local Quick Stops",
-        body: "For North York, Islington, and Steeles shoppers, pre-rolls can be the fastest shelf to check before heading through Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes. Use the current category page for live details."
+        body: "For North York, Islington, and Steeles shoppers, pre-rolls offer a direct category to check before heading through Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes. Use the current category page for current details."
       }
     ],
   },

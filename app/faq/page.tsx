@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Frequently asked questions about Planet X Cannabis at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Hours, location, products, category browsing, and visit planning.",
   alternates: {
-    canonical: "https://theplanetx.ca/faq",
+    canonical: "https://www.theplanetx.ca/faq",
   },
 };
 

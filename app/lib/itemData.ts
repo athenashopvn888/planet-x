@@ -6,82 +6,11 @@ export interface ItemEffects {
 }
 
 export function getItemData(category: string, name: string): ItemEffects {
-  const cat = category.toUpperCase();
-
-  if (cat === "EDIBLES") {
-    return {
-      effects: [
-        { emoji: "", label: "Long Lasting" },
-        { emoji: "", label: "Body High" },
-        { emoji: "", label: "Flavorful" },
-      ],
-      description: `${name} is an edible category item listed for Planet X Cannabis. Confirm current availability, package details, and THC information on the current menu or in store.`,
-      metaDescription: `Browse ${name} cannabis edibles in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Start low and go slow. Edibles can take 45 to 120 minutes to take full effect. Wait before consuming more.",
-    };
-  }
-
-  if (cat.includes("VAPE")) {
-    return {
-      effects: [
-        { emoji: "", label: "Fast Acting" },
-        { emoji: "", label: "Potent" },
-        { emoji: "", label: "Discreet" },
-      ],
-      description: `${name} is a vape category item listed for Planet X Cannabis. Confirm current availability, compatibility, and product details before visiting.`,
-      metaDescription: `Browse ${name} vape products in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Take small puffs and wait to gauge effects. Follow product packaging and store guidance.",
-    };
-  }
-
-  if (cat === "CONCENTRATES") {
-    return {
-      effects: [
-        { emoji: "", label: "Highly Potent" },
-        { emoji: "", label: "Fast Acting" },
-        { emoji: "", label: "Concentrated" },
-      ],
-      description: `${name} is a concentrate category item listed for Planet X Cannabis. Concentrates can be strong, so confirm details and use carefully.`,
-      metaDescription: `Browse ${name} cannabis concentrates in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Use a small amount. Concentrates can be potent and should be consumed carefully.",
-    };
-  }
-
-  if (cat === "PREROLLS") {
-    return {
-      effects: [
-        { emoji: "", label: "Ready To Smoke" },
-        { emoji: "", label: "Quick Onset" },
-        { emoji: "", label: "Convenient" },
-      ],
-      description: `${name} is a pre-roll category item listed for Planet X Cannabis. Confirm strain, package size, and availability on the current menu.`,
-      metaDescription: `Browse ${name} pre-rolls in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-      consume: "Light evenly, take small puffs, and wait to gauge effects.",
-    };
-  }
-
-  if (cat === "MAGIC & OTHERS") {
-    return {
-      effects: [
-        { emoji: "", label: "Specialty" },
-        { emoji: "", label: "Menu Varies" },
-      ],
-      description: `${name} is a specialty category item listed for Planet X Cannabis. Availability and details may vary by menu update.`,
-      metaDescription: `Browse ${name} specialty items in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-      consume: "Use as directed and confirm product details before purchase.",
-    };
-  }
-
+  const categoryLabel = category.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase());
   return {
-    effects: [
-      { emoji: "", label: "Category Item" },
-      { emoji: "", label: "Menu Varies" },
-    ],
-    description: `${name} is listed as a category item at Planet X Cannabis. Confirm current details before visiting.`,
-    metaDescription: `Browse ${name} in North York at Planet X Cannabis. Confirm current menu details before visiting.`,
-    consume: "Use as directed on the packaging.",
+    effects: [{ emoji: "", label: categoryLabel }, { emoji: "", label: "Package Details" }],
+    description: `${name} is listed in the ${categoryLabel} category at Planet X Cannabis. Check the current menu and product package for item details before visiting 3005 Islington Ave unit 1.`,
+    metaDescription: `Browse ${name} in the ${categoryLabel} category at Planet X Cannabis in North York. Check the current menu before visiting.`,
+    consume: "Review the product label and package details before purchase.",
   };
 }

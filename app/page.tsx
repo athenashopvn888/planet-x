@@ -299,7 +299,7 @@ export default function HomePage() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Featured Strains</h2>
             <p className={styles.sectionSubtitle}>
-              Staff picks and top sellers dynamically updated from our real-time stock sheet.
+              A rotating sample from the current flower menu.
             </p>
           </div>
 
@@ -317,15 +317,15 @@ export default function HomePage() {
       <section className={styles.seoSection}>
         <div className={styles.container}>
           <div className={styles.seoPanel}>
-            <h2 className={styles.seoPanelTitle}>Islington Ave & Steeles Ave W's Premier Cannabis Dispensary — Open 24 Hours</h2>
+            <h2 className={styles.seoPanelTitle}>Islington Ave & Steeles Ave W&apos;s Local Cannabis Dispensary — Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              Welcome to <strong>Planet x Cannabis</strong>, North York's premier 24-hour cannabis destination at 3005 Islington Ave unit 1. We carry an electrifying selection of top-shelf strains around the clock — from ultra-rare exotics to solid everyday budget picks.
+              Welcome to <strong>Planet x Cannabis</strong>, a 24-hour cannabis destination at 3005 Islington Ave unit 1. Browse flower across several price tiers, from Exotic and Premium to everyday Budget options.
             </p>
             <p className={styles.seoPanelText}>
               Open 24 hours, 7 days a week — Planet x Cannabis never closes. Our live menu is constantly refreshed with the freshest drops, premium prerolls, artisan edibles, and everything in between. Whether you're winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
             </p>
             <p className={styles.seoPanelText}>
-              Searching for a cannabis dispensary in North York or the surrounding area? Planet x Cannabis is your 24-hour destination for premium flower, potent prerolls, and artisan edibles. Our six-tier pricing system means quality cannabis at every budget level — starting from just $3/g.
+              Searching for a cannabis dispensary in North York or the surrounding area? Planet x Cannabis is open 24 hours with flower, pre-rolls, edibles, vapes, and other menu categories. Clear flower tiers help shoppers compare prices before visiting.
             </p>
           </div>
         </div>

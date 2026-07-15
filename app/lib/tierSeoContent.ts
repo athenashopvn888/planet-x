@@ -9,7 +9,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   EXOTIC: {
     seoTitle: "Exotic Cannabis Flower North York | Planet X Cannabis",
     seoIntro:
-      "Browse top-tier flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current strains, prices, and availability before visiting.",
+      "Browse top-tier flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current menu items and prices before visiting.",
     sections: [
       {
         heading: "Exotic Flower At Planet X Cannabis",
@@ -27,7 +27,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       {
         q: "What is Exotic flower?",
-        a: "Exotic is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category, value, and potency context before visiting.",
+        a: "Exotic is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category and price context before visiting.",
       },
       {
         q: "Does this page guarantee current Exotic stock?",
@@ -43,7 +43,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   PREMIUM: {
     seoTitle: "Premium Cannabis Flower North York | Planet X Cannabis",
     seoIntro:
-      "Browse premium flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current strains, prices, and availability before visiting.",
+      "Browse premium flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current menu items and prices before visiting.",
     sections: [
       {
         heading: "Premium Flower At Planet X Cannabis",
@@ -61,7 +61,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       {
         q: "What is Premium flower?",
-        a: "Premium is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category, value, and potency context before visiting.",
+        a: "Premium is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category and price context before visiting.",
       },
       {
         q: "Does this page guarantee current Premium stock?",
@@ -77,7 +77,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   "AAA+": {
     seoTitle: "AAA+ Cannabis Flower North York | Planet X Cannabis",
     seoIntro:
-      "Browse high-potency value category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current strains, prices, and availability before visiting.",
+      "Browse the AAA+ flower tier at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current menu items and prices before visiting.",
     sections: [
       {
         heading: "AAA+ Flower At Planet X Cannabis",
@@ -95,7 +95,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       {
         q: "What is AAA+ flower?",
-        a: "AAA+ is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category, value, and potency context before visiting.",
+        a: "AAA+ is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category and price context before visiting.",
       },
       {
         q: "Does this page guarantee current AAA+ stock?",
@@ -111,7 +111,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   AA: {
     seoTitle: "AA Cannabis Flower North York | Planet X Cannabis",
     seoIntro:
-      "Browse daily-driver flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current strains, prices, and availability before visiting.",
+      "Browse daily-driver flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current menu items and prices before visiting.",
     sections: [
       {
         heading: "AA Flower At Planet X Cannabis",
@@ -129,7 +129,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       {
         q: "What is AA flower?",
-        a: "AA is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category, value, and potency context before visiting.",
+        a: "AA is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category and price context before visiting.",
       },
       {
         q: "Does this page guarantee current AA stock?",
@@ -145,7 +145,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   BUDGET: {
     seoTitle: "Budget Cannabis North York | Planet X Cannabis",
     seoIntro:
-      "Browse value flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current strains, prices, and availability before visiting.",
+      "Browse value flower category browsing at Planet X Cannabis near Islington Avenue and Steeles Avenue West. Confirm current menu items and prices before visiting.",
     sections: [
       {
         heading: "Budget Flower At Planet X Cannabis",
@@ -163,7 +163,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       {
         q: "What is Budget flower?",
-        a: "Budget is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category, value, and potency context before visiting.",
+        a: "Budget is one of the flower tiers shown on the Planet X Cannabis menu. It helps shoppers compare category and price context before visiting.",
       },
       {
         q: "Does this page guarantee current Budget stock?",

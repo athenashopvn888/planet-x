@@ -31,7 +31,7 @@ export async function generateMetadata({
     title: `${flower.name} | ${tierName} ${flower.type === "indica" ? "Indica" : flower.type === "sativa" ? "Sativa" : "Hybrid"} | THC ${flower.thc} | Planet x Cannabis North York`,
     description: strainData.metaDescription,
     alternates: {
-      canonical: `https://theplanetx.ca/flower/${slug}`,
+      canonical: `https://www.theplanetx.ca/flower/${slug}`,
     },
     openGraph: {
       title: `${flower.name} | Planet x Cannabis`,
@@ -60,9 +60,8 @@ function getJsonLd(flower: FlowerProduct) {
 
   const offers: any = {
     "@type": "Offer",
-    url: `https://theplanetx.ca/flower/${flower.slug}`,
+    url: `https://www.theplanetx.ca/flower/${flower.slug}`,
     priceCurrency: "CAD",
-    availability: "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition",
     seller: { "@type": "Organization", name: "Planet x Cannabis" },
     hasMerchantReturnPolicy: {
@@ -80,7 +79,7 @@ function getJsonLd(flower: FlowerProduct) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: flower.name,
-    image: flower.image ? [flower.image.startsWith('http') ? flower.image : `https://theplanetx.ca${flower.image.startsWith('/') ? '' : '/'}${flower.image}`] : undefined,
+    image: flower.image ? [flower.image.startsWith('http') ? flower.image : `https://www.theplanetx.ca${flower.image.startsWith('/') ? '' : '/'}${flower.image}`] : undefined,
     description: strainData.description,
     brand: { "@type": "Brand", name: "Planet x Cannabis" },
     sku: cleanSku(flower.sku || flower.slug),
@@ -101,19 +100,19 @@ function getBreadcrumbJsonLd(flower: FlowerProduct) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://theplanetx.ca"
+        "item": "https://www.theplanetx.ca"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": tierName,
-        "item": `https://theplanetx.ca/${tierSlug}`
+        "item": `https://www.theplanetx.ca/${tierSlug}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": flower.name,
-        "item": `https://theplanetx.ca/flower/${flower.slug}`
+        "item": `https://www.theplanetx.ca/flower/${flower.slug}`
       }
     ]
   };
@@ -297,7 +296,7 @@ export default async function FlowerPage({
               </div>
 
               <div className={styles.visitCta}>
-                <p>Available in-store &middot; Walk-in welcome &middot; No appointment needed</p>
+                <p>Check the current menu &middot; Walk-in welcome &middot; No appointment needed</p>
               </div>
             </div>
           </div>
