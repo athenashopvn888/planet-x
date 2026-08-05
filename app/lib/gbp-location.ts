@@ -8,8 +8,8 @@ export const gbpLocation = {
   address: "3005 Islington Ave unit 1, North York, ON M9L 2K9",
   streetAddress: "3005 Islington Ave unit 1",
   postalCode: "M9L 2K9",
-  phone: "(226) 545-3005",
-  phoneIntl: "+12265453005",
+  phone: "+1 (289) 217-2773",
+  phoneIntl: "+12892172773",
   neighborhood: "North York",
   nearbyAreas: ["Islington Avenue", "Steeles Avenue West", "North York", "Humber Summit", "York University", "Humber College", "TTC"],
   products: [

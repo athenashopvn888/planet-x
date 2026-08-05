@@ -112,7 +112,7 @@ export default function DeliveryContent() {
           <p className={styles.ctaText}>
             Can&apos;t wait? Visit us in-store at{" "}
             <strong>3005 Islington Ave unit 1, North York</strong>. We are{" "}
-            <strong>Open 24 Hours</strong>. Call <strong>(226) 545-3005</strong>
+            <strong>Open 24 Hours</strong>. Call <strong>+1 (289) 217-2773</strong>
             .
           </p>
         </div>

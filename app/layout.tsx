@@ -79,7 +79,7 @@ const jsonLd = {
   description:
     "Cannabis dispensary at 3005 Islington Ave unit 1 in North York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
   url: "https://www.theplanetx.ca",
-  telephone: "+12265453005",
+  telephone: "+12892172773",
   image: "https://www.theplanetx.ca/wp-content/uploads/2026/04/7Clmh.jpg",
   priceRange: "$3 - $12/g",
   address: {
