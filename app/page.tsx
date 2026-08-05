@@ -79,7 +79,7 @@ const LOCAL_FAQS = [
   },
   {
     q: "Where is Planet x Cannabis located?",
-    a: "We are located at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Visit us in person or call us at (226) 545-3005. Free evening street parking is available.",
+    a: "We are located at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Visit us in person or call us at +1 (289) 217-2773. Free evening street parking is available.",
   },
   {
     q: "What is the cheapest weed at Planet x Cannabis?",

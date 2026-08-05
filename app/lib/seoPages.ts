@@ -38,7 +38,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Open 24 Hours Near Islington and Steeles",
-        body: "Planet X Cannabis is open 24 hours. Walk in when the shop is open, check the menu first, or call (226) 545-3005 if you need current in-store details.",
+        body: "Planet X Cannabis is open 24 hours. Walk in when the shop is open, check the menu first, or call +1 (289) 217-2773 if you need current in-store details.",
       },
     ],
     faqs: [

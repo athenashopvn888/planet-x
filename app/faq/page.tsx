@@ -22,7 +22,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "What are your hours?",
-        a: "Planet X Cannabis is open 24 hours. Check the site or call (226) 545-3005 if you need current visit details.",
+        a: "Planet X Cannabis is open 24 hours. Check the site or call +1 (289) 217-2773 if you need current visit details.",
       },
       {
         q: "Is there parking nearby?",
@@ -147,7 +147,7 @@ export default function FAQPage() {
           <div className={styles.ctaSection}>
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
             <p className={styles.ctaText}>
-              Call us at <strong>(226) 545-3005</strong> or visit us at 3005
+              Call us at <strong>+1 (289) 217-2773</strong> or visit us at 3005
               Islington Ave unit 1, North York.
             </p>
           </div>
