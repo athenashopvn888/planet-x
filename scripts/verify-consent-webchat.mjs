@@ -9,7 +9,8 @@ for (const expected of [
   'sod-web-chat:PX',
   'smsConsent',
   'required type="checkbox"',
-  'Reply YES to confirm',
+  'workflowVersion: "READY_V1"',
+  'one READY delivery-link text for this order',
   '/api/web-chat/session',
   '/api/web-chat/messages',
   '/api/web-chat/id-review',
@@ -23,6 +24,8 @@ for (const expected of [
   'requestId: crypto.randomUUID()',
   'securely retained for future identity and address verification',
 ]) assert.ok(chat.includes(expected), `Missing Web Chat contract: ${expected}`);
+
+assert.ok(!chat.includes("Reply YES"), "obsolete Reply YES confirmation copy must not ship");
 
 assert.ok(delivery.includes("<PlanetXWebChat />"), "Delivery page must render Planet X Cannabis Web Chat");
 assert.ok(!chat.includes('storeId: "PC"') && !chat.includes("sod-web-chat:PC"), "Reference store identity must not remain");
