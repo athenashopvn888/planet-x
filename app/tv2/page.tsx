@@ -139,7 +139,7 @@ const TICKER_SLIDES = [
   "Open 24 Hours",
   "Pre-Rolls · Edibles · Vapes · Concentrates",
   "ALL SALES ARE FINAL",
-  "🎮 Play Games at theplanetx.ca/games",
+  "DELIVERY MENU at theplanetx.ca/delivery",
 ];
 
 function VerticalTicker() {

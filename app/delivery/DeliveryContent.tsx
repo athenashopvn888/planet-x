@@ -1,123 +1,157 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import menu from "./delivery-menu.json";
 import styles from "./delivery.module.css";
+import PlanetXWebChat from "./PlanetXWebChat";
+
+type Tier = "SHREDS" | "Budget" | "BC Premium" | "CRAFTS" | "Exotics";
+type PriceOption = { key: string; label: string; price: number };
+type Offer = { kind: "prime_time" | "multi_ounce"; quantity?: number; price?: number; bonus?: string; perUnitPrice?: number; totalPrice?: number };
+type Product = { publicProductId: string; name: string; tier: Tier; category: string; strain: string; thc: string; effects: string[]; description: string | null; images: string[]; priceOptions: PriceOption[]; offers?: Offer[] };
+type Filter = "ALL" | Tier;
+
+const fallbackProducts = menu.products as Product[];
+const filters: Filter[] = ["ALL", "Exotics", "CRAFTS", "BC Premium", "Budget", "SHREDS"];
+const tierOrder: Tier[] = ["Exotics", "CRAFTS", "BC Premium", "Budget", "SHREDS"];
+
+function entryPrice(product: Product) {
+  return Math.min(...product.priceOptions.map((option) => option.price));
+}
+
+function formatCurrency(value: number) {
+  if (!Number.isFinite(value)) return "$0";
+  const rounded = Math.round((value + Number.EPSILON) * 100) / 100;
+  return `$${rounded.toFixed(2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1")}`;
+}
+
+function get28gBundleEachDisplayPrice(quantity: number, total: number, perUnitPrice?: number) {
+  if (quantity === 3 && total === 95) return 33;
+  const supplied = Number(perUnitPrice);
+  return Number.isFinite(supplied) && supplied > 0 ? supplied : total / quantity;
+}
+
+function ProductPricing({ product }: { product: Product }) {
+  const standard28 = product.priceOptions.find((option) => option.label === "28g");
+  const compact = product.priceOptions.filter((option) => option.label !== "28g");
+  const explicit = product.offers?.find((offer) => offer.kind === "prime_time");
+  const eligible = ["Exotics", "CRAFTS", "BC Premium"].includes(product.tier);
+  const explicitPrice = Number(explicit?.price);
+  const loyalty = Number.isFinite(explicitPrice) && explicitPrice > 0 ? explicitPrice : eligible && standard28 ? standard28.price - 30 : null;
+  const suppliedBundles = product.offers?.filter((offer) => offer.kind === "multi_ounce" && Number(offer.quantity) !== 2) ?? [];
+  const bundles = eligible && loyalty ? [{ quantity: 2, perUnitPrice: loyalty, totalPrice: loyalty * 2 }, ...suppliedBundles] : product.offers?.filter((offer) => offer.kind === "multi_ounce") ?? [];
+
+  return <div className={styles.pricing}>
+    {compact.length > 0 && <div className={styles.compactPrices}>{compact.map((option) => <span key={option.key}>{option.label} <strong>{formatCurrency(option.price)}</strong></span>)}</div>}
+    <div className={styles.decisionPrices}>
+      {loyalty !== null && <span className={styles.loyalty}><small>MEMBER LOYALTY 28g</small><strong>{formatCurrency(loyalty)}</strong></span>}
+      {bundles.map((offer, index) => { const quantity = Number(offer.quantity); const total = Number(offer.totalPrice); const each = get28gBundleEachDisplayPrice(quantity, total, offer.perUnitPrice); return <span key={`${quantity}-${index}`}><small>{quantity} × 28g DEAL</small><strong>{formatCurrency(each)} each</strong><em>{formatCurrency(total)} total</em></span>; })}
+      {standard28 && <span><small>STANDARD 28g</small><strong>{formatCurrency(standard28.price)}</strong></span>}
+    </div>
+  </div>;
+}
 
 export default function DeliveryContent() {
+  const [products, setProducts] = useState<Product[]>(fallbackProducts);
+  const [filter, setFilter] = useState<Filter>("ALL");
+  const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState<Product | null>(null);
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [emailStatus, setEmailStatus] = useState<"idle" | "loading" | "success">("idle");
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function handleEmailSubmit(event: React.FormEvent) {
+    event.preventDefault();
     if (!email.trim()) return;
-
-    setStatus("loading");
-
+    setEmailStatus("loading");
     try {
-      await fetch(
-        `https://script.google.com/macros/s/AKfycbySrZYxI-NNnXfxY1jXOqHgT2HQi4zst2Fgte6FXTeymat_W_r0o1E3P83EfnVCjEk0/exec?action=delivery_email&email=${encodeURIComponent(email)}&store=PLX01`,
-        { method: "GET", mode: "no-cors" },
-      );
-      setStatus("success");
+      await fetch(`https://script.google.com/macros/s/AKfycbySrZYxI-NNnXfxY1jXOqHgT2HQi4zst2Fgte6FXTeymat_W_r0o1E3P83EfnVCjEk0/exec?action=delivery_email&email=${encodeURIComponent(email)}&store=PLX01`, { method: "GET", mode: "no-cors" });
+    } finally {
+      setEmailStatus("success");
       setEmail("");
-    } catch {
-      setStatus("success");
     }
   }
 
-  return (
-    <main className={styles.main}>
-      <Navbar />
-      <div className={styles.content}>
-        <h1 className={styles.pageTitle}>
-          Delivery <span className={styles.highlight}>Coming Soon</span>
-        </h1>
-        <p className={styles.pageSubtitle}>
-          Planet X Cannabis is preparing delivery updates for Islington Avenue
-          and Steeles Avenue West, North York, and nearby local areas. Sign up
-          below to be the first to know when delivery goes live.
-        </p>
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("https://milestone-1-demo.vercel.app/api/catalog?store=PX", { signal: controller.signal })
+      .then((response) => response.ok ? response.json() : Promise.reject())
+      .then((payload) => {
+        if (Array.isArray(payload.products) && payload.products.length === 63 && payload.products.every((product: Product) => product.publicProductId && product.tier && Array.isArray(product.images))) setProducts(payload.products);
+      })
+      .catch(() => {});
+    return () => controller.abort();
+  }, []);
 
-        <div className={styles.formSection}>
-          <h2 className={styles.formTitle}>Get Notified When We Launch</h2>
-          <p className={styles.formDesc}>
-            Enter your email to join our delivery waitlist. We&apos;ll send you
-            one email when delivery goes live.
-          </p>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.inputRow}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className={styles.emailInput}
-                required
-                disabled={status === "loading"}
-              />
-              <button
-                type="submit"
-                className={styles.submitBtn}
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? "Sending..." : "Notify Me"}
-              </button>
-            </div>
-          </form>
-          {status === "success" && (
-            <p className={styles.successMsg}>
-              You&apos;re on the list! We&apos;ll notify you when delivery
-              launches.
-            </p>
-          )}
-          {status === "error" && (
-            <p className={styles.errorMsg}>
-              Something went wrong. Please try again.
-            </p>
-          )}
-        </div>
+  useEffect(() => {
+    if (!selected) return;
+    const overflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setSelected(null); };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selected]);
 
-        <div className={styles.infoGrid}>
-          <div className={styles.infoCard}>
-            <span className={styles.infoIcon}></span>
-            <h3 className={styles.infoTitle}>Delivery Updates</h3>
-            <p className={styles.infoDesc}>
-              Launch updates will focus on Islington Avenue and Steeles Avenue
-              West, North York, and nearby local areas.
-            </p>
-          </div>
-          <div className={styles.infoCard}>
-            <span className={styles.infoIcon}></span>
-            <h3 className={styles.infoTitle}>Local Service Area</h3>
-            <p className={styles.infoDesc}>
-              Built around Islington Avenue, Steeles Avenue West, Humber Summit,
-              York University, Humber College, North York, TTC.
-            </p>
-          </div>
-          <div className={styles.infoCard}>
-            <span className={styles.infoIcon}></span>
-            <h3 className={styles.infoTitle}>Same Store Menu</h3>
-            <p className={styles.infoDesc}>
-              Delivery details will follow the store menu and launch rules when
-              service goes live.
-            </p>
-          </div>
-        </div>
+  const visible = useMemo(() => {
+    const needle = search.trim().toLowerCase();
+    return products.filter((product) => (filter === "ALL" || product.tier === filter) && (!needle || `${product.name} ${product.category} ${product.strain}`.toLowerCase().includes(needle)))
+      .sort((a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier) || entryPrice(a) - entryPrice(b) || a.name.localeCompare(b.name));
+  }, [filter, products, search]);
 
-        <div className={styles.ctaSection}>
-          <p className={styles.ctaText}>
-            Can&apos;t wait? Visit us in-store at{" "}
-            <strong>3005 Islington Ave unit 1, North York</strong>. We are{" "}
-            <strong>Open 24 Hours</strong>. Call <strong>+1 (289) 217-2773</strong>
-            .
-          </p>
-        </div>
+  return <main className={styles.main}>
+    <Navbar />
+    <section className={`${styles.hero} ${styles.heroPlain}`}>
+      <div><p>Planet X Cannabis</p><h1>Delivery Menu</h1><span>Browse the shared product catalog. The store confirms current availability and delivery details before an order is accepted.</span></div>
+    </section>
+    <section className={styles.deliveryDetails} aria-label="Planet X Cannabis delivery details">
+      <strong>$60 PRODUCT MINIMUM</strong>
+    </section>
+    <section className={styles.loyalty} aria-labelledby="loyalty-title">
+      <div><p>SAVE ON A LATER ORDER</p><h2 id="loyalty-title">Member Loyalty Savings</h2></div>
+      <p>Qualify with an eligible regular-price 28g purchase in BC Premium, Crafts, or Exotics, or with a selected 2 × 28g tier offer. Rewards and coupons apply to a later order—not the qualifying purchase.</p>
+      <ol>
+        <li><strong>Qualify</strong><span>Purchase an eligible regular-price ounce or selected two-ounce tier offer.</span></li>
+        <li><strong>Return</strong><span>On your next visit, save $30 on an eligible regular-price 28g item in the selected tier.</span></li>
+        <li><strong>Use your coupon later</strong><span>A 3g Craft coupon earned with a qualifying $120+ purchase is redeemed on your next order.</span></li>
+        <li><strong>Keep access active</strong><span>Make a $50+ purchase within 14 days, or requalify with an eligible full-price purchase.</span></li>
+      </ol>
+      <aside><strong>Important conditions</strong><p>Complimentary items apply only to regular-price Craft or Exotic ounces—not BC Premium. Loyalty prices are firm and cannot be reduced with points. Loyalty-price orders do not include extra complimentary items. The dispatcher confirms current eligibility and any included item before checkout.</p></aside>
+    </section>
+    <section className={styles.howToOrder} aria-labelledby="how-to-order-title">
+      <div><p>HOW TO ORDER</p><h2 id="how-to-order-title">Order with the Planet X Cannabis dispatcher</h2><span>LIVE ORDER connects you with the Planet X Cannabis dispatcher.</span></div>
+      <ol>
+        <li><strong>Browse the delivery menu</strong><span>Note the product names and weights you want.</span></li>
+        <li><strong>Select LIVE ORDER</strong><span>Open Web Chat at the bottom-right and send your choices.</span></li>
+        <li><strong>Verify privately if you are new</strong><span>New customers complete the private selfie-with-ID step in Web Chat.</span></li>
+        <li><strong>Confirm with the dispatcher</strong><span>The Planet X Cannabis dispatcher confirms availability, delivery details, and next steps.</span></li>
+      </ol>
+    </section>
+    <section className={styles.catalogShell}>
+      <aside className={styles.filters}><h2>Flower tiers</h2>{filters.map((tier) => <button type="button" key={tier} className={filter === tier ? styles.active : ""} onClick={() => setFilter(tier)}>{tier}<span>{tier === "ALL" ? products.length : products.filter((product) => product.tier === tier).length}</span></button>)}</aside>
+      <div className={styles.catalog}>
+        <header className={styles.tools}><div><p>DELIVERY CATALOG</p><h2>{filter === "ALL" ? "All products" : filter}</h2><span>{visible.length} products</span></div><label><span>Search products</span><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Product or strain" /></label></header>
+        <div className={styles.mobileFilters}>{filters.map((tier) => <button type="button" key={tier} className={filter === tier ? styles.active : ""} onClick={() => setFilter(tier)}>{tier}</button>)}</div>
+        <div className={styles.grid}>{visible.map((product) => <article className={styles.card} key={product.publicProductId}>
+          <button type="button" className={styles.imageButton} onClick={() => setSelected(product)} aria-label={`View details for ${product.name}`}>
+            {product.images[0] ? <Image src={product.images[0]} alt={`${product.name} on the Planet X Cannabis delivery menu`} fill sizes="(max-width: 640px) 50vw, 280px" unoptimized /> : <span>Planet X Cannabis</span>}
+          </button>
+          <div className={styles.cardBody}><div className={styles.badges}><span>{product.tier}</span><span>{product.category}</span></div><h3><button type="button" onClick={() => setSelected(product)}>{product.name}</button></h3><ProductPricing product={product} /><button type="button" className={styles.detailsButton} onClick={() => setSelected(product)}>View details</button></div>
+        </article>)}</div>
       </div>
-      <Footer />
-    </main>
-  );
+    </section>
+    <section className={styles.updates} aria-labelledby="delivery-updates-title">
+      <div><p>DELIVERY UPDATES</p><h2 id="delivery-updates-title">Get store delivery updates</h2><span>Enter your email to keep the existing Planet X Cannabis delivery notification active.</span></div>
+      <form onSubmit={handleEmailSubmit}><input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="your@email.com" required disabled={emailStatus === "loading"} /><button type="submit" disabled={emailStatus === "loading"}>{emailStatus === "loading" ? "Sending..." : "Notify Me"}</button></form>
+      {emailStatus === "success" && <p role="status">You&apos;re on the delivery update list.</p>}
+    </section>
+    <div className={styles.ctaSection}><p>Visit us in-store at <strong>3005 Islington Ave unit 1, North York</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>(226) 545-3005</strong>.</p></div>
+    {selected && <div className={styles.backdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}><section className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="product-title"><header><strong>Product details</strong><button type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button></header><div className={styles.drawerContent}>{selected.images.map((src, index) => <div className={styles.drawerImage} key={src}><Image src={src} alt={`${selected.name}${index ? ` alternate ${index + 1}` : ""}`} fill sizes="(max-width: 720px) 100vw, 420px" unoptimized /></div>)}<h2 id="product-title">{selected.name}</h2><p>{selected.description || "Ask the store for current product details."}</p>{selected.effects.length > 0 && <div className={styles.effects}>{selected.effects.map((effect) => <span key={effect}>{effect}</span>)}</div>}<ProductPricing product={selected} /></div></section></div>}
+    <PlanetXWebChat />
+    <Footer />
+  </main>;
 }

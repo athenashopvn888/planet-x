@@ -6,7 +6,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,400&family=Quicksand:wght@500;700&family=Montserrat:wght@400;700;900&family=Inter:wght@400;600;800&family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
 /* -- CSS Variables -- */
+.deliveryAnnouncement {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--delivery-announcement-height);
+  min-height: var(--delivery-announcement-height);
+  box-sizing: border-box;
+  padding: 0.65rem 1rem;
+  background: var(--green-deep, #052e16);
+  border-bottom: 3px solid var(--green-light, #22c55e);
+  color: #fff;
+  font: 800 clamp(0.78rem, 2.5vw, 0.95rem)/1.25 system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+}
+
+body > .deliveryAnnouncement ~ * nav {
+  top: var(--delivery-announcement-height) !important;
+}
+
+.deliveryAnnouncement:hover,
+.deliveryAnnouncement:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.deliveryAnnouncement:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -4px;
+}
+
 :root {
+  --delivery-announcement-height: 42px;
   /* Core palette - clean white */
   --bg-primary: #ffffff;
   --bg-secondary: #f8faf9;
@@ -91,6 +131,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  padding-top: var(--delivery-announcement-height);
 }
 
 /* Subtle organic background */

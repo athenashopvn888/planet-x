@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import DeliveryContent from "./DeliveryContent";
+import menu from "./delivery-menu.json";
 
 export const metadata: Metadata = {
-  title: "Delivery Coming Soon Planet X Cannabis | North York",
-  description:
-    "Get notified when Planet X Cannabis prepares delivery updates for Islington Avenue and Steeles Avenue West, North York, and nearby local areas.",
-  alternates: {
-    canonical: "https://theplanetx.ca/delivery",
-  },
+  title: "Delivery Menu | Planet X Cannabis",
+  description: "Browse the Planet X Cannabis delivery product catalog and compare flower tiers and prices.",
+  alternates: { canonical: "https://www.theplanetx.ca/delivery" },
 };
 
 export default function DeliveryPage() {
-  return <DeliveryContent />;
+  const structuredData = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Planet X Cannabis Delivery Menu", url: "https://www.theplanetx.ca/delivery", mainEntity: { "@type": "ItemList", numberOfItems: menu.products.length, itemListElement: menu.products.map((product, index) => ({ "@type": "ListItem", position: index + 1, name: product.name })) } };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><DeliveryContent /></>;
 }
