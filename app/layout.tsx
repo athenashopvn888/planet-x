@@ -93,8 +93,8 @@ const jsonLd = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 43.7554,
-    longitude: -79.5645,
+    latitude: 43.7596082,
+    longitude: -79.5708883,
   },
   openingHoursSpecification: [
     {
