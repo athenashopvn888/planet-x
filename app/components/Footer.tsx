@@ -68,6 +68,9 @@ export default function Footer() {
               <Link href="/info/native-cigarettes-islington-steeles">
                 Native Cigarettes
               </Link>
+              <Link href="/info/nicotine-vapes-islington-steeles">
+                Nicotine Vapes North York
+              </Link>
               <Link href="/info/weed-store-near-north-york">
                 Weed Store Near Islington and Steeles
               </Link>
