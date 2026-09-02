@@ -24,130 +24,138 @@ export interface ResourcePage {
 export const RESOURCE_PAGES: ResourcePage[] = [
   {
     slug: "",
-    title: "Planet x Cannabis Resources",
-    seoTitle: "Planet x Cannabis Resources | North York Menu And Visit Guides",
-    description: "Planet x Cannabis resource pages for North York shoppers, with local visit planning, menu shortcuts, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
-    eyebrow: "North York Resource Hub",
-    intro: "A practical resource hub for North York, Islington, and Steeles shoppers. Use it to find the relevant menu section for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
+    title: "Planet X Cannabis Weed & Cannabis Resources",
+    seoTitle: "Weed & Cannabis Resources North York | Planet X Cannabis",
+    description: "Explore Planet X Cannabis Weed resources for flower collections, menu browsing, value-focused shopping and local North York guidance.",
+    eyebrow: "Weed Resources",
+    intro: "Planet X Cannabis brings together practical Weed and Cannabis guides for shoppers exploring flower, menu categories and local North York options. Choose the topic that interests you, compare different parts of the selection or start with the broader Planet X Weed selection.",
     cards: [
-      { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan the stop around Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the matching category before opening product pages." },
-      { title: "Flower Tier Guide", href: "/resources/flower-guide", text: "Compare Exotic, Premium, AAA+, AA, and Budget with 3g and 6g deal math." },
-      { title: "Value Guide", href: "/resources/value-guide", text: "A cleaner path for cheap weed, budget weed, and affordable flower searches." },
-      { title: "Native Smokes Prices", href: "/resources/native-smokes", text: "Brand and price notes for cigarettes, Backwoods, grabba, and pouch listings." }
+      { title: "Explore Planet X Cannabis Weed in North York", href: "/weed-dispensary-north-york/", text: "Start with the broader Planet X Weed selection." },
+      { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Compare Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed." },
+      { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Explore different parts of the Planet X Cannabis selection and find the categories that interest you." },
+      { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Use a simple framework for comparing the current information presented while you browse Planet X Weed collections." },
+      { title: "Islington & North York Weed Guide", href: "/resources/islington-north-york-weed-visit-guide", text: "Explore Planet X Cannabis with a local North York and Islington focus." }
     ],
     sections: [
       {
-        heading: "Local Search, Useful Next Step",
-        body: "Planet x Cannabis is listed at 3005 Islington Ave unit 1, North York, ON M9L 2K9. These resources support the local store page, not replace it. Start with the local page for address and visit context, then use the resource guides for menu decisions.",
-        bullets: ["local store page: /weed-dispensary-north-york", "Local areas: Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes", "Store hours shown in the site data: Open 24 Hours"]
-      },
-      {
-        heading: "Built Around Real Menu Categories",
-        body: "The pages are organized around common customer questions: weed dispensary near North York, cannabis store North York, cheap weed, budget weed, pre-rolls, edibles, THC vapes, concentrates, Native cigarettes, Backwoods, and grabba."
+        heading: "Explore Planet X Weed Flower Collections",
+        body: "Explore the five Planet X Cannabis Flower collections and choose the ones that interest you.",
+        bullets: ["Exotic Weed", "Premium Weed", "AAA+ Weed", "AA Weed", "Budget Weed"]
       }
     ],
   },
   {
-    slug: "islington-north-york-visit-guide",
-    title: "Islington And North York Weed Dispensary Visit Guide",
-    seoTitle: "Islington And North York Weed Dispensary Visit Guide | Planet x Cannabis",
-    description: "Local visit planning for Planet x Cannabis at 3005 Islington Ave unit 1, with Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes context, menu shortcuts, hours, and category paths.",
-    eyebrow: "Visit Guide",
-    intro: "Use this page when the search starts local: weed dispensary near North York, cannabis store near 3005 Islington Ave unit 1, or a quick menu check before visiting from Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes.",
+    slug: "islington-north-york-weed-visit-guide",
+    title: "Planet X Weed Guide for Islington & North York",
+    seoTitle: "Islington & North York Weed Guide | Planet X Cannabis",
+    description: "Explore Planet X Cannabis Weed in North York with a local guide connecting broader Weed browsing, flower collections and helpful cannabis resources.",
+    eyebrow: "Islington & North York Weed Guide",
+    intro: "Planet X Cannabis serves shoppers exploring Weed and cannabis in North York, including those searching around the Islington area. Use this guide to explore the broader Weed selection, compare flower collections and discover supporting Planet X resources.",
     cards: [
-      { title: "Store Page", href: "/weed-dispensary-north-york", text: "Use the main local store page for address, directions, hours, and contact details." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the product category before opening detailed menu pages." },
-      { title: "Value Guide", href: "/resources/value-guide", text: "Fast help for affordable flower and budget weed searches." }
+      { title: "Browse Planet X Cannabis Weed in North York", href: "/weed-dispensary-north-york/", text: "Explore the broader Planet X Weed selection." },
+      { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Compare the five Planet X Weed flower collections." },
+      { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Explore Planet X Cannabis categories and guides." },
+      { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Compare the information presented across Weed flower collections." }
     ],
     sections: [
       {
-        heading: "Address Anchor",
-        body: "Planet x Cannabis is listed at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Keep that address as the local anchor, then use the resource pages to decide whether the trip is about flower, pre-rolls, edibles, THC vapes, concentrates, accessories, or cigarettes."
+        heading: "Explore Planet X Weed in North York",
+        body: "Begin with the broader Planet X Cannabis Weed selection, then continue into the flower collections or guides that interest you."
       },
       {
-        heading: "Neighborhood Visit Areas",
-        body: "North York shoppers around Islington and Steeles may also search from Humber Summit, York University, Humber College, or nearby TTC routes, so the resources focus on direct local intent.",
-        bullets: ["Islington Avenue cannabis store local visit area", "Steeles Avenue West cannabis store local visit area", "North York cannabis store local visit area", "Humber Summit cannabis store local visit area", "York University cannabis store local visit area", "Humber College cannabis store local visit area", "TTC cannabis store local visit area"]
+        heading: "Compare Weed Flower Collections",
+        body: "Explore Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed as distinct Planet X Cannabis Flower collections."
       },
       {
-        heading: "Best First Click",
-        body: "If you need store details, start with /weed-dispensary-north-york. If you are comparing product types, start with the menu guide. If the trip is about Native smokes or cigarettes, start with the Native smokes page and then confirm the current category page."
+        heading: "Explore Planet X Cannabis Guides",
+        body: "Continue with the Weed Flower Guide, Cannabis Menu Guide or Weed Value Guide for more browsing context."
       }
     ],
   },
   {
-    slug: "menu-guide",
-    title: "Planet x Cannabis Menu Guide",
-    seoTitle: "Planet x Cannabis Menu Guide | Flower, Pre-Rolls, Edibles, Vapes And Cigarettes",
-    description: "A category-based menu guide for Planet x Cannabis, covering flower tiers, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, and Native smokes.",
-    eyebrow: "Menu Guide",
-    intro: "The menu gets easier when you start with the product type. Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes are simpler to compare in their own sections.",
+    slug: "cannabis-menu-guide",
+    title: "Planet X Cannabis Menu Guide",
+    seoTitle: "Cannabis Menu Guide North York | Planet X Cannabis",
+    description: "Explore the Planet X Cannabis menu through Weed flower collections, product categories and shopper guides for North York.",
+    eyebrow: "Cannabis Menu Guide",
+    intro: "Planet X Cannabis offers several ways to explore Weed, Cannabis Flower and other product categories. Start broadly, choose a flower collection that interests you or use one of the supporting guides when you want more context while browsing.",
     cards: [
-      { title: "Flower Tiers", href: "/resources/flower-guide", text: "Start here for Exotic, Premium, AAA+, AA, and Budget flower." },
-      { title: "Pre-Rolls", href: "/resources/pre-roll-guide", text: "Use this for ready-to-smoke singles, packs, and quick-trip browsing." },
-      { title: "Cigarettes", href: "/items/cigarettes", text: "Open the cigarette category for current Native smokes listings." },
-      { title: "Store Page", href: "/weed-dispensary-north-york", text: "Return to the local store page." }
+      { title: "Explore Planet X Weed", href: "/weed-dispensary-north-york/", text: "Begin with broader Weed browsing in North York." },
+      { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Explore all five Planet X Weed flower collections." },
+      { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Use a practical framework while comparing flower collections." }
     ],
     sections: [
       {
-        heading: "Pick The Shelf First",
-        body: "For North York, Islington, and Steeles shoppers, the best menu category is simple: flower shoppers compare tiers, pre-roll shoppers compare format, edible and vape shoppers read item details, and cigarette shoppers compare brand, full/light/menthol style, and price.",
-        bullets: ["Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes are easier to compare separately.", "Use current category pages for live product details.", "Use resources for shopping notes and local planning."]
+        heading: "Explore Planet X Weed",
+        body: "For broader Weed browsing, explore Planet X Cannabis Weed in North York before narrowing your selection."
       },
       {
-        heading: "Local Visit Questions",
-        body: "This page answers common questions about weed dispensary near North York, cannabis store North York, cheap weed near me, Native cigarettes, and THC vape menu while keeping the actual customer visit step clear."
+        heading: "Browse Cannabis Flower by Collection",
+        body: "The five flower collections give shoppers different parts of the Planet X selection to explore. Start with one or compare several based on the product information presented while you browse.",
+        bullets: ["Exotic Weed", "Premium Weed", "AAA+ Weed", "AA Weed", "Budget Weed"]
+      },
+      {
+        heading: "Explore More Planet X Guides",
+        body: "Continue with the Weed Flower Guide or Weed Value Guide when you want more context while browsing."
       }
     ],
   },
   {
-    slug: "flower-guide",
-    title: "Planet x Cannabis Flower Tier And 6g Price Guide",
-    seoTitle: "Planet x Cannabis Flower Tier Guide | Exotic, Premium, AAA+, AA And Budget",
-    description: "Compare Planet x Cannabis flower tiers with posted per-gram prices, 3g specials, 6g deal math, Budget flower, AA flower, AAA+, Premium, and Exotic.",
-    eyebrow: "Flower Tiers",
-    intro: "Here is the clean flower read: Exotic is posted at $20/g, Premium at $15/g, AAA+ at $10/g, AA at $4/g, and Budget at $3/g. Where the 6g tier deal applies, shoppers can compare Exotic around $60 for 6g, Premium around $45 for 6g, and AAA+ around $30 for 6g.",
+    slug: "weed-flower-guide",
+    title: "Planet X Weed & Cannabis Flower Guide",
+    seoTitle: "Weed & Cannabis Flower Guide North York | Planet X Cannabis",
+    description: "Explore Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed from Planet X Cannabis in one North York flower guide.",
+    eyebrow: "Weed & Cannabis Flower Guide",
+    intro: "Planet X Cannabis brings five Weed flower collections together for shoppers who want to compare different parts of the selection: Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed. Explore whichever collections catch your interest or begin with the broader North York Weed selection.",
     cards: [
-      { title: "Exotic Flower", href: "/exotic", text: "$20/g, with 3g and 6g deal logic where listed." },
-      { title: "Premium Flower", href: "/premium", text: "$15/g, with 3g and 6g deal logic where listed." },
-      { title: "AAA+ Flower", href: "/aaa", text: "$10/g, with 3g and 6g deal logic where listed." },
-      { title: "AA Flower", href: "/aa", text: "$4/g for a direct value lane." },
-      { title: "Budget Flower", href: "/budget", text: "$3/g, with a $10 / 3g special where listed." }
+      { title: "Exotic Weed", href: "/exotic-weed", text: "Explore the Planet X Exotic Weed flower collection." },
+      { title: "Premium Weed", href: "/premium-weed", text: "Browse the Premium Weed flower collection." },
+      { title: "AAA+ Weed", href: "/aaa-weed", text: "Explore the Planet X AAA+ Weed collection." },
+      { title: "AA Weed", href: "/aa-weed", text: "Browse the AA Weed flower collection." },
+      { title: "Budget Weed", href: "/budget-weed", text: "Explore the Budget Weed flower collection." },
+      { title: "Explore Planet X Cannabis Weed in North York", href: "/weed-dispensary-north-york/", text: "Begin with the broader North York Weed selection." }
     ],
     sections: [
       {
-        heading: "Why The 6g Line Matters",
-        body: "A straight per-gram price does not always tell the whole shelf story. The top flower lanes can show 3g and 6g deal logic, so a shopper comparing Exotic, Premium, and AAA+ should read the bundle line before judging value.",
-        bullets: ["Exotic: $20/g, 3g for $40 or 6g around $60 where listed.", "Premium: $15/g, 3g for $30 or 6g around $45 where listed.", "AAA+: $10/g, 3g for $20 or 6g around $30 where listed."]
+        heading: "Explore Five Weed Flower Collections",
+        body: "Browse one collection or compare several to see different parts of the Planet X Cannabis Flower selection."
       },
       {
-        heading: "Budget And AA Keep It Simple",
-        body: "For cheap weed and budget weed searches, Budget at $3/g and AA at $4/g are the simplest lanes to compare. Check the current tier page for listed product names, prices, and item notes."
+        heading: "Weed, Cannabis and Flower at Planet X",
+        body: "Weed, cannabis, bud and flower are familiar terms shoppers use while exploring dispensary selections. Planet X Cannabis uses those terms naturally while offering five distinct flower collections to browse."
+      },
+      {
+        heading: "Find a Collection That Interests You",
+        body: "Start with whichever collection catches your attention, then explore another whenever you want to compare more of the Planet X flower selection."
       }
     ],
   },
   {
-    slug: "value-guide",
-    title: "Planet x Cannabis Value Weed Guide",
-    seoTitle: "Planet x Cannabis Value Weed Guide | Cheap Weed Near North York",
-    description: "A value shopping guide for Planet x Cannabis, covering cheap weed, budget weed, AA flower, AAA+ deals, 6g tier math, and affordable menu categories.",
-    eyebrow: "Value Guide",
-    intro: "For North York and Islington value shopping, value shopping works best when the shelf is clear. Start with Budget, AA, and AAA+ before jumping into higher tiers or mixed categories.",
+    slug: "weed-value-guide",
+    title: "Planet X Cannabis Weed Value Guide",
+    seoTitle: "Weed Value Guide North York | Planet X Cannabis",
+    description: "Explore Planet X Cannabis Weed flower collections with a practical guide to comparing the current product information presented as you browse.",
+    eyebrow: "Weed Value Guide",
+    intro: "Different shoppers may focus on different details when exploring Cannabis Flower. This guide offers a practical way to compare Planet X Weed collections using the current product information presented while you browse, without relying on fixed prices or temporary promotions.",
     cards: [
-      { title: "Budget Flower", href: "/budget", text: "$3/g for the lowest posted flower lane." },
-      { title: "AA Flower", href: "/aa", text: "$4/g for a simple low-spend lane." },
-      { title: "AAA+ Flower", href: "/aaa", text: "$10/g, 3g for $20, or 6g around $30 where listed." },
-      { title: "Native Smokes Prices", href: "/resources/native-smokes", text: "Use this if cigarettes or Backwoods are part of the same stop." }
+      { title: "Exotic Weed", href: "/exotic-weed", text: "Explore the Exotic Weed flower collection." },
+      { title: "Premium Weed", href: "/premium-weed", text: "Explore the Premium Weed flower collection." },
+      { title: "AAA+ Weed", href: "/aaa-weed", text: "Explore the AAA+ Weed flower collection." },
+      { title: "AA Weed", href: "/aa-weed", text: "Explore the AA Weed flower collection." },
+      { title: "Budget Weed", href: "/budget-weed", text: "Explore the Budget Weed flower collection." }
     ],
     sections: [
       {
-        heading: "Start With Budget, Then Move Up",
-        body: "If the search is cheap weed, budget weed, or affordable cannabis near North York, start with Budget and AA. If the trip can stretch a little, AAA+ gives shoppers another value lane with 3g and 6g deal logic."
+        heading: "Choose a Weed Flower Collection to Explore",
+        body: "Explore Exotic Weed, Premium Weed, AAA+ Weed, AA Weed or Budget Weed based on the collection that interests you."
       },
       {
-        heading: "Compare Inside The Category",
-        body: "Value means something different for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes. Keep each comparison inside the matching category so the decision stays clear."
+        heading: "Compare the Information That Matters to You",
+        body: "As you explore, consider which flower collection you are browsing, the product information shown with individual items and which other collections interest you."
+      },
+      {
+        heading: "Explore Planet X Weed More Broadly",
+        body: "Browse Planet X Cannabis Weed in North York or continue with the Weed Flower Guide for a broader view of the five collections."
       }
     ],
   },
@@ -160,8 +168,8 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     intro: "Pre-roll shoppers usually want a faster path than loose flower shoppers. Use this page when the goal is ready-to-smoke options, a quick stop, or a small add-on beside another category.",
     cards: [
       { title: "Pre-Rolls", href: "/items/prerolls", text: "Open the current pre-roll category." },
-      { title: "Flower Tiers", href: "/resources/flower-guide", text: "Switch here if the visit turns into loose flower." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Use this if the stop includes edibles, vapes, concentrates, or accessories." }
+      { title: "Flower Tiers", href: "/resources/weed-flower-guide", text: "Switch here if the visit turns into loose flower." },
+      { title: "Menu Guide", href: "/resources/cannabis-menu-guide", text: "Use this if the stop includes edibles, vapes, concentrates, or accessories." }
     ],
     sections: [
       {
@@ -212,7 +220,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     cards: [
       { title: "Cigarette Category", href: "/items/cigarettes", text: "Open the current cigarette category." },
       { title: "Native Smokes Overview", href: "/resources/native-smokes", text: "Return to the shorter price guide." },
-      { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan the store stop around the local area." }
+      { title: "Local Visit Guide", href: "/resources/islington-north-york-weed-visit-guide", text: "Plan the store stop around the local area." }
     ],
     sections: [
       {
@@ -238,9 +246,9 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     eyebrow: "Resource Update",
     intro: "The resource centre has been rebuilt around real customer visit steps: local visit planning, category-based browsing, flower tier math, value shopping, pre-roll shortcuts, and cigarette price notes.",
     cards: [
-      { title: "Resource Home", href: "/resources", text: "Start at the main resource hub." },
-      { title: "Local Visit Guide", href: "/resources/islington-north-york-visit-guide", text: "Plan around Islington Avenue, Steeles Avenue West, North York, Humber Summit, York University, Humber College, and TTC routes." },
-      { title: "Flower Tier Guide", href: "/resources/flower-guide", text: "Review the 3g and 6g pricing logic." },
+      { title: "Resource Home", href: "/weed-resources", text: "Start at the main Weed resource hub." },
+      { title: "Local Visit Guide", href: "/resources/islington-north-york-weed-visit-guide", text: "Explore the local Islington and North York Weed guide." },
+      { title: "Flower Tier Guide", href: "/resources/weed-flower-guide", text: "Explore the five Weed flower collections." },
       { title: "Native Smokes Prices", href: "/resources/native-smokes", text: "Check brand and price notes." }
     ],
     sections: [
@@ -250,7 +258,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "What Stayed Protected",
-        body: "The important SEO paths stay intact: /weed-dispensary-north-york, /resources, /resources/menu-guide, /resources/flower-guide, /resources/value-guide, /resources/pre-roll-guide, /resources/native-smokes, and /resources/native-smokes/native-cigarettes-guide."
+        body: "The established broad Weed owner and distinct pre-roll and Native Smokes resources remain available, while the Weed campaign guides use their current canonical destinations."
       }
     ],
   }
