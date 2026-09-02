@@ -29,14 +29,14 @@ export async function generateMetadata({
   const seo = TIER_SEO[tierInfo.key];
 
   return {
-    title: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower — ${flowers.length} Strains`,
+    title: { absolute: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower | Planet X Cannabis` },
     description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Planet x Cannabis.`,
     alternates: {
       canonical: `https://www.theplanetx.ca/${tierSlug}`,
     },
     openGraph: {
-      title: `${tierInfo.config.name} Flower | Planet x Cannabis`,
-      description: `Browse the current ${tierInfo.config.name.toLowerCase()} flower menu. Listed prices start from $${tierInfo.config.unitPrice}/g.`,
+      title: seo?.seoTitle || `${tierInfo.config.name} Flower | Planet X Cannabis`,
+      description: seo?.seoIntro || `Explore ${tierInfo.config.name} Cannabis Flower at Planet X Cannabis.`,
     },
   };
 }
@@ -67,7 +67,7 @@ export default async function TierPage({
       <section className={styles.bannerSection}>
         <img
           src={config.banner}
-          alt={`${config.name} Cannabis Flower — ${config.tagline}`}
+          alt={`${config.name} Cannabis Flower at Planet X Cannabis`}
           className={styles.bannerImg}
         />
       </section>
@@ -82,7 +82,7 @@ export default async function TierPage({
             <div className={styles.heroTitleRow}>
               <span className={styles.heroIcon}>{config.icon}</span>
               <h1 className={styles.heroTitle}>
-                <span style={{ color: config.color }}>{config.name}</span>
+                <span style={{ color: config.color }}>{seo?.h1 || config.name}</span>
               </h1>
             </div>
             <p className={styles.heroTagline}>{config.tagline}</p>

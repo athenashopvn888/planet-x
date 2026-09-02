@@ -116,8 +116,8 @@ export const TIER_CONFIG: Record<
   }
 > = {
   EXOTIC: {
-    name: "Exotic",
-    slug: "exotic",
+    name: "Exotic Weed",
+    slug: "exotic-weed",
     color: "#f59e0b",
     icon: "\uD83D\uDD25",
     tagline: "Explore the current Exotic flower menu",
@@ -127,8 +127,8 @@ export const TIER_CONFIG: Record<
     deal6g: { label: "6g bundle", total: "6G", price: 60 },
   },
   PREMIUM: {
-    name: "Premium",
-    slug: "premium",
+    name: "Premium Weed",
+    slug: "premium-weed",
     color: "#a78bfa",
     icon: "\uD83D\uDC8E",
     tagline: "Explore the current Premium flower menu",
@@ -138,8 +138,8 @@ export const TIER_CONFIG: Record<
     deal6g: { label: "6g bundle", total: "6G", price: 45 },
   },
   "AAA+": {
-    name: "AAA+",
-    slug: "aaa",
+    name: "AAA+ Weed",
+    slug: "aaa-weed",
     color: "#22d3ee",
     icon: "\u26A1",
     tagline: "Explore the current AAA+ flower menu",
@@ -149,8 +149,8 @@ export const TIER_CONFIG: Record<
     deal6g: { label: "6g bundle", total: "6G", price: 30 },
   },
   AA: {
-    name: "AA",
-    slug: "aa",
+    name: "AA Weed",
+    slug: "aa-weed",
     color: "#34d399",
     icon: "\u2726",
     tagline: "Explore the current AA flower menu",
@@ -160,8 +160,8 @@ export const TIER_CONFIG: Record<
     deal6g: null,
   },
   BUDGET: {
-    name: "Budget",
-    slug: "budget",
+    name: "Budget Weed",
+    slug: "budget-weed",
     color: "#94a3b8",
     icon: "\uD83D\uDCB0",
     tagline: "Shreds & value OZs \u00B7 From $40/oz",
@@ -211,46 +211,50 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
 
   "VAPE PENS": {
     banner: "/banners/01_Vape_Pens.webp",
-    name: "THC Vape",
+    name: "Nicotine Vape",
     slug: "vapes",
     color: "#8b5cf6",
     icon: "",
-    seoTitle: "THC Vape North York | Planet X Cannabis",
+    seoTitle: "Nicotine Vapes North York | Planet X Cannabis",
     seoIntro:
-      "Browse thc vape category information at Planet X Cannabis near Islington Avenue and Steeles Avenue West.",
+      "Explore Planet X Cannabis nicotine vape products in a category kept separate from THC Vape products. Nicotine products are for adults 19+ and contain nicotine, which is addictive.",
     seoDescription:
-      "Review thc vape category information for Planet X Cannabis in North York. Confirm current menu details before visiting 3005 Islington Ave unit 1. This page supports browsing and does not promise current product listings.",
+      "Explore the Planet X Cannabis Nicotine Vape category in North York. Nicotine products are for adults 19+ and are kept separate from THC Vape products.",
     faqs: [
       {
-        q: "What thc vape information can shoppers review?",
-        a: "Customers can review thc vape category information and confirm current menu details before visiting Planet X Cannabis.",
+        q: "Are Nicotine Vape and THC Vape the same category?",
+        a: "No. Planet X Cannabis keeps Nicotine Vape separate from THC Vape.",
       },
       {
-        q: "Does this page guarantee current listings?",
-        a: "No. Category details can change, so customers should confirm the current menu before visiting.",
+        q: "Who is Nicotine Vape intended for?",
+        a: "Nicotine products are for adults 19+. Nicotine is addictive.",
+      },
+      {
+        q: "Where are THC vape products?",
+        a: "THC vape products remain in the separate THC Vape category.",
       },
     ],
   },
 
   "VAPE DISPOSABLE": {
     banner: "/banners/02_Vape_Disposable.webp",
-    name: "Nic Vape",
+    name: "THC Vape",
     slug: "vape-disposables",
     color: "#a78bfa",
     icon: "",
-    seoTitle: "Nic Vape North York | Planet X Cannabis",
+    seoTitle: "THC Vape North York | Planet X Cannabis",
     seoIntro:
-      "Browse nic vape category information at Planet X Cannabis near Islington Avenue and Steeles Avenue West.",
+      "Browse Planet X Cannabis THC Vape products in a category kept separate from Nicotine Vape products.",
     seoDescription:
-      "Review nic vape category information for Planet X Cannabis in North York. Confirm current menu details before visiting 3005 Islington Ave unit 1. This page supports browsing and does not promise current product listings.",
+      "Explore the Planet X Cannabis THC Vape category in North York, kept distinct from the separate Nicotine Vape collection.",
     faqs: [
       {
-        q: "What nic vape information can shoppers review?",
-        a: "Customers can review nic vape category information and confirm current menu details before visiting Planet X Cannabis.",
+        q: "Is THC Vape the same as Nicotine Vape at Planet X Cannabis?",
+        a: "No. THC Vape and Nicotine Vape are kept as separate categories.",
       },
       {
-        q: "Does this page guarantee current listings?",
-        a: "No. Category details can change, so customers should confirm the current menu before visiting.",
+        q: "Where are nicotine vape products?",
+        a: "Nicotine vape products remain under the separate Nicotine Vape category.",
       },
     ],
   },
