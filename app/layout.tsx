@@ -11,22 +11,6 @@ export const metadata: Metadata = {
   },
   description:
     "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
-  keywords: [
-    "cannabis dispensary North York",
-    "weed store North York",
-    "exotic flower North York",
-    "premium cannabis",
-    "Planet X Cannabis",
-    "cheap weed North York",
-    "dispensary near me",
-    "THC flower",
-    "indica sativa hybrid",
-    "edibles North York",
-    "vapes",
-    "pre-rolls",
-    "native cigarettes North York",
-    "weed store Islington and Steeles",
-  ],
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -73,9 +57,10 @@ export const metadata: Metadata = {
 /* JSON-LD Structured Data */
 const jsonLd = {
   "@context": "https://schema.org",
+  "@graph": [
+  {
   "@type": "Store",
-  additionalType: "https://schema.org/Store",
-  "@id": "https://www.theplanetx.ca",
+  "@id": "https://www.theplanetx.ca/#store",
   name: "Planet X Cannabis",
   description:
     "Cannabis dispensary at 3005 Islington Ave unit 1 in North York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
@@ -116,6 +101,15 @@ const jsonLd = {
     "@type": "City",
     name: "North York",
   },
+  },
+  {
+    "@type": "WebSite",
+    "@id": "https://www.theplanetx.ca/#website",
+    url: "https://www.theplanetx.ca/",
+    name: "The Planet X Cannabis",
+    publisher: { "@id": "https://www.theplanetx.ca/#store" },
+  },
+  ],
 };
 
 export default function RootLayout({

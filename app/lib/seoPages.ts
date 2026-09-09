@@ -241,7 +241,7 @@ export const SEO_PAGES: SeoPageData[] = [
     faqs: [
       {
         q: "Where is the closest local page for this store?",
-        a: "Start with /weed-dispensary-north-york for GBP-style address and visit details.",
+        a: "Start with our North York store page for location, hours, directions, and helpful visit information.",
       },
       {
         q: "Is walk-in shopping supported?",
@@ -263,7 +263,7 @@ export const SEO_PAGES: SeoPageData[] = [
     heroTagline: "Adults 19+ · Nicotine is addictive.",
     heroPreview: {
       eyebrow: "PLANET X CANNABIS • ISLINGTON / STEELES / NORTH YORK • ADULTS 19+",
-      intro: "Searching for nicotine vapes near me around Islington, Steeles or North York? This adult-only Planet X Cannabis guide features six live-checked VAPE PENS product pages. Compare their supported names, then use /items/vapes for the current nicotine category. Product details can change. Nicotine is addictive.",
+      intro: "Searching for nicotine vapes near Islington, Steeles or North York? Browse these categories to explore store information and current product options before you visit or order. Product details can change. Nicotine is addictive.",
       products: [
         { name: "ENVI DRIP’N – 5% | 28K PUFFS", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/1092-Envi-Dripn-28K.webp", sourceSlug: "envi-dripn-5-28k-puffs" },
         { name: "GEEK PROMAX – 5% | 30K PUFFS", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/GEEK-PROMAX.jpg", sourceSlug: "geek-promax-5-30k-puffs" },
@@ -272,7 +272,7 @@ export const SEO_PAGES: SeoPageData[] = [
         { name: "OVNS DISPOSABLE – 5% | 8ML | MANY FLAVORS", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/OVNS500x500HQ.webp", sourceSlug: "ovns-disposable-5-8ml-many-flavors" },
         { name: "OVNS PIONEER – 5% | 22K PUFFS", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/OVNS_PIONEER_5_22K_PUFFS.webp", sourceSlug: "ovns-pioneer-5-22k-puffs" },
       ],
-      disclosure: "Featured cards are live-checked starting points, not guarantees of current stock, price or availability.",
+      disclosure: "Browse these categories to explore store information and current product options before you visit or order.",
       theme: "nicotine",
       menuHref: "/items/vapes",
       primaryLabel: "Browse Nicotine Vapes",
@@ -280,7 +280,7 @@ export const SEO_PAGES: SeoPageData[] = [
       secondaryHref: "#featured-vapes",
       identityStrip: "Planet X Cannabis | Islington / Steeles / North York | Adults 19+ | Nicotine is addictive.",
       featuredHeading: "Six Live-Checked Planet X Vape Cards",
-      featuredIntro: "This shortlist contains six live-checked ENVI, Geek and OVNS VAPE PENS product pages. Use each card for its supported display name, then rely on /items/vapes for the current Planet X Cannabis category listing.",
+      featuredIntro: "This shortlist includes ENVI, Geek and OVNS vape product pages. Browse the relevant menu category for current product information.",
       warning: "Adults 19+. Nicotine is addictive.",
     },
     sections: [
@@ -290,7 +290,7 @@ export const SEO_PAGES: SeoPageData[] = [
       { heading: "Review the Current North York Category", body: "Before choosing, open /items/vapes and the individual product page for current supported details. This guide does not claim prices, stock or guaranteed availability." },
     ],
     faqs: [
-      { q: "Where should I check Planet X Cannabis’s current nicotine selection?", a: "Use /items/vapes. The six featured cards are live-checked starting points while the current category listing controls selection information." },
+      { q: "Where should I check Planet X Cannabis’s current nicotine selection?", a: "Browse the relevant menu category for current product information." },
       { q: "Does every featured item use the same format?", a: "No format should be assumed. One featured page explicitly identifies an OVNS disposable. Read each current product page for its supported format and details." },
       { q: "Does this page include cannabis vapes?", a: "No. It covers six nicotine products from the VAPE PENS category for adults 19+. THC and cannabis vape products are excluded." },
     ],
