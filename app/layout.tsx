@@ -101,6 +101,8 @@ const jsonLd = {
     "@type": "City",
     name: "North York",
   },
+  sameAs: ["https://www.google.com/maps?cid=1981746911459908853"],
+  hasMap: "https://www.google.com/maps?cid=1981746911459908853",
   },
   {
     "@type": "WebSite",
