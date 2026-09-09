@@ -60,9 +60,6 @@ export default function Footer() {
               <Link href="/items/vape-disposables">THC Vape</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/delivery">DELIVERY MENU</Link>
-              <Link href="/info/islington-steeles-weed-dispensary">
-                North York Dispensary
-              </Link>
               <Link href="/info/cheap-weed-islington-steeles">
                 Cheap Weed North York
               </Link>
@@ -71,9 +68,6 @@ export default function Footer() {
               </Link>
               <Link href="/info/nicotine-vapes-islington-steeles">
                 Nicotine Vapes North York
-              </Link>
-              <Link href="/info/weed-store-near-north-york">
-                Weed Store Near Islington and Steeles
               </Link>
               <Link href="/weed-dispensary-north-york/">
                 Planet x Cannabis Weed Dispensary in North York

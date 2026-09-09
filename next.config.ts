@@ -25,9 +25,12 @@ const nextConfig: NextConfig = {
       { source: "/resources/islington-north-york-visit-guide", destination: "/resources/islington-north-york-weed-visit-guide", permanent: true },
       {
         source: "/info/york-weed-dispensary",
-        destination: "/info/islington-steeles-weed-dispensary",
+        destination: "/weed-dispensary-north-york",
         permanent: true,
       },
+      { source: "/info/islington-steeles-weed-dispensary", destination: "/weed-dispensary-north-york", permanent: true },
+      { source: "/info/weed-store-near-north-york", destination: "/weed-dispensary-north-york", permanent: true },
+      { source: "/info/dispensary-near-me-islington-steeles", destination: "/weed-dispensary-north-york", permanent: true },
       {
         source: "/info/cheap-weed-york",
         destination: "/info/cheap-weed-islington-steeles",
