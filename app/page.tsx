@@ -10,6 +10,8 @@ import FlowerCard from "./components/FlowerCard";
 import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import { allFlowers } from "./lib/products";
 import Papa from "papaparse";
+import StoreMap from "./components/StoreMap";
+import { HOME_FAQS, storeNap } from "./lib/storeNap";
 
 /* ── Bento Mosaic Config ── */
 const BENTO_TIERS = [
@@ -68,25 +70,7 @@ const EXPLORE_CATEGORIES = [
   { name: "Magic Stuff", slug: "items/magic", banner: "/banners/09_Magic_Stuff.webp", icon: "🍄" },
 ];
 
-/* ── Local FAQs for Jane St ── */
-const LOCAL_FAQS = [
-  {
-    q: "What are the hours for Planet x Cannabis?",
-    a: "Planet x Cannabis at 3005 Islington Ave unit 1, North York is Open 24 Hours a day, 7 days a week. Walk in anytime — no appointment needed.",
-  },
-  {
-    q: "What cannabis products do you carry?",
-    a: "We carry five tiers of premium flower: Exotic ($10-$12/g), Premium ($7-$10/g), AAA+ ($5-$6/g), AA ($4/g), and Budget ($3/g), plus a wide variety of edibles, prerolls, vapes, and concentrates.",
-  },
-  {
-    q: "Where is Planet x Cannabis located?",
-    a: "We are located at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Visit us in person or call us at +1 (289) 217-2773. Free evening street parking is available.",
-  },
-  {
-    q: "What is the cheapest weed at Planet x Cannabis?",
-    a: "Our budget flower starts at just $3/g. We also offer AA daily drivers from $4/g and AAA+ heavy hitters from $5-$6/g. View our budget menu for our latest deals.",
-  },
-];
+const LOCAL_FAQS = HOME_FAQS;
 
 interface Review {
   name: string;
@@ -195,7 +179,7 @@ export default function HomePage() {
         <div className={styles.welcomeBannerContainer}>
           <img
             src="/banners/welcome_banner.webp"
-            alt="Welcome to Planet x Cannabis — Premium North York Cannabis Dispensary"
+            alt="Welcome to The Planet X Cannabis — 24-hour North York walk-in at 3005 Islington Ave unit 1"
             className={styles.welcomeBannerImg}
           />
         </div>
@@ -223,7 +207,7 @@ export default function HomePage() {
           <div className={styles.brandBlock}>
             <img src="/storeFavicon.webp" alt="Planet x Cannabis Icon" style={{ height: "60px", width: "60px", objectFit: "contain", borderRadius: "8px", marginBottom: "8px" }} />
             <h1 className={styles.brandTitle}>THE PLANET X CANNABIS</h1>
-            <p className={styles.brandSub}>Premium Cannabis Dispensary</p>
+            <p className={styles.brandSub}>Islington &amp; Steeles walk-in · Humber Summit, North York</p>
             <div className={styles.brandBadge}>Open 24 Hours</div>
           </div>
 
@@ -309,15 +293,16 @@ export default function HomePage() {
       <section className={styles.seoSection}>
         <div className={styles.container}>
           <div className={styles.seoPanel}>
-            <h2 className={styles.seoPanelTitle}>Islington Ave & Steeles Ave W&apos;s Local Cannabis Dispensary — Open 24 Hours</h2>
+            <h2 className={styles.seoPanelTitle}>Islington Ave &amp; Steeles Ave W&apos;s Local Cannabis Dispensary — Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              Welcome to <strong>Planet x Cannabis</strong>, a 24-hour cannabis destination at 3005 Islington Ave unit 1. Browse flower across several price tiers, from Exotic and Premium to everyday Budget options.
+              <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href="/visit">how-to-reach page</Link> only explains the plaza door, TTC, and parking.
             </p>
             <p className={styles.seoPanelText}>
-              Open 24 hours, 7 days a week — Planet x Cannabis never closes. Our live menu is constantly refreshed with the freshest drops, premium prerolls, artisan edibles, and everything in between. Whether you're winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
+              Open 24 hours, 7 days a week. Late Steeles West runs, York University night buses, and Humber Summit shift changes all land at the same unit 1 entrance. Flower is sorted into Exotic, Premium, AAA+, AA, and Budget so you can compare before you talk to a budtender. Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories sit on the same live menu.
             </p>
             <p className={styles.seoPanelText}>
-              Searching for a cannabis dispensary in North York or the surrounding area? Planet x Cannabis is open 24 hours with flower, pre-rolls, edibles, vapes, and other menu categories. Clear flower tiers help shoppers compare prices before visiting.
+              Searching for weed near Islington &amp; Steeles, Humber Summit, or North York walk-in hours? Stay on this neighbourhood pin. City-wide Toronto head terms are the wrong war for 3005 Islington. Call{" "}
+              <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a> if you need one specific SKU before you leave.
             </p>
           </div>
         </div>
@@ -396,18 +381,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STORE LOCATION GRID ── */}
+      {/* ── STORE LOCATION GRID (homepage visit hub) ── */}
       <section className={styles.storeSection} id="contact">
         <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Visit hub — unit 1, North York</h2>
+            <p className={styles.sectionSubtitle}>
+              NAP and hours stay on this homepage. Use the{" "}
+              <Link href="/visit" className={styles.storeLink}>
+                unit 1 how-to-reach guide
+              </Link>{" "}
+              for plaza entrance, TTC, and parking detail.
+            </p>
+          </div>
           <div className={styles.storeGrid}>
             <div className={styles.storeCard}>
               <span className={styles.storeIcon}>📍</span>
               <h3 className={styles.storeCardTitle}>Location</h3>
               <p className={styles.storeCardText}>
-                3005 Islington Ave unit 1
+                {storeNap.streetAddress}
                 <br />
-                North York, ON M9L 2K9
+                {storeNap.city}, {storeNap.region} {storeNap.postalCode}
                 <br />
+                <span className={styles.storeHighlight}>{storeNap.intersection}</span>
               </p>
             </div>
             <div className={styles.storeCard}>
@@ -416,22 +412,46 @@ export default function HomePage() {
               <p className={styles.storeCardText}>
                 Open 7 Days a Week
                 <br />
-                <span className={styles.storeHighlight}>Open 24 Hours</span>
+                <span className={styles.storeHighlight}>{storeNap.hoursLabel}</span>
+              </p>
+            </div>
+            <div className={styles.storeCard}>
+              <span className={styles.storeIcon}>📞</span>
+              <h3 className={styles.storeCardTitle}>Phone</h3>
+              <p className={styles.storeCardText}>
+                <a className={styles.storeLink} href={`tel:${storeNap.phoneIntl}`}>
+                  {storeNap.phoneDisplay}
+                </a>
+                <br />
+                Direct store line — ignore 416 / 226 directory leftovers
               </p>
             </div>
             <div className={styles.storeCard}>
               <span className={styles.storeIcon}>🔥</span>
               <h3 className={styles.storeCardTitle}>Walk In</h3>
               <p className={styles.storeCardText}>
-                No appointment needed
+                No appointment needed · Adults 19+
                 <br />
-                <span className={styles.storeHighlight}>Islington Ave & Steeles Ave W, North York</span>
+                <span className={styles.storeHighlight}>Humber Summit · Islington &amp; Steeles</span>
               </p>
             </div>
           </div>
 
-          {/* Map wrapper */}
+          <div className={styles.visitHubActions}>
+            <Link href="/visit" className={styles.visitHubPrimary}>
+              How to find unit 1
+            </Link>
+            <a
+              className={styles.visitHubSecondary}
+              href={storeNap.mapsCid}
+              rel="noopener noreferrer"
+            >
+              Open in Google Maps
+            </a>
+          </div>
+
           <div className={styles.mapWrap}>
+            <StoreMap className={styles.mapFrame} />
           </div>
         </div>
       </section>

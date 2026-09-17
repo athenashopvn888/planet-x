@@ -11,8 +11,9 @@ export default function Footer() {
             <div className={styles.brand}>THE PLANET X CANNABIS</div>
             <p className={styles.desc}>
               Your Local Cannabis Dispensary At 3005 Islington Ave unit 1, North
-              York. Visit Planet x Cannabis For Premium Flower, Edibles, Vapes
-              &amp; More. Open 24 Hours.
+              York — Islington &amp; Steeles, Humber Summit. Visit The Planet X
+              Cannabis For Premium Flower, Edibles, Vapes &amp; More. Open 24
+              Hours. Call +1 (289) 217-2773.
             </p>
             <div className={styles.buttons}>
               <a href="tel:+12892172773" className={styles.btnPrimary}>
@@ -59,6 +60,7 @@ export default function Footer() {
               <Link href="/items/vapes">Nicotine Vape</Link>
               <Link href="/items/vape-disposables">THC Vape</Link>
               <Link href="/faq">FAQ</Link>
+              <Link href="/visit">Visit / How to Reach</Link>
               <Link href="/delivery">DELIVERY MENU</Link>
               <Link href="/info/cheap-weed-islington-steeles">
                 Cheap Weed North York

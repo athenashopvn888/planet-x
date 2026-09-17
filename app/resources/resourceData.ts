@@ -50,8 +50,10 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     seoTitle: "Islington & North York Weed Guide | Planet X Cannabis",
     description: "Explore Planet X Cannabis Weed in North York with a local guide connecting broader Weed browsing, flower collections and helpful cannabis resources.",
     eyebrow: "Islington & North York Weed Guide",
-    intro: "Planet X Cannabis serves shoppers exploring Weed and cannabis in North York, including those searching around the Islington area. Use this guide to explore the broader Weed selection, compare flower collections and discover supporting Planet X resources.",
+    intro: "The Planet X Cannabis is the 24-hour walk-in at 3005 Islington Ave unit 1 in Humber Summit, North York — Islington Avenue and Steeles Avenue West. Use this guide for unit 1, TTC, and parking, then return to the homepage visit hub for NAP, hours, and the map.",
     cards: [
+      { title: "Homepage visit hub", href: "/", text: "NAP, hours, phone +1 (289) 217-2773, and the map stay on the North York homepage." },
+      { title: "How to find unit 1", href: "/visit", text: "Plaza entrance, Steeles / Islington TTC, and parking for 3005 Islington Ave unit 1." },
       { title: "Browse Planet X Cannabis Weed in North York", href: "/weed-dispensary-north-york/", text: "Explore the broader Planet X Weed selection." },
       { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Compare the five Planet X Weed flower collections." },
       { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Explore Planet X Cannabis categories and guides." },
@@ -59,8 +61,16 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     ],
     sections: [
       {
+        heading: "Unit 1 at 3005 Islington Ave",
+        body: "The walk-in is unit 1 in the Islington plaza — Humber Summit, North York, M9L 2K9. If a maps pin drops you in the wider lot, stay on Islington Avenue until you see the Planet X storefront marked unit 1."
+      },
+      {
+        heading: "TTC and parking",
+        body: "TTC buses run Islington Avenue and Steeles Avenue West, including trips toward York University / Steeles West. Free plaza parking is on-site; free evening street parking is available — check posted signs. Call +1 (289) 217-2773 if you cannot find the door after dark."
+      },
+      {
         heading: "Explore Planet X Weed in North York",
-        body: "Begin with the broader Planet X Cannabis Weed selection, then continue into the flower collections or guides that interest you."
+        body: "Begin with the broader Planet X Cannabis Weed selection, then continue into the flower collections or guides that interest you. Delivery, when a driver can take the order, is a North York corridor drop — not a Toronto city-head service."
       },
       {
         heading: "Compare Weed Flower Collections",

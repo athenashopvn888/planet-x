@@ -17,8 +17,8 @@ export const weedOwner = {
   h1: "The Planet X Cannabis — Weed Dispensary in North York",
   introTitle: "Weed and Cannabis at The Planet X",
   intro: [
-    "The Planet X Cannabis is located at 3005 Islington Ave Unit 1 in North York and is open 24 hours a day, seven days a week.",
-    "Adults 19+ can use flower information and cannabis-format guides to decide where they want to start. For a particular product, call +1 (289) 217-2773 before making a special trip.",
+    "The Planet X Cannabis is located at 3005 Islington Ave Unit 1 in North York — a 24-hour walk-in on the Islington Avenue and Steeles Avenue West edge of Humber Summit.",
+    "Adults 19+ can use flower information and cannabis-format guides to decide where they want to start. For a particular product, call +1 (289) 217-2773 before making a special trip. Transit, parking, and unit 1 notes live on the supporting /visit page; this North York page stays the corridor landing.",
   ],
   findTitle: "Find Your Weed at Planet X",
   discoveryLinks: [
@@ -30,6 +30,7 @@ export const weedOwner = {
     { label: "Pre-Roll Guide", description: "Focus specifically on pre-rolls.", href: "/resources/pre-roll-guide" },
   ] satisfies WeedDiscoveryLink[],
   guides: [
+    { label: "How to Find Unit 1", description: "Plaza entrance, TTC on Islington and Steeles, parking.", href: "/visit" },
     { label: "Islington North York Visit Guide", description: "Store-specific visit information.", href: "/resources/islington-north-york-weed-visit-guide" },
     { label: "Menu Guide", description: "Compare broader cannabis formats.", href: "/resources/cannabis-menu-guide" },
     { label: "Flower Guide", description: "Learn more about cannabis flower.", href: "/resources/weed-flower-guide" },
@@ -37,8 +38,9 @@ export const weedOwner = {
     { label: "Pre-Roll Guide", description: "Focus specifically on pre-rolls.", href: "/resources/pre-roll-guide" },
   ] satisfies WeedDiscoveryLink[],
   faq: [
-    { question: "Where is The Planet X Cannabis?", answer: "The Planet X Cannabis is located at 3005 Islington Ave Unit 1, North York, ON M9L 2K9." },
+    { question: "Where is The Planet X Cannabis?", answer: "The Planet X Cannabis is located at 3005 Islington Ave Unit 1, North York, ON M9L 2K9, on the Islington and Steeles edge of Humber Summit." },
     { question: "Is The Planet X Cannabis open 24 hours?", answer: "Yes. It is open 24 hours a day, seven days a week." },
+    { question: "How do I find unit 1?", answer: "Use the plaza entrance marked unit 1 on the Islington frontage. The supporting /visit page covers parking and TTC along Islington Avenue and Steeles Avenue West. NAP stays on the homepage." },
     { question: "What is the difference between weed and cannabis?", answer: "Weed is casual everyday terminology. Cannabis is the broader term." },
     { question: "What is the difference between bud and flower?", answer: "Bud is an informal word commonly used for cannabis flower." },
     { question: "Can I explore flower information before visiting?", answer: "Yes. The Flower Guide and verified Exotic and Premium sections provide starting points." },
@@ -48,7 +50,7 @@ export const weedOwner = {
   ] satisfies WeedFaq[],
   home: {
     title: "Weed in North York at Planet X",
-    text: "The Planet X Cannabis is open 24 hours at 3005 Islington Ave Unit 1. Adults 19+ can explore the dedicated North York Weed section and flower information.",
+    text: "The Planet X Cannabis is open 24 hours at 3005 Islington Ave Unit 1 in Humber Summit, North York — Islington & Steeles walk-in. Adults 19+ can explore the dedicated North York Weed section, then use /visit for unit 1, transit, and parking.",
     primaryLabel: "Explore Weed in North York",
     secondaryLabel: "Explore the Flower Guide",
     secondaryHref: "/resources/weed-flower-guide",

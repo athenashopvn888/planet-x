@@ -26,7 +26,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Is there parking nearby?",
-        a: "Parking details vary by block and time of day. Check local signs before parking near 3005 Islington Ave unit 1.",
+        a: "Free plaza parking is available on-site at 3005 Islington Ave unit 1. Free evening street parking is also used around the block — check local signs before parking.",
       },
       {
         q: "What local areas does this store focus on?",
@@ -34,7 +34,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "What is the best way to get there?",
-        a: "Use 3005 Islington Ave unit 1 as the address anchor, then choose the transit, walking, or driving route that fits your visit.",
+        a: "Use 3005 Islington Ave unit 1 as the address anchor. TTC buses run Islington Avenue and Steeles Avenue West. The supporting /visit page covers unit 1, parking, and the last hundred metres; the homepage keeps NAP and hours.",
       },
     ],
   },
@@ -76,7 +76,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you offer delivery?",
-        a: "Delivery is marked coming soon unless the store announces that service is live. Use the delivery page to sign up for launch updates.",
+        a: "Delivery is confirmed from this North York store for nearby Islington, Steeles, Humber Summit, and York University area addresses when a driver can take the order. It is not city-wide Toronto delivery. Use the delivery page or call +1 (289) 217-2773 to confirm your street.",
       },
       {
         q: "Can staff help me choose a strain?",

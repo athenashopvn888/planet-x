@@ -106,7 +106,7 @@ export default function DeliveryContent() {
   return <main className={styles.main}>
     <Navbar />
     <section className={`${styles.hero} ${styles.heroPlain}`}>
-      <div><p>Planet X Cannabis</p><h1>Delivery Menu</h1><span>Browse the shared product catalog. The store confirms current availability and delivery details before an order is accepted.</span></div>
+      <div><p>The Planet X Cannabis · North York</p><h1>North York Delivery Menu</h1><span>Delivery is confirmed from 3005 Islington Ave unit 1 for nearby Islington, Steeles, Humber Summit, and York University area addresses. The store confirms current availability and the street before an order is accepted. This is not city-wide Toronto delivery.</span></div>
     </section>
     <section className={styles.deliveryDetails} aria-label="Planet X Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>
@@ -149,7 +149,7 @@ export default function DeliveryContent() {
       <form onSubmit={handleEmailSubmit}><input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="your@email.com" required disabled={emailStatus === "loading"} /><button type="submit" disabled={emailStatus === "loading"}>{emailStatus === "loading" ? "Sending..." : "Notify Me"}</button></form>
       {emailStatus === "success" && <p role="status">You&apos;re on the delivery update list.</p>}
     </section>
-    <div className={styles.ctaSection}><p>Visit us in-store at <strong>3005 Islington Ave unit 1, North York</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>(226) 545-3005</strong>.</p></div>
+    <div className={styles.ctaSection}><p>Walk in at <strong>3005 Islington Ave unit 1, North York</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>+1 (289) 217-2773</strong> — that is the only Planet X phone. Ignore leftover 416 or 226 numbers on directories.</p></div>
     {selected && <div className={styles.backdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}><section className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="product-title"><header><strong>Product details</strong><button type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button></header><div className={styles.drawerContent}>{selected.images.map((src, index) => <div className={styles.drawerImage} key={src}><Image src={src} alt={`${selected.name}${index ? ` alternate ${index + 1}` : ""}`} fill sizes="(max-width: 720px) 100vw, 420px" unoptimized /></div>)}<h2 id="product-title">{selected.name}</h2><p>{selected.description || "Ask the store for current product details."}</p>{selected.effects.length > 0 && <div className={styles.effects}>{selected.effects.map((effect) => <span key={effect}>{effect}</span>)}</div>}<ProductPricing product={selected} /></div></section></div>}
     <PlanetXWebChat />
     <Footer />
