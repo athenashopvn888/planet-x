@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import StoreMap from "../components/StoreMap";
+import { storeNap } from "../lib/storeNap";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -38,11 +41,17 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📍</div>
               <h2 className={styles.infoTitle}>Location</h2>
               <p className={styles.infoText}>
-                3005 Islington Ave unit 1
+                {storeNap.streetAddress}
                 <br />
-                North York, ON M9L 2K9
+                {storeNap.city}, {storeNap.region} {storeNap.postalCode}
                 <br />
-                <span className={styles.infoMuted}>Islington Ave & Steeles Ave W</span>
+                <span className={styles.infoMuted}>{storeNap.intersection} · Humber Summit</span>
+              </p>
+              <p className={styles.infoText}>
+                <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a>
+              </p>
+              <p className={styles.infoMuted}>
+                <Link href="/visit">How to find unit 1</Link>
               </p>
             </div>
 
@@ -120,6 +129,7 @@ export default function ContactPage() {
 
           {/* Map */}
           <div className={styles.mapSection}>
+            <StoreMap className={styles.mapIframe} />
           </div>
         </div>
       </section>

@@ -1,27 +1,28 @@
 import Link from "next/link";
+import { storeNap } from "../lib/storeNap";
 
-const areas = ["North York", "Toronto", "Vaughan", "Brampton", "Etobicoke", "Mississauga"];
+const areas = ["North York", "Humber Summit", "Islington Avenue", "Steeles Avenue West", "York University"];
 
 export function DeliveryCoverage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.theplanetx.ca/weed-dispensary-north-york#delivery-service",
-    name: "The Planet X Cannabis delivery coverage",
+    name: "The Planet X Cannabis North York delivery",
     serviceType: "Cannabis delivery information",
     provider: { "@id": "https://www.theplanetx.ca/#store" },
     url: "https://www.theplanetx.ca/delivery",
     areaServed: [
-      { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 43.7596082, longitude: -79.5708883 }, geoRadius: 50000 },
-      ...areas.map((name) => ({ "@type": "City", name })),
+      { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: storeNap.latitude, longitude: storeNap.longitude }, geoRadius: 12000 },
+      ...areas.map((name) => ({ "@type": "AdministrativeArea", name })),
     ],
   };
 
   return <section style={{ maxWidth: 1040, margin: "0 auto", padding: "24px 24px 64px" }}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-    <h2>Delivery Coverage from The Planet X Cannabis</h2>
-    <p>Delivery is coordinated from the North York store and confirmed when an order is placed. A practical planning area is approximately 50 km from Islington Avenue, including North York, Toronto, Vaughan, Brampton, Etobicoke and Mississauga.</p>
-    <p>Longer trips toward Barrie, Kitchener or Hamilton may be available when a driver is already positioned in that area. Extended coverage is not guaranteed, so confirm the destination and timing with the dispatcher before relying on delivery.</p>
-    <p><Link href="/delivery">Check current North York delivery information</Link></p>
+    <h2>North York delivery from The Planet X Cannabis</h2>
+    <p>Delivery is coordinated from unit 1 at 3005 Islington Ave when a driver can take the order. Plan around the Islington / Steeles / Humber Summit / York University area — not a city-wide Toronto drop.</p>
+    <p>The dispatcher confirms the street, timing, and $60 product minimum before anything leaves the North York store. If your address sits outside that corridor, walk in instead: Open 24 Hours at {storeNap.addressLine}.</p>
+    <p><Link href="/delivery">Check current North York delivery information</Link> · <Link href="/visit">How to find unit 1</Link></p>
   </section>;
 }
