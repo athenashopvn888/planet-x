@@ -3,7 +3,7 @@ import DeliveryContent from "./DeliveryContent";
 import menu from "./delivery-menu.json";
 
 export const metadata: Metadata = {
-  title: "North York Delivery Menu | Planet X Cannabis",
+  title: "North York Delivery Menu",
   description:
     "Browse The Planet X Cannabis delivery catalog for nearby North York, Islington, Steeles, Humber Summit, and York University area addresses. Confirm the street with the dispatcher before you wait on a drop.",
   alternates: { canonical: "https://www.theplanetx.ca/delivery" },
