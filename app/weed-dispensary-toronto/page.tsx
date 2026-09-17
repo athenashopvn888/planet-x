@@ -6,7 +6,7 @@ import { storeNap } from "../lib/storeNap";
 import styles from "../visit/visit.module.css";
 
 export const metadata: Metadata = {
-  title: "North York Walk-In | Planet X Cannabis",
+  title: "North York Walk-In",
   description:
     "The Planet X Cannabis is a North York walk-in at 3005 Islington Ave unit 1, near Islington and Steeles in Humber Summit — not a Toronto city dispensary landing.",
   robots: {

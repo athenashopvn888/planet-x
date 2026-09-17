@@ -7,7 +7,7 @@ import { HOME_FAQS, storeNap } from "../lib/storeNap";
 import styles from "./visit.module.css";
 
 export const metadata: Metadata = {
-  title: "How to Reach Unit 1 on Islington | Planet X Cannabis",
+  title: "How to Reach Unit 1 on Islington",
   description:
     "How to find The Planet X Cannabis at 3005 Islington Ave unit 1, North York: plaza entrance, TTC on Islington and Steeles, parking, and Humber Summit landmarks. Homepage remains the visit hub.",
   alternates: {
