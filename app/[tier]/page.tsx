@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FlowerCard from "../components/FlowerCard";
+import SeoMesh from "../components/SeoMesh";
 import {
   getFlowersByTier,
   getTierFromSlug,
   TIER_CONFIG,
 } from "../lib/products";
 import { TIER_SEO } from "../lib/tierSeoContent";
+import { jsonLdScript, storeNap } from "../lib/storeNap";
 import styles from "./tier.module.css";
 
 /* -- Generate all tier pages at build -- */
@@ -58,9 +60,32 @@ export default async function TierPage({
   const saleFlowers = flowers.filter((f) => f.isSale);
   const regularFlowers = flowers.filter((f) => !f.isSale);
   const hotFlowers = flowers.filter((f) => f.isHot);
+  const pageUrl = `https://www.theplanetx.ca/${tierSlug}`;
+  const faqJsonLd = seo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        url: pageUrl,
+        mainEntity: seo.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
+        })),
+      }
+    : null;
 
   return (
     <main className={styles.main}>
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
+        />
+      )}
       <Navbar />
 
       {/* ── Banner Image (standalone, no overlay text) ── */}
@@ -183,6 +208,21 @@ export default async function TierPage({
                 <p className={styles.seoBody}>{s.body}</p>
               </div>
             ))}
+
+            <div className={styles.seoBlock}>
+              <h3 className={styles.seoHeading}>Unit 1 mesh — homepage, visit, geo, 24-hour</h3>
+              <p className={styles.seoBody}>
+                NAP, hours, and the map stay on the homepage at {storeNap.streetAddress}.
+                Use the how-to-reach page for the plaza door, the North York dispensary page
+                for corridor weed intent, and the 24-hour Islington &amp; Steeles page for
+                overnight walk-ins. Compare sibling flower lanes from this {config.name} collection.
+              </p>
+              <SeoMesh
+                current={`/${tierSlug}`}
+                heading={`${config.name} mesh`}
+                variant="onPage"
+              />
+            </div>
 
             {/* FAQ Accordion */}
             {seo.faqs.length > 0 && (

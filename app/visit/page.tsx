@@ -3,7 +3,9 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import StoreMap from "../components/StoreMap";
-import { HOME_FAQS, storeNap } from "../lib/storeNap";
+import SeoMesh from "../components/SeoMesh";
+import { jsonLdScript, storeNap, visitJsonLd, VISIT_FAQS } from "../lib/storeNap";
+import { MESH } from "../lib/seoMesh";
 import styles from "./visit.module.css";
 
 export const metadata: Metadata = {
@@ -32,6 +34,10 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(visitJsonLd()) }}
+      />
       <Navbar />
       <section className={styles.hero}>
         <p className={styles.kicker}>Supporting how-to-reach · Adults 19+</p>
@@ -73,6 +79,7 @@ export default function VisitPage() {
             Homepage visit hub
           </Link>
         </div>
+        <SeoMesh current={MESH.visit} heading="Mesh — homepage, geo, 24-hour, tiers" />
       </section>
 
       <section className={styles.section}>
@@ -141,15 +148,16 @@ export default function VisitPage() {
         <p className={styles.note}>
           GBP Website stays <strong>{storeNap.origin}/</strong>. /visit supports
           reach only. Browse the{" "}
-          <Link href="/weed-dispensary-north-york/">North York dispensary</Link>{" "}
-          corridor page or the <Link href="/delivery">North York delivery menu</Link>{" "}
+          <Link href={MESH.geo}>North York dispensary</Link> corridor page, the{" "}
+          <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link>{" "}
+          overnight guide, or the <Link href="/delivery">North York delivery menu</Link>{" "}
           after you know the door.
         </p>
       </section>
 
       <section className={styles.section}>
         <h2>Visit FAQs</h2>
-        {HOME_FAQS.slice(0, 4).map((faq) => (
+        {VISIT_FAQS.map((faq) => (
           <div key={faq.q}>
             <h3>{faq.q}</h3>
             <p>{faq.a}</p>

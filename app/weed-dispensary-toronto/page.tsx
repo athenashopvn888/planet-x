@@ -57,6 +57,9 @@ export default function TorontoCityLandingDemoted() {
           <Link className={styles.secondary} href="/visit">
             How to find unit 1
           </Link>
+          <Link className={styles.secondary} href="/24-hour-islington-steeles-dispensary">
+            24-hour Islington &amp; Steeles
+          </Link>
         </div>
       </section>
       <Footer />

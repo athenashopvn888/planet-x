@@ -61,6 +61,9 @@ export default function Footer() {
               <Link href="/items/vape-disposables">THC Vape</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/visit">Visit / How to Reach</Link>
+              <Link href="/24-hour-islington-steeles-dispensary">
+                24-Hour Islington &amp; Steeles
+              </Link>
               <Link href="/delivery">DELIVERY MENU</Link>
               <Link href="/info/cheap-weed-islington-steeles">
                 Cheap Weed North York
