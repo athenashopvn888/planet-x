@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./WeedDiscoveryModule.module.css";
 import { weedOwner as store } from "../lib/weedDiscovery";
+import { MESH } from "../lib/seoMesh";
 
 export function WeedDiscoveryModule() {
   return (
@@ -11,6 +12,7 @@ export function WeedDiscoveryModule() {
         <p>{store.home.text}</p>
         <div className={styles.actions}>
           <Link href={store.ownerPath} className={styles.primary}>{store.home.primaryLabel}</Link>
+          <Link href={MESH.hours24} className={styles.secondary}>24-hour Islington &amp; Steeles</Link>
           <Link href={store.home.secondaryHref} className={styles.secondary}>{store.home.secondaryLabel}</Link>
         </div>
       </div>

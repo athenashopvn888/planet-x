@@ -54,7 +54,7 @@ export function GBPLandingPage() {
 
         <section className={styles.visitSection} id="visit">
           <div><p className={styles.kicker}>{store.hoursLabel || "Adults 19+"}</p><h2>{store.storeName}</h2><address>{store.streetAddress}<br />{store.city}, ON {store.postalCode}<br />Islington Ave &amp; Steeles Ave W · Humber Summit</address></div>
-          <div className={styles.visitFacts}>{store.hoursLabel && <strong>{store.hoursLabel}</strong>}<a href={`tel:${store.phoneIntl}`}>Phone: {store.phoneDisplay}</a><span>Adults 19+</span><Link href="/visit">How to find unit 1</Link></div>
+          <div className={styles.visitFacts}>{store.hoursLabel && <strong>{store.hoursLabel}</strong>}<a href={`tel:${store.phoneIntl}`}>Phone: {store.phoneDisplay}</a><span>Adults 19+</span><Link href="/">Homepage visit hub</Link><Link href="/visit">How to find unit 1</Link><Link href="/24-hour-islington-steeles-dispensary">24-hour Islington &amp; Steeles</Link></div>
           <p>Look for unit 1 at the Islington plaza entrance. Free plaza parking is on-site; evening street parking is available — read the signs. TTC buses run Islington Avenue and Steeles Avenue West. NAP, hours, and the map hub stay on the homepage; this North York page is the corridor landing, not a Toronto city page.</p>
           <p>Call ahead if one particular product is the reason for your trip. This page does not make a current inventory claim.</p>
         </section>

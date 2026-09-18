@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./faq.module.css";
@@ -22,7 +23,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "What are your hours?",
-        a: "Planet X Cannabis is open 24 hours. Check the site or call +1 (289) 217-2773 if you need current visit details.",
+        a: "Planet X Cannabis is open 24 hours at 3005 Islington Ave unit 1. Overnight / open-now detail is on the 24-hour Islington & Steeles page. Check the homepage or call +1 (289) 217-2773 if you need current visit details.",
       },
       {
         q: "Is there parking nearby?",
@@ -148,7 +149,12 @@ export default function FAQPage() {
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
             <p className={styles.ctaText}>
               Call us at <strong>+1 (289) 217-2773</strong> or visit us at 3005
-              Islington Ave unit 1, North York.
+              Islington Ave unit 1, North York. NAP and hours stay on the{" "}
+              <Link href="/">homepage</Link>. Overnight walk-ins use the{" "}
+              <Link href="/24-hour-islington-steeles-dispensary">
+                24-hour Islington &amp; Steeles
+              </Link>{" "}
+              page.
             </p>
           </div>
         </div>

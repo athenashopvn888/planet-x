@@ -554,6 +554,11 @@
   margin-bottom: 16px;
 }
 
+.seoPanelText a {
+  color: #fde68a;
+  font-weight: 700;
+}
+
 .seoPanelText:last-child {
   margin-bottom: 0;
 }

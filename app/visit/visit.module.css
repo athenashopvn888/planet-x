@@ -85,6 +85,12 @@
   font-weight: 800;
 }
 
+.hero p a,
+.section a {
+  color: #fde68a;
+  font-weight: 700;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

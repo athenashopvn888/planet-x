@@ -34,7 +34,7 @@ export const storeNap = {
 export const HOME_FAQS: { q: string; a: string }[] = [
   {
     q: "What are the hours for The Planet X Cannabis?",
-    a: "The Planet X Cannabis at 3005 Islington Ave unit 1, North York is Open 24 Hours a day, 7 days a week. Walk in anytime — no appointment needed.",
+    a: "The Planet X Cannabis at 3005 Islington Ave unit 1, North York is Open 24 Hours a day, 7 days a week. Walk in anytime — no appointment needed. Overnight / open-now detail for Islington & Steeles lives on the dedicated 24-hour page; this homepage keeps NAP, hours, and the map.",
   },
   {
     q: "Where is unit 1 at 3005 Islington Ave?",
@@ -128,6 +128,78 @@ export function storeJsonLd() {
         "@id": `${STORE_ORIGIN}/#faq`,
         url: STORE_ORIGIN,
         mainEntity: HOME_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
+        })),
+      },
+    ],
+  };
+}
+
+export const VISIT_FAQS = HOME_FAQS.slice(0, 4);
+
+export function visitJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${STORE_ORIGIN}/visit#webpage`,
+        url: `${STORE_ORIGIN}/visit`,
+        name: "Find unit 1 at The Planet X Cannabis — Islington & Steeles",
+        description:
+          "How to find The Planet X Cannabis at 3005 Islington Ave unit 1, North York: plaza entrance, TTC on Islington and Steeles, parking, and Humber Summit landmarks. Homepage remains the visit hub.",
+        isPartOf: { "@id": `${STORE_ORIGIN}/#website` },
+        about: { "@id": `${STORE_ORIGIN}/#store` },
+        primaryImageOfPage: storeNap.imageUrl,
+        mentions: [
+          {
+            "@type": "CannabisStore",
+            "@id": `${STORE_ORIGIN}/#store`,
+            name: storeNap.brand,
+            telephone: storeNap.phoneIntl,
+            image: storeNap.imageUrl,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: storeNap.streetAddress,
+              addressLocality: storeNap.city,
+              addressRegion: storeNap.region,
+              postalCode: storeNap.postalCode,
+              addressCountry: storeNap.country,
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: storeNap.latitude,
+              longitude: storeNap.longitude,
+            },
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                opens: "00:00",
+                closes: "23:59",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${STORE_ORIGIN}/visit#faq`,
+        url: `${STORE_ORIGIN}/visit`,
+        mainEntity: VISIT_FAQS.map((faq) => ({
           "@type": "Question",
           name: faq.q,
           acceptedAnswer: {

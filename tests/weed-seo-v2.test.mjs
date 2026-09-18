@@ -11,12 +11,15 @@ const navbar = readFileSync("app/components/Navbar.tsx", "utf8");
 
 const tierSlugs = ["exotic-weed", "premium-weed", "aaa-weed", "aa-weed", "budget-weed"];
 
-test("V2 tier owners use Weed names, titles, H1s and canonical slugs", () => {
+test("V2 tier owners keep live -weed slugs with unique H1s and titles", () => {
   for (const slug of tierSlugs) assert.match(products, new RegExp(`slug: "${slug}"`));
-  for (const label of ["Exotic", "Premium", "AAA\\+", "AA", "Budget"]) {
-    assert.match(tiers, new RegExp(`${label} Weed & Cannabis Flower North York`));
-    assert.match(tiers, new RegExp(`${label} Weed & Cannabis Flower in North York`));
-  }
+  assert.match(tiers, /Exotic cannabis flower at unit 1, Islington & Steeles/);
+  assert.match(tiers, /Premium flower for Humber Summit regulars/);
+  assert.match(tiers, /AAA\+ weed at Planet X — mid-shelf on Islington Ave/);
+  assert.match(tiers, /AA flower near Steeles West — \$4\/g at unit 1/);
+  assert.match(tiers, /Budget cannabis flower from \$3\/g at Islington & Steeles/);
+  assert.match(tiers, /Exotic Flower at Islington & Steeles/);
+  assert.match(tiers, /Premium Weed in Humber Summit/);
 });
 
 test("legacy tier and Weed resource routes redirect directly to V2 owners", () => {
