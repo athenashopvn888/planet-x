@@ -23,7 +23,7 @@ async function main() {
 
   try {
     const url = `${APPS_SCRIPT_URL}?store=PLX01`;
-    const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
+    const res = await fetch(url, { signal: AbortSignal.timeout(90000) });
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}: ${res.statusText}`);
