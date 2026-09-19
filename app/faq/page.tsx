@@ -77,7 +77,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you offer delivery?",
-        a: "Delivery is confirmed from this North York store for nearby Islington, Steeles, Humber Summit, and York University area addresses when a driver can take the order. It is not city-wide Toronto delivery. Use the delivery page or call +1 (289) 217-2773 to confirm your street.",
+        a: "Delivery is confirmed from this North York store for nearby Islington, Steeles, Humber Summit, and York University area addresses when a driver can take the order. It is not city-wide Toronto delivery. Use /cannabis-delivery-islington-steeles for the neighbourhood page, /delivery for the catalog, or call +1 (289) 217-2773 to confirm your street.",
       },
       {
         q: "Can staff help me choose a strain?",
@@ -154,7 +154,11 @@ export default function FAQPage() {
               <Link href="/24-hour-islington-steeles-dispensary">
                 24-hour Islington &amp; Steeles
               </Link>{" "}
-              page.
+              page. Corridor delivery:{" "}
+              <Link href="/cannabis-delivery-islington-steeles">
+                Islington &amp; Steeles delivery
+              </Link>
+              .
             </p>
           </div>
         </div>

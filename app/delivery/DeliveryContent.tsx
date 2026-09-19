@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import menu from "./delivery-menu.json";
 import styles from "./delivery.module.css";
 import PlanetXWebChat from "./PlanetXWebChat";
+import { MESH } from "../lib/seoMesh";
 
 type Tier = "SHREDS" | "Budget" | "BC Premium" | "CRAFTS" | "Exotics";
 type PriceOption = { key: string; label: string; price: number };
@@ -106,7 +108,7 @@ export default function DeliveryContent() {
   return <main className={styles.main}>
     <Navbar />
     <section className={`${styles.hero} ${styles.heroPlain}`}>
-      <div><p>The Planet X Cannabis · North York</p><h1>North York Delivery Menu</h1><span>Delivery is confirmed from 3005 Islington Ave unit 1 for nearby Islington, Steeles, Humber Summit, and York University area addresses. The store confirms current availability and the street before an order is accepted. This is not city-wide Toronto delivery.</span></div>
+      <div><p>The Planet X Cannabis · North York</p><h1>North York Delivery Menu</h1><span>Delivery is confirmed from 3005 Islington Ave unit 1 for nearby Islington, Steeles, Humber Summit, and York University area addresses. The store confirms current availability and the street before an order is accepted. This is not city-wide Toronto delivery. Corridor explainer: <Link href={MESH.delivery}>cannabis delivery Islington &amp; Steeles</Link>.</span></div>
     </section>
     <section className={styles.deliveryDetails} aria-label="Planet X Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>

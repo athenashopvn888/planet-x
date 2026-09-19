@@ -43,8 +43,8 @@ test("/visit keeps supporting hub role plus schema matching visible unit-1 copy"
 });
 
 test("dedicated 24h LP is area-true Islington-Steeles / North York, not Toronto city spam", () => {
-  assert.match(hours24, /<h1>24-hour dispensary at Islington &amp; Steeles — unit 1, North York<\/h1>/);
-  assert.match(hours24, /24 Hour Dispensary at Islington & Steeles/);
+  assert.match(hours24, /<h1>Open now: 24-hour dispensary near Islington &amp; Steeles — unit 1<\/h1>/);
+  assert.match(hours24, /24 Hour Dispensary Open Now Near Islington & Steeles/);
   assert.match(hours24, /3005 Islington Ave unit 1/);
   assert.match(hours24, /Humber Summit/);
   assert.match(hours24, /Open 24 Hours/);

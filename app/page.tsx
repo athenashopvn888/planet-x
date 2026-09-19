@@ -297,7 +297,7 @@ export default function HomePage() {
           <div className={styles.seoPanel}>
             <h2 className={styles.seoPanelTitle}>Islington Ave &amp; Steeles Ave W&apos;s Local Cannabis Dispensary — Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href={MESH.visit}>how-to-reach page</Link> only explains the plaza door, TTC, and parking. Overnight / open-now intent lives on the <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link> page. Neighbourhood weed copy lives on the <Link href={MESH.geo}>North York dispensary</Link> corridor.
+              <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href={MESH.visit}>how-to-reach page</Link> only explains the plaza door, TTC, and parking. Overnight / open-now intent lives on the <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link> page. Neighbourhood weed copy lives on the <Link href={MESH.geo}>North York dispensary</Link> corridor. Corridor <Link href={MESH.delivery}>cannabis delivery</Link>, <Link href={MESH.nativeCigs}>Native cigarettes</Link>, and <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu: <Link href={MESH.vapesMenu}>/items/vapes</Link>) each keep a neighbourhood page.
             </p>
             <p className={styles.seoPanelText}>
               Open 24 hours, 7 days a week. Late Steeles West runs, York University night buses, and Humber Summit shift changes all land at the same unit 1 entrance. Flower is sorted into <Link href={MESH.exotic}>Exotic</Link>, <Link href={MESH.premium}>Premium</Link>, <Link href={MESH.aaa}>AAA+</Link>, <Link href={MESH.aa}>AA</Link>, and <Link href={MESH.budget}>Budget</Link> so you can compare before you talk to a budtender. Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories sit on the same live menu.
@@ -306,7 +306,7 @@ export default function HomePage() {
               Searching for weed near Islington &amp; Steeles, Humber Summit, or North York walk-in hours? Stay on this neighbourhood pin. City-wide Toronto head terms are the wrong war for 3005 Islington. Call{" "}
               <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a> if you need one specific SKU before you leave.
             </p>
-            <SeoMesh current={MESH.home} heading="Visit mesh — unit 1, geo, 24-hour, tiers" />
+            <SeoMesh current={MESH.home} heading="Visit mesh — unit 1, geo, 24-hour, Big Three, tiers" />
           </div>
         </div>
       </section>
@@ -449,6 +449,9 @@ export default function HomePage() {
             </Link>
             <Link href={MESH.geo} className={styles.visitHubSecondary}>
               North York dispensary
+            </Link>
+            <Link href={MESH.delivery} className={styles.visitHubSecondary}>
+              Corridor delivery
             </Link>
             <a
               className={styles.visitHubSecondary}

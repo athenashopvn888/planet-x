@@ -12,18 +12,18 @@ const PAGE_URL = `${storeNap.origin}${PAGE_PATH}`;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "24 Hour Dispensary at Islington & Steeles | Planet X Cannabis",
+    absolute: "24 Hour Dispensary Open Now Near Islington & Steeles | Planet X",
   },
   description:
-    "24-hour cannabis dispensary at 3005 Islington Ave unit 1, North York — Islington & Steeles / Humber Summit walk-in. Open overnight. Adults 19+. Call +1 (289) 217-2773.",
+    "Open now: 24-hour cannabis dispensary at 3005 Islington Ave unit 1, North York — Islington & Steeles / Humber Summit walk-in. Adults 19+. Call +1 (289) 217-2773.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
     url: PAGE_URL,
-    title: "24 Hour Dispensary at Islington & Steeles | Planet X Cannabis",
+    title: "24 Hour Dispensary Open Now Near Islington & Steeles | Planet X",
     description:
-      "The Planet X Cannabis is open 24 hours at 3005 Islington Ave unit 1 in Humber Summit, North York. Overnight walk-in at Islington & Steeles. Adults 19+.",
+      "The Planet X Cannabis is open 24 hours at 3005 Islington Ave unit 1 in Humber Summit, North York. Open-now / 24h-near-me walk-in at Islington & Steeles. Adults 19+.",
     images: [
       {
         url: storeNap.imageUrl,
@@ -43,9 +43,9 @@ function twentyFourJsonLd() {
         "@type": "WebPage",
         "@id": `${PAGE_URL}#webpage`,
         url: PAGE_URL,
-        name: "24-hour dispensary at Islington & Steeles — unit 1, North York",
+        name: "Open now: 24-hour dispensary near Islington & Steeles — unit 1",
         description:
-          "Overnight and open-now guide for The Planet X Cannabis at 3005 Islington Ave unit 1, North York. Open 24 hours on Islington Avenue and Steeles Avenue West in Humber Summit.",
+          "Open-now and 24h-near-me guide for The Planet X Cannabis at 3005 Islington Ave unit 1, North York. Open 24 hours on Islington Avenue and Steeles Avenue West in Humber Summit.",
         isPartOf: { "@id": `${storeNap.origin}/#website` },
         about: { "@id": `${storeNap.origin}/#store` },
         primaryImageOfPage: storeNap.imageUrl,
@@ -76,13 +76,15 @@ export default function TwentyFourHourIslingtonSteelesPage() {
       />
       <Navbar />
       <section className={styles.hero}>
-        <p className={styles.kicker}>Open 24 Hours · Islington &amp; Steeles · Adults 19+</p>
-        <h1>24-hour dispensary at Islington &amp; Steeles — unit 1, North York</h1>
+        <p className={styles.kicker}>Open now · Open 24 Hours · Islington &amp; Steeles · Adults 19+</p>
+        <h1>Open now: 24-hour dispensary near Islington &amp; Steeles — unit 1</h1>
         <p>
-          <strong>{storeNap.brand}</strong> stays open all night at{" "}
+          <strong>{storeNap.brand}</strong> is a 24-hour walk-in at{" "}
           {storeNap.streetAddress}, {storeNap.city}, {storeNap.region}{" "}
-          {storeNap.postalCode}. This page owns overnight / open-now intent for
-          the Islington &amp; Steeles door in Humber Summit. The{" "}
+          {storeNap.postalCode} — {storeNap.hoursDetail}. This page is the
+          first-class open-now / 24h-near-me owner for the Islington &amp;
+          Steeles door in Humber Summit, equal with corridor delivery, Native
+          cigarettes, and nicotine vape. The{" "}
           <Link href={MESH.home}>homepage</Link> remains the NAP, hours, and map
           hub. <Link href={MESH.visit}>How to find unit 1</Link> covers plaza
           entrance, TTC, and parking.
@@ -118,7 +120,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
             Unit 1 door guide
           </Link>
         </div>
-        <SeoMesh current={PAGE_PATH} heading="Mesh — hub, visit, geo, tiers" />
+        <SeoMesh current={PAGE_PATH} heading="Mesh — hub, visit, geo, Big Three, tiers" />
       </section>
 
       <section className={styles.section}>
@@ -134,6 +136,27 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           Islington Avenue until you see unit 1. Calling{" "}
           <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a> is
           faster than circling the lot at 3 a.m.
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Open now / near me on this corridor</h2>
+        <p>
+          Searching “dispensary open now” or “weed near me” from Islington
+          Avenue, Steeles Avenue West, or Humber Summit? This URL is the
+          overnight / open-now owner for unit 1 — not a Toronto city-wide
+          open-now page. Adults 19+ with ID walk in any hour the site lists:{" "}
+          {storeNap.hoursDetail}.
+        </p>
+        <p>
+          Want a drop instead of the door? Corridor cannabis delivery from this
+          same North York store lives on the{" "}
+          <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
+          page. Confirm the street before you wait. Cigarettes and nicotine
+          vapes sold at this door have their own neighbourhood guides:{" "}
+          <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
+          <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+          <Link href={MESH.vapesMenu}>/items/vapes</Link>).
         </p>
       </section>
 
@@ -183,7 +206,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           open-now intent for Islington &amp; Steeles. Google Business Profile
           should keep pointing at the homepage root — not this overnight slug.
         </p>
-        <SeoMesh current={PAGE_PATH} heading="Back to hub, visit, geo, and tiers" />
+        <SeoMesh current={PAGE_PATH} heading="Back to hub, visit, geo, Big Three, and tiers" />
       </section>
 
       <section className={styles.section}>

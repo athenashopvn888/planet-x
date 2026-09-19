@@ -6,6 +6,9 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { SEO_PAGES, getSeoPageBySlug } from "../../lib/seoPages";
 import { TIER_CONFIG } from "../../lib/products";
+import { jsonLdScript, storeNap } from "../../lib/storeNap";
+import { MESH } from "../../lib/seoMesh";
+import SeoMesh from "../../components/SeoMesh";
 import styles from "./seo.module.css";
 
 /* ── Generate all SEO pages ── */
@@ -44,9 +47,34 @@ export default async function SeoLandingPage({
 
   const tiers = Object.values(TIER_CONFIG);
   const heroPreview = page.heroPreview;
+  const pagePath = `/info/${slug}`;
+  const pageUrl = `${storeNap.origin}${pagePath}`;
+  const faqJsonLd =
+    page.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${pageUrl}#faq`,
+          url: pageUrl,
+          mainEntity: page.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        }
+      : null;
 
   return (
     <main className={styles.main}>
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
+        />
+      )}
       <Navbar />
 
       {/* Banner Image */}
@@ -158,6 +186,23 @@ export default async function SeoLandingPage({
             </div>
           )}
           {heroPreview?.warning && <p className={styles.nicotineWarning}>{heroPreview.warning}</p>}
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Unit 1 mesh — hub, visit, geo, 24-hour, Big Three</h2>
+            <p className={styles.sectionBody}>
+              NAP, hours, and the map stay on the homepage at {storeNap.streetAddress}.
+              Use /visit for the plaza door, the North York dispensary page for corridor
+              weed intent, and the 24-hour Islington &amp; Steeles page for overnight
+              walk-ins. Cannabis delivery, Native cigarettes, and nicotine vapes each
+              keep their own neighbourhood URL. Live nicotine category:{" "}
+              <Link href={MESH.vapesMenu}>/items/vapes</Link>.
+            </p>
+            <SeoMesh
+              current={pagePath}
+              heading={`${page.h1} mesh`}
+              variant="onPage"
+            />
+          </div>
         </div>
       </section>
 
