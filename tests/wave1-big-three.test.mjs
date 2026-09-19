@@ -68,6 +68,8 @@ test("nicotine neighbourhood LP still funnels to /items/vapes with unique corrid
 });
 
 test("24h door-test owns open-now / near-me and meshes Big Three", () => {
+  assert.match(hours24, /<h1>Open now: 24-hour dispensary near Islington &amp; Steeles — unit 1<\/h1>/);
+  assert.match(hours24, /first-class open-now \/ 24h-near-me owner/);
   assert.match(hours24, /Open now \/ near me on this corridor/);
   assert.match(hours24, /MESH\.delivery/);
   assert.match(hours24, /MESH\.nativeCigs/);

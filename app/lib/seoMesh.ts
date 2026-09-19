@@ -71,6 +71,10 @@ export const TWENTY_FOUR_FAQS: { q: string; a: string }[] = [
     q: "Can I walk in now or should I request cannabis delivery instead?",
     a: "Adults 19+ can walk in any hour the site lists: Open 24 Hours. Corridor delivery from this same North York store is a separate path — confirm your street on the Islington & Steeles delivery page before you wait on a drop. Overnight stock is still confirmed by phone or in store.",
   },
+  {
+    q: "Is there a 24 hour dispensary near me on Steeles West?",
+    a: "The Planet X Cannabis at 3005 Islington Ave unit 1 is the 24-hour door on the Islington and Steeles West edge of Humber Summit, North York. Hours listed on this site are Open 24 Hours a day, 7 days a week. This is not a downtown Toronto 24-hour page.",
+  },
 ];
 
 export const DELIVERY_FAQS: { q: string; a: string }[] = [
