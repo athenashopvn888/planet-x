@@ -5,12 +5,14 @@ import Navbar from "../../components/Navbar";
 import SafeImage from "../../components/SafeImage";
 import { getItemPriceDisplay } from "../../lib/itemPricing";
 import Footer from "../../components/Footer";
+import SeoMesh from "../../components/SeoMesh";
 import {
   getItemsByCategory,
   getCategoryFromSlug,
   CATEGORY_CONFIG,
   type ItemProduct,
 } from "../../lib/products";
+import { MESH } from "../../lib/seoMesh";
 import styles from "./items.module.css";
 
 /* ── Generate all category pages ── */
@@ -128,6 +130,29 @@ export default async function ItemsCategoryPage({
                 </details>
               ))}
             </div>
+          )}
+
+          {catSlug === "vapes" && (
+            <p className={styles.seoBody}>
+              Neighbourhood nicotine-vape copy for Islington &amp; Steeles lives on{" "}
+              <Link href={MESH.nicotineVape}>the corridor vape page</Link>. This
+              URL is the live <strong>/items/vapes</strong> category. Adults 19+.
+              Nicotine is addictive.
+            </p>
+          )}
+          {catSlug === "cigarettes" && (
+            <p className={styles.seoBody}>
+              Neighbourhood cigarette copy lives on the{" "}
+              <Link href={MESH.nativeCigs}>Native cigarettes Islington &amp; Steeles</Link>{" "}
+              page. Confirm current brands here, then ask at unit 1. Adults 19+.
+            </p>
+          )}
+          {(catSlug === "vapes" || catSlug === "cigarettes") && (
+            <SeoMesh
+              current={`/items/${catSlug}`}
+              heading="Unit 1 mesh — hub, visit, geo, 24-hour, Big Three"
+              variant="onPage"
+            />
           )}
 
           {/* Visit CTA */}

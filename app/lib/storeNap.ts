@@ -58,7 +58,7 @@ export const HOME_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Do you deliver across Toronto?",
-    a: "Delivery is confirmed from this North York store for nearby Islington, Steeles, Humber Summit, and York University area addresses when a driver can take the order. It is not a city-wide Toronto delivery service. Call +1 (289) 217-2773 to confirm your street before you wait on a drop.",
+    a: "Delivery is confirmed from this North York store for nearby Islington, Steeles, Humber Summit, and York University area addresses when a driver can take the order. It is not a city-wide Toronto delivery service. The neighbourhood delivery page is /cannabis-delivery-islington-steeles; the live catalog is /delivery. Call +1 (289) 217-2773 to confirm your street before you wait on a drop.",
   },
   {
     q: "What phone number should directories use?",

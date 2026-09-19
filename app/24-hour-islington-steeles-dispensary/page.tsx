@@ -118,7 +118,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
             Unit 1 door guide
           </Link>
         </div>
-        <SeoMesh current={PAGE_PATH} heading="Mesh — hub, visit, geo, tiers" />
+        <SeoMesh current={PAGE_PATH} heading="Mesh — hub, visit, geo, Big Three, tiers" />
       </section>
 
       <section className={styles.section}>
@@ -134,6 +134,27 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           Islington Avenue until you see unit 1. Calling{" "}
           <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a> is
           faster than circling the lot at 3 a.m.
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Open now / near me on this corridor</h2>
+        <p>
+          Searching “dispensary open now” or “weed near me” from Islington
+          Avenue, Steeles Avenue West, or Humber Summit? This URL is the
+          overnight / open-now owner for unit 1 — not a Toronto city-wide
+          open-now page. Adults 19+ with ID walk in any hour the site lists:{" "}
+          {storeNap.hoursDetail}.
+        </p>
+        <p>
+          Want a drop instead of the door? Corridor cannabis delivery from this
+          same North York store lives on the{" "}
+          <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
+          page. Confirm the street before you wait. Cigarettes and nicotine
+          vapes sold at this door have their own neighbourhood guides:{" "}
+          <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
+          <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+          <Link href={MESH.vapesMenu}>/items/vapes</Link>).
         </p>
       </section>
 
@@ -183,7 +204,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           open-now intent for Islington &amp; Steeles. Google Business Profile
           should keep pointing at the homepage root — not this overnight slug.
         </p>
-        <SeoMesh current={PAGE_PATH} heading="Back to hub, visit, geo, and tiers" />
+        <SeoMesh current={PAGE_PATH} heading="Back to hub, visit, geo, Big Three, and tiers" />
       </section>
 
       <section className={styles.section}>

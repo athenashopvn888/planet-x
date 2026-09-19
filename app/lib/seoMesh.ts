@@ -4,6 +4,12 @@ export const MESH = {
   visit: "/visit",
   geo: "/weed-dispensary-north-york/",
   hours24: "/24-hour-islington-steeles-dispensary",
+  delivery: "/cannabis-delivery-islington-steeles",
+  nativeCigs: "/info/native-cigarettes-islington-steeles",
+  nicotineVape: "/info/nicotine-vapes-islington-steeles",
+  vapesMenu: "/items/vapes",
+  cigsMenu: "/items/cigarettes",
+  deliveryMenu: "/delivery",
   exotic: "/exotic-weed",
   premium: "/premium-weed",
   aaa: "/aaa-weed",
@@ -24,6 +30,12 @@ export const CORE_MESH = [
   { href: MESH.visit, label: "How to find unit 1" },
   { href: MESH.geo, label: "North York dispensary" },
   { href: MESH.hours24, label: "24-hour Islington & Steeles" },
+] as const;
+
+export const VERTICAL_MESH = [
+  { href: MESH.delivery, label: "Cannabis delivery Islington & Steeles" },
+  { href: MESH.nativeCigs, label: "Native cigarettes unit 1" },
+  { href: MESH.nicotineVape, label: "Nicotine vape Islington & Steeles" },
 ] as const;
 
 export const TWENTY_FOUR_FAQS: { q: string; a: string }[] = [
@@ -50,5 +62,78 @@ export const TWENTY_FOUR_FAQS: { q: string; a: string }[] = [
   {
     q: "Is this a downtown Toronto 24-hour dispensary?",
     a: "No. This is the North York / Humber Summit walk-in at 3005 Islington Ave unit 1, on Islington Avenue and Steeles Avenue West — not a downtown Toronto or city-wide landing. Stay on this neighbourhood pin for overnight hours.",
+  },
+  {
+    q: "Is Planet X a dispensary open now near me in Humber Summit?",
+    a: "If you are on Islington Avenue, Steeles Avenue West, or in Humber Summit and searching open now / near me, unit 1 is the 24-hour walk-in at 3005 Islington Ave. This is a corridor door, not a Toronto city-wide open-now page. NAP and the map stay on the homepage.",
+  },
+  {
+    q: "Can I walk in now or should I request cannabis delivery instead?",
+    a: "Adults 19+ can walk in any hour the site lists: Open 24 Hours. Corridor delivery from this same North York store is a separate path — confirm your street on the Islington & Steeles delivery page before you wait on a drop. Overnight stock is still confirmed by phone or in store.",
+  },
+];
+
+export const DELIVERY_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Does The Planet X Cannabis deliver near Islington and Steeles?",
+    a: "Yes. Delivery is coordinated from 3005 Islington Ave unit 1 when a driver can take the order. Plan around Islington Avenue, Steeles Avenue West, Humber Summit, and York University area streets — not a city-wide Toronto drop.",
+  },
+  {
+    q: "What is the delivery minimum from unit 1?",
+    a: "The live delivery menu lists a $60 product minimum. The dispatcher confirms the street, timing, and that minimum before anything leaves the North York store.",
+  },
+  {
+    q: "How do I place a cannabis delivery order from this corridor?",
+    a: "Browse the North York delivery menu, note the product names and weights, then use LIVE ORDER / Web Chat so the Planet X dispatcher can confirm availability. New customers complete the private selfie-with-ID step in chat. Adults 19+ only.",
+  },
+  {
+    q: "Is this weed delivery across all of Toronto?",
+    a: "No. This page only covers the Islington–Steeles / Humber Summit / North York corridor from unit 1. If your address sits outside that area, walk in instead — the store is Open 24 Hours.",
+  },
+  {
+    q: "What if I would rather pick up at the 24-hour door?",
+    a: "Walk in at 3005 Islington Ave unit 1. Overnight / open-now intent lives on the 24-hour Islington & Steeles page. How to find the plaza entrance lives on /visit. NAP stays on the homepage.",
+  },
+];
+
+export const NATIVE_CIG_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Does Planet X at Islington & Steeles sell cigarettes?",
+    a: "Yes. Adults 19+ can browse the cigarette category at 3005 Islington Ave unit 1. This neighbourhood page is the Islington & Steeles guide; the live cigarette menu is the place to check current brands. Confirm prices and pack sizes in store.",
+  },
+  {
+    q: "Are the brand cards on this page a live inventory list?",
+    a: "No. The preview cards are brand guidance only. Selection varies by store and by day. Open the cigarette menu or ask at unit 1 before a special trip.",
+  },
+  {
+    q: "Is this a medical or ceremonial page?",
+    a: "No. This is an adult 19+ retail cigarette category page for the North York walk-in. It does not make health, ceremonial, or cultural claims.",
+  },
+  {
+    q: "Can I buy cigarettes after midnight at unit 1?",
+    a: "The store is Open 24 Hours. Cigarette availability overnight still has to be confirmed in store or by calling +1 (289) 217-2773. The 24-hour page owns open-now hours; this page owns the cigarette category for the corridor.",
+  },
+];
+
+export const NICOTINE_VAPE_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Where should I check Planet X Cannabis’s current nicotine selection?",
+    a: "Browse the relevant menu category for current product information.",
+  },
+  {
+    q: "Does every featured item use the same format?",
+    a: "No format should be assumed. One featured page explicitly identifies an OVNS disposable. Read each current product page for its supported format and details.",
+  },
+  {
+    q: "Does this page include cannabis vapes?",
+    a: "No. It covers six nicotine products from the VAPE PENS category for adults 19+. THC and cannabis vape products are excluded.",
+  },
+  {
+    q: "Is this a city-wide Toronto nicotine vape shop page?",
+    a: "No. This is the Islington Avenue, Steeles Avenue West, and Humber Summit neighbourhood guide for the North York store at 3005 Islington Ave unit 1. The live nicotine category stays at /items/vapes.",
+  },
+  {
+    q: "Who can buy nicotine vapes at unit 1?",
+    a: "Adults 19+ with valid ID. Nicotine is addictive. This page does not make health or cessation claims.",
   },
 ];

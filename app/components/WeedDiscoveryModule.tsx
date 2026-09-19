@@ -13,6 +13,7 @@ export function WeedDiscoveryModule() {
         <div className={styles.actions}>
           <Link href={store.ownerPath} className={styles.primary}>{store.home.primaryLabel}</Link>
           <Link href={MESH.hours24} className={styles.secondary}>24-hour Islington &amp; Steeles</Link>
+          <Link href={MESH.delivery} className={styles.secondary}>Corridor delivery</Link>
           <Link href={store.home.secondaryHref} className={styles.secondary}>{store.home.secondaryLabel}</Link>
         </div>
       </div>

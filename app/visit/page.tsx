@@ -79,7 +79,7 @@ export default function VisitPage() {
             Homepage visit hub
           </Link>
         </div>
-        <SeoMesh current={MESH.visit} heading="Mesh — homepage, geo, 24-hour, tiers" />
+        <SeoMesh current={MESH.visit} heading="Mesh — homepage, geo, 24-hour, Big Three, tiers" />
       </section>
 
       <section className={styles.section}>
@@ -150,8 +150,13 @@ export default function VisitPage() {
           reach only. Browse the{" "}
           <Link href={MESH.geo}>North York dispensary</Link> corridor page, the{" "}
           <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link>{" "}
-          overnight guide, or the <Link href="/delivery">North York delivery menu</Link>{" "}
-          after you know the door.
+          overnight guide, the{" "}
+          <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
+          corridor page, or the{" "}
+          <Link href={MESH.deliveryMenu}>North York delivery menu</Link> after
+          you know the door. Cigarettes and nicotine vapes:{" "}
+          <Link href={MESH.nativeCigs}>Native cigarettes</Link> ·{" "}
+          <Link href={MESH.nicotineVape}>nicotine vape</Link>.
         </p>
       </section>
 

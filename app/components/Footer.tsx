@@ -64,6 +64,9 @@ export default function Footer() {
               <Link href="/24-hour-islington-steeles-dispensary">
                 24-Hour Islington &amp; Steeles
               </Link>
+              <Link href="/cannabis-delivery-islington-steeles">
+                Cannabis Delivery Islington &amp; Steeles
+              </Link>
               <Link href="/delivery">DELIVERY MENU</Link>
               <Link href="/info/cheap-weed-islington-steeles">
                 Cheap Weed North York

@@ -219,7 +219,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     seoIntro:
       "Explore Planet X Cannabis nicotine vape products in a category kept separate from THC Vape products. Nicotine products are for adults 19+ and contain nicotine, which is addictive.",
     seoDescription:
-      "Explore the Planet X Cannabis Nicotine Vape category in North York. Nicotine products are for adults 19+ and are kept separate from THC Vape products.",
+      "Explore the Planet X Cannabis Nicotine Vape category in North York at 3005 Islington Ave unit 1. Nicotine products are for adults 19+ and are kept separate from THC Vape products. Neighbourhood guide: /info/nicotine-vapes-islington-steeles. Nicotine is addictive.",
     faqs: [
       {
         q: "Are Nicotine Vape and THC Vape the same category?",
