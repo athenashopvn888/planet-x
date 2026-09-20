@@ -9,13 +9,13 @@ const footer = readFileSync("app/components/Footer.tsx", "utf8");
 const sitemap = readFileSync("app/sitemap.ts", "utf8");
 const navbar = readFileSync("app/components/Navbar.tsx", "utf8");
 const geo = readFileSync("app/lib/weedDiscovery.ts", "utf8");
-const landing = readFileSync("app/components/GBPLandingPage.tsx", "utf8");
+const geoPage = readFileSync("app/weed-dispensary-north-york/page.tsx", "utf8");
 const hours24 = readFileSync("app/24-hour-islington-steeles-dispensary/page.tsx", "utf8");
 const tierPage = readFileSync("app/[tier]/page.tsx", "utf8");
 const tiers = readFileSync("app/lib/tierSeoContent.ts", "utf8");
 const mesh = readFileSync("app/lib/seoMesh.ts", "utf8");
 const redirects = readFileSync("next.config.ts", "utf8");
-const meshSrc = [home, visit, geo, landing, hours24, footer, navbar, sitemap, storeNap, mesh].join("\n");
+const meshSrc = [home, visit, geo, geoPage, hours24, footer, navbar, sitemap, storeNap, mesh].join("\n");
 
 test("homepage stays NAP hours map hub and meshes to visit geo 24h tiers", () => {
   assert.match(home, /Visit hub — unit 1, North York/);
@@ -92,8 +92,8 @@ test("geo owner meshes all five tiers plus visit, homepage, and 24h", () => {
   ]) {
     assert.match(geo, new RegExp(href.replaceAll("/", "\\/")));
   }
-  assert.match(landing, /Homepage visit hub/);
-  assert.match(landing, /24-hour-islington-steeles-dispensary/);
+  assert.match(geoPage, /MESH\.home/);
+  assert.match(geoPage, /24-hour-islington-steeles-dispensary|MESH\.hours24/);
   assert.match(navbar, /24-hour-islington-steeles-dispensary/);
 });
 

@@ -194,7 +194,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories
           sit on the same live menu. Confirm a named SKU by phone before a
           special late trip. Neighbourhood weed copy lives on the{" "}
-          <Link href={MESH.geo}>North York dispensary</Link> page.
+          <Link href={MESH.geo}>Islington &amp; Steeles weed dispensary</Link> page.
         </p>
       </section>
 

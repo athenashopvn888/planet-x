@@ -12,11 +12,12 @@ const footer = readFileSync("app/components/Footer.tsx", "utf8");
 const navbar = readFileSync("app/components/Navbar.tsx", "utf8");
 const sitemap = readFileSync("app/sitemap.ts", "utf8");
 const geo = readFileSync("app/lib/weedDiscovery.ts", "utf8");
+const geoPage = readFileSync("app/weed-dispensary-north-york/page.tsx", "utf8");
 const info = readFileSync("app/info/[seoPage]/page.tsx", "utf8");
 const items = readFileSync("app/items/[category]/page.tsx", "utf8");
 const seoMeshComponent = readFileSync("app/components/SeoMesh.tsx", "utf8");
 
-const publicSrc = [mesh, seoPages, delivery, hours24, home, visit, footer, navbar, sitemap, geo, info, items].join("\n");
+const publicSrc = [mesh, seoPages, delivery, hours24, home, visit, footer, navbar, sitemap, geo, geoPage, info, items].join("\n");
 
 test("Big Three neighbourhood slugs stay corridor-scoped, not city-wide Toronto", () => {
   assert.match(mesh, /delivery: "\/cannabis-delivery-islington-steeles"/);
@@ -91,7 +92,7 @@ test("hub visit geo footer nav mesh include Big Three", () => {
   assert.match(info, /SeoMesh/);
 });
 
-test("unique FAQ questions across 24h, delivery, native, and nicotine", () => {
+test("unique FAQ questions across 24h, delivery, native, nicotine, and geo", () => {
   const extractQs = (block, name) => {
     const start = block.indexOf(`export const ${name}`);
     assert.notEqual(start, -1, name);
@@ -103,8 +104,9 @@ test("unique FAQ questions across 24h, delivery, native, and nicotine", () => {
     ...extractQs(mesh, "DELIVERY_FAQS"),
     ...extractQs(mesh, "NATIVE_CIG_FAQS"),
     ...extractQs(mesh, "NICOTINE_VAPE_FAQS"),
+    ...extractQs(mesh, "GEO_FAQS"),
   ];
-  assert.equal(all.length >= 18, true);
+  assert.equal(all.length >= 27, true);
   assert.equal(new Set(all).size, all.length);
 });
 

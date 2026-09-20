@@ -28,7 +28,7 @@ export const TIER_MESH = [
 export const CORE_MESH = [
   { href: MESH.home, label: "Homepage visit hub" },
   { href: MESH.visit, label: "How to find unit 1" },
-  { href: MESH.geo, label: "North York dispensary" },
+  { href: MESH.geo, label: "Weed dispensary Islington & Steeles" },
   { href: MESH.hours24, label: "24-hour Islington & Steeles" },
 ] as const;
 
@@ -116,6 +116,45 @@ export const NATIVE_CIG_FAQS: { q: string; a: string }[] = [
   {
     q: "Can I buy cigarettes after midnight at unit 1?",
     a: "The store is Open 24 Hours. Cigarette availability overnight still has to be confirmed in store or by calling +1 (289) 217-2773. The 24-hour page owns open-now hours; this page owns the cigarette category for the corridor.",
+  },
+];
+
+export const GEO_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Is The Planet X Cannabis a weed dispensary for North York’s Humber Summit corridor?",
+    a: "Yes. The walk-in is 3005 Islington Ave unit 1, North York, ON M9L 2K9 — Islington Avenue and Steeles Avenue West on the Humber Summit edge. This page owns neighbourhood weed-dispensary intent for that corridor. It is not a Toronto city landing.",
+  },
+  {
+    q: "What streets does this North York weed dispensary page actually cover?",
+    a: "Islington Avenue, Steeles Avenue West, Humber Summit, and trips toward York University / Steeles West. One pin: unit 1 at 3005 Islington Ave. Downtown Toronto and city-wide head terms stay off this URL.",
+  },
+  {
+    q: "How is this weed dispensary page different from the 24-hour Islington & Steeles guide?",
+    a: "This URL owns corridor weed-dispensary copy — who the walk-in is for and which flower tiers to start with. Overnight / open-now / 24h-near-me lives on the 24-hour Islington & Steeles page. NAP, hours, and the map stay on the homepage.",
+  },
+  {
+    q: "Can I compare flower tiers before I walk into unit 1?",
+    a: "Yes. Exotic, Premium, AAA+, AA, and Budget each have their own collection URL. This neighbourhood page points at those lanes; it does not replace them and does not claim live stock. Call +1 (289) 217-2773 for a named SKU.",
+  },
+  {
+    q: "Who can shop at the Planet X weed dispensary on Islington?",
+    a: "Adults 19+ with valid ID. This is a retail walk-in, not a medical cannabis clinic and not a prescription counter.",
+  },
+  {
+    q: "Is this a medical cannabis clinic or prescription page?",
+    a: "No. The Planet X Cannabis at unit 1 is an adult 19+ retail dispensary. This page does not offer medical advice, diagnoses, or prescriptions.",
+  },
+  {
+    q: "Should I use this page or the Islington & Steeles delivery page?",
+    a: "Use this page for the walk-in weed dispensary in Humber Summit. Corridor cannabis delivery is a separate neighbourhood URL. Confirm your street there before you wait on a drop. Prefer the door? Unit 1 is Open 24 Hours.",
+  },
+  {
+    q: "Does a North York weed dispensary search mean a city-wide Toronto store?",
+    a: "No. Planet X is one North York pin at 3005 Islington Ave unit 1. Stay on this neighbourhood corridor — not a downtown or city-wide Toronto dispensary page.",
+  },
+  {
+    q: "Does the phrase Planet X weed name a specific strain at unit 1?",
+    a: "No. The Planet X Cannabis is the store name. A phrase using the store name does not confirm a cultivar. Call +1 (289) 217-2773 if you need one item.",
   },
 ];
 

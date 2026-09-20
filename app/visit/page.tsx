@@ -148,7 +148,7 @@ export default function VisitPage() {
         <p className={styles.note}>
           GBP Website stays <strong>{storeNap.origin}/</strong>. /visit supports
           reach only. Browse the{" "}
-          <Link href={MESH.geo}>North York dispensary</Link> corridor page, the{" "}
+          <Link href={MESH.geo}>Islington &amp; Steeles weed dispensary</Link> corridor page, the{" "}
           <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link>{" "}
           overnight guide, the{" "}
           <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
