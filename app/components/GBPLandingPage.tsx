@@ -41,15 +41,8 @@ export function GBPLandingPage() {
         </section>
 
         <section className={styles.section}>
-          <h2>Weed, Cannabis, Bud and Flower</h2>
-          <p>Different shoppers use different words for cannabis. The terms overlap, but product format is usually the more useful distinction.</p>
-          <div className={styles.termGrid}>
-            <article><h3>Weed</h3><p>Weed is common everyday language for cannabis.</p></article>
-            <article><h3>Cannabis</h3><p>Cannabis is the broader term covering flower and other retail formats.</p></article>
-            <article><h3>Flower</h3><p>Flower refers specifically to dried cannabis flower.</p></article>
-            <article><h3>Bud</h3><p>Bud is a common informal term for cannabis flower.</p></article>
-          </div>
-          <p>Choosing the cannabis format you want to explore is more useful than worrying about which of these words you use.</p>
+          <h2>Islington, Steeles, and Humber Summit — not a city page</h2>
+          <p>This component is a fallback for the North York weed-dispensary corridor at 3005 Islington Ave unit 1. The live owner is /weed-dispensary-north-york. Adults 19+. Not a Toronto city landing and not a medical clinic.</p>
         </section>
 
         <section className={styles.visitSection} id="visit">

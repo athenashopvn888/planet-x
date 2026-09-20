@@ -78,7 +78,7 @@ export default function Footer() {
                 Nicotine Vapes North York
               </Link>
               <Link href="/weed-dispensary-north-york/">
-                Planet x Cannabis Weed Dispensary in North York
+                Weed Dispensary Islington &amp; Steeles
               </Link>
               <Link href="/contact">Contact Us</Link>
               <Link href="/weed-resources">Weed Resources</Link>

@@ -2,15 +2,15 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-const landing = readFileSync("app/components/GBPLandingPage.tsx", "utf8");
+const landing = readFileSync("app/weed-dispensary-north-york/page.tsx", "utf8");
 const discovery = readFileSync("app/lib/weedDiscovery.ts", "utf8");
 const home = readFileSync("app/page.tsx", "utf8");
 
 test("protected owner renders exactly one H1 and approved content", () => {
   assert.equal((landing.match(/<h1>/g) || []).length, 1);
-  assert.match(discovery, /The Planet X Cannabis — Weed Dispensary in North York/);
-  assert.match(landing, /Find Your Weed/);
-  assert.match(landing, /Weed, Cannabis, Bud and Flower/);
+  assert.match(discovery, /Weed dispensary at unit 1 — Islington, Steeles, Humber Summit/);
+  assert.match(landing, /Find your weed at unit 1/);
+  assert.match(landing, /Islington, Steeles, Humber Summit/);
 });
 
 test("homepage has one bounded Weed bridge", () => {
