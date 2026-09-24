@@ -8,8 +8,8 @@ export interface TierSeoData {
 
 export const TIER_SEO: Record<string, TierSeoData> = {
   EXOTIC: {
-    seoTitle: "Exotic Flower at Islington & Steeles | Planet X Cannabis",
-    h1: "Exotic cannabis flower at unit 1, Islington & Steeles",
+    seoTitle: "Exotic Weed at Islington & Steeles | Planet X Cannabis",
+    h1: "Exotic Weed at Islington & Steeles in Humber Summit",
     seoIntro:
       "Exotic is the top-shelf flower lane at The Planet X Cannabis — 3005 Islington Ave unit 1 in Humber Summit, North York. This page only owns the Exotic collection ($10–$12/g on the published menu). Broad North York weed intent stays on the corridor page; overnight walk-ins use the 24-hour Islington & Steeles guide; NAP, hours, and the map stay on the homepage.",
     sections: [
@@ -38,8 +38,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     ],
   },
   PREMIUM: {
-    seoTitle: "Premium Weed in Humber Summit | Planet X Cannabis",
-    h1: "Premium flower for Humber Summit regulars — $7–$10/g",
+    seoTitle: "Premium Weed on Islington & Steeles | Planet X Cannabis",
+    h1: "Premium Weed for Humber Summit on Islington & Steeles",
     seoIntro:
       "Premium is the everyday quality flower lane at The Planet X Cannabis in Humber Summit — unit 1 at 3005 Islington Ave, on Islington Avenue and Steeles Avenue West. Use this page to compare Premium against Exotic above and AAA+ below. The homepage keeps address, phone +1 (289) 217-2773, hours, and the map.",
     sections: [
@@ -68,8 +68,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     ],
   },
   "AAA+": {
-    seoTitle: "AAA+ Flower at 3005 Islington Ave Unit 1 | Planet X",
-    h1: "AAA+ weed at Planet X — mid-shelf on Islington Ave",
+    seoTitle: "AAA+ Weed at Islington & Steeles Unit 1 | Planet X Cannabis",
+    h1: "AAA+ Weed at unit 1 on Islington & Steeles",
     seoIntro:
       "AAA+ is the mid-shelf flower owner at The Planet X Cannabis, 3005 Islington Ave unit 1, North York. The published range is $5–$6/g. This route is AAA+ (not a separate AAA-plus URL). Homepage NAP and 24-hour hours stay on the root; this page stays the AAA+ lane.",
     sections: [
@@ -98,8 +98,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     ],
   },
   AA: {
-    seoTitle: "AA Daily-Driver Weed near Steeles West | Planet X",
-    h1: "AA flower near Steeles West — $4/g at unit 1",
+    seoTitle: "AA Weed near Steeles West in Humber Summit | Planet X Cannabis",
+    h1: "AA Weed on the Islington & Steeles corridor",
     seoIntro:
       "AA is the $4/g daily-driver flower lane at The Planet X Cannabis, on the Steeles West / Islington edge of Humber Summit. Address: 3005 Islington Ave unit 1, North York, ON M9L 2K9. This page does not own cheap-weed SEO (that is Budget) and does not own 24-hour intent (that is the dedicated overnight LP).",
     sections: [
@@ -128,8 +128,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     ],
   },
   BUDGET: {
-    seoTitle: "Budget Weed from $3/g — 24h North York Walk-In | Planet X",
-    h1: "Budget cannabis flower from $3/g at Islington & Steeles",
+    seoTitle: "Budget Weed at Islington & Steeles | Planet X Cannabis",
+    h1: "Budget Weed from $3/g at Islington & Steeles",
     seoIntro:
       "Budget is the lowest published flower lane at The Planet X Cannabis — from $3/g at 3005 Islington Ave unit 1, North York. It is the cheap-gram owner for this Humber Summit door, not a Toronto city bargain page. Overnight hours are explained on the 24-hour Islington & Steeles LP; this page stays the $3/g collection.",
     sections: [

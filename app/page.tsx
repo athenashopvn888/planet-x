@@ -12,7 +12,7 @@ import { allFlowers } from "./lib/products";
 import Papa from "papaparse";
 import StoreMap from "./components/StoreMap";
 import SeoMesh from "./components/SeoMesh";
-import { HOME_FAQS, storeNap } from "./lib/storeNap";
+import { HOME_FAQS, storeClaimsOpen24Hours, storeNap } from "./lib/storeNap";
 import { MESH } from "./lib/seoMesh";
 
 /* ── Bento Mosaic Config ── */
@@ -73,6 +73,46 @@ const EXPLORE_CATEGORIES = [
 ];
 
 const LOCAL_FAQS = HOME_FAQS;
+
+const NEIGHBOURHOOD_HUB_CARDS = [
+  {
+    href: MESH.geo,
+    kicker: "Neighbourhood",
+    title: "Weed dispensary Islington & Steeles",
+    text: "Corridor page for the Humber Summit walk-in at 3005 Islington Ave unit 1.",
+  },
+  {
+    href: MESH.hours24,
+    kicker: "Hours",
+    title: "Open 24 hours",
+    text: "This North York door lists open 24 hours. Overnight detail stays on the Islington & Steeles hours page.",
+    onlyWhen24h: true,
+  },
+  {
+    href: MESH.delivery,
+    kicker: "Delivery",
+    title: "Cannabis delivery",
+    text: "Corridor delivery from unit 1 for nearby Islington, Steeles, and Humber Summit streets.",
+  },
+  {
+    href: MESH.nativeCigs,
+    kicker: "Cigarettes",
+    title: "Native cigarettes",
+    text: "Adult 19+ cigarette category at the unit 1 plaza door. Current packs stay on the cigarette menu.",
+  },
+  {
+    href: MESH.nicotineVape,
+    kicker: "Nicotine",
+    title: "Nicotine vape",
+    text: "Neighbourhood page for nicotine vapes on Islington & Steeles. Nicotine is addictive. Adults 19+.",
+  },
+  {
+    href: MESH.visit,
+    kicker: "Arrival",
+    title: "Visit",
+    text: "Plaza parking, TTC on Islington and Steeles, and the unit 1 door in Humber Summit.",
+  },
+] as const;
 
 interface Review {
   name: string;
@@ -230,6 +270,26 @@ export default function HomePage() {
                   <span className={styles.bentoLabel}>{tier.name}</span>
                   <span className={styles.bentoPrice}>{tier.price}</span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.hubSection} aria-label="Islington and Steeles neighbourhood guides">
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Islington &amp; Steeles guides</h2>
+            <p className={styles.sectionSubtitle}>
+              Neighbourhood pages for this one shop at 3005 Islington Ave unit 1. Adults 19+.
+            </p>
+          </div>
+          <div className={styles.hubGrid}>
+            {NEIGHBOURHOOD_HUB_CARDS.filter((card) => !("onlyWhen24h" in card) || storeClaimsOpen24Hours()).map((card) => (
+              <Link key={card.href} href={card.href} className={styles.hubCard}>
+                <span className={styles.hubKicker}>{card.kicker}</span>
+                <strong className={styles.hubTitle}>{card.title}</strong>
+                <span className={styles.hubText}>{card.text}</span>
               </Link>
             ))}
           </div>

@@ -94,7 +94,7 @@ export default function BudtenderCareersPage() {
               <span className={styles.eyebrow}>Apply Now</span>
               <h2>Tell Us About You</h2>
               <p>
-                This form sends your response to the shared Athena Store Applications sheet under PLX01. Future stores can use the same response setup with their own store key.
+                This form sends your application to Planet X Cannabis for review. Please include a way for the store to reach you.
               </p>
               <p className={styles.onlineOnlyInline}>
                 Online applications only. Please do not call the store about hiring.

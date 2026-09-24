@@ -29,9 +29,9 @@ test("homepage schema is CannabisStore + FAQPage with FMD phone and live image",
   assert.match(layout, /24 Hour North York Dispensary/);
 });
 
-test("/visit is supporting how-to-reach with NAP, transit, parking, homepage canonical", () => {
-  assert.match(visit, /canonical: storeNap\.origin/);
-  assert.match(visit, /openGraph:[\s\S]*url: storeNap\.origin/);
+test("/visit is supporting how-to-reach with NAP, transit, parking, and a self canonical", () => {
+  assert.match(visit, /canonical: `\$\{storeNap\.origin\}\/visit`/);
+  assert.match(visit, /openGraph:[\s\S]*url: `\$\{storeNap\.origin\}\/visit`/);
   assert.match(visit, /3005 Islington Ave unit 1/);
   assert.match(visit, /\+1 \(289\) 217-2773|storeNap\.phoneDisplay/);
   assert.match(visit, /TTC/);
@@ -43,9 +43,10 @@ test("/visit is supporting how-to-reach with NAP, transit, parking, homepage can
   assert.match(footer, /href="\/visit"/);
 });
 
-test("city Toronto landing is noindexed and canonicalized to homepage", () => {
+test("city Toronto landing is noindexed and canonicalized away to the corridor page", () => {
   assert.match(city, /index: false/);
-  assert.match(city, /canonical: storeNap\.origin/);
+  assert.match(city, /canonical: `\$\{storeNap\.origin\}\$\{MESH\.geo\}`/);
+  assert.doesNotMatch(city, /canonical: `\$\{storeNap\.origin\}\/weed-dispensary-toronto`/);
   assert.match(city, /not a Toronto city/i);
 });
 

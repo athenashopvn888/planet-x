@@ -8,6 +8,7 @@ import { getItemData } from "../../lib/itemData";
 import { getItemPriceDisplay } from "../../lib/itemPricing";
 import Magnifier from "../../components/Magnifier";
 import styles from "../../flower/[slug]/flower.module.css";
+import { resolveDocumentTitle } from "../../lib/storeNap";
 
 /* -- Pre-generate all item pages -- */
 export function generateStaticParams() {
@@ -27,7 +28,7 @@ export async function generateMetadata({
   const itemData = getItemData(item.category, item.name);
 
   return {
-    title: `${item.name} | ${item.category} | Planet x Cannabis North York`,
+    title: resolveDocumentTitle(`${item.name} | ${item.category} | Planet x Cannabis North York`),
     description: itemData.metaDescription,
     alternates: {
       canonical: `https://www.theplanetx.ca/item/${slug}`,

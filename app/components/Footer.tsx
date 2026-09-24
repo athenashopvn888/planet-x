@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { storeClaimsOpen24Hours } from "../lib/storeNap";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -61,9 +62,11 @@ export default function Footer() {
               <Link href="/items/vape-disposables">THC Vape</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/visit">Visit / How to Reach</Link>
-              <Link href="/24-hour-islington-steeles-dispensary">
-                24-Hour Islington &amp; Steeles
-              </Link>
+              {storeClaimsOpen24Hours() ? (
+                <Link href="/24-hour-islington-steeles-dispensary">
+                  24-Hour Islington &amp; Steeles
+                </Link>
+              ) : null}
               <Link href="/cannabis-delivery-islington-steeles">
                 Cannabis Delivery Islington &amp; Steeles
               </Link>
@@ -71,11 +74,11 @@ export default function Footer() {
               <Link href="/info/cheap-weed-islington-steeles">
                 Cheap Weed North York
               </Link>
-              <Link href="/info/native-cigarettes-islington-steeles">
+              <Link href="/native-cigarettes-islington-steeles">
                 Native Cigarettes
               </Link>
-              <Link href="/info/nicotine-vapes-islington-steeles">
-                Nicotine Vapes North York
+              <Link href="/nicotine-vape-islington-steeles">
+                Nicotine Vapes Islington &amp; Steeles
               </Link>
               <Link href="/weed-dispensary-north-york/">
                 Weed Dispensary Islington &amp; Steeles

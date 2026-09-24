@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "theplanetx.ca" }],
+        destination: "https://www.theplanetx.ca/:path*",
+        permanent: true,
+      },
       { source: "/exotic", destination: "/exotic-weed", permanent: true },
       { source: "/exotics", destination: "/exotic-weed", permanent: true },
       { source: "/premium", destination: "/premium-weed", permanent: true },
@@ -38,7 +44,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/info/native-cigarettes-york",
-        destination: "/info/native-cigarettes-islington-steeles",
+        destination: "/native-cigarettes-islington-steeles",
+        permanent: true,
+      },
+      {
+        source: "/info/native-cigarettes-islington-steeles",
+        destination: "/native-cigarettes-islington-steeles",
+        permanent: true,
+      },
+      {
+        source: "/info/nicotine-vapes-islington-steeles",
+        destination: "/nicotine-vape-islington-steeles",
         permanent: true,
       },
       {

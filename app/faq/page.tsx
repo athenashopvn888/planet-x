@@ -3,9 +3,10 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./faq.module.css";
+import { resolveDocumentTitle } from "../lib/storeNap";
 
 export const metadata: Metadata = {
-  title: "FAQ Planet X Cannabis | North York Dispensary Questions",
+  title: resolveDocumentTitle("FAQ Planet X Cannabis | North York Dispensary Questions"),
   description:
     "Frequently asked questions about Planet X Cannabis at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Hours, location, products, category browsing, and visit planning.",
   alternates: {

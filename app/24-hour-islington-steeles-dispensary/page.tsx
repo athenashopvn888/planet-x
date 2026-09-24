@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SeoMesh from "../components/SeoMesh";
-import { jsonLdScript, storeNap } from "../lib/storeNap";
+import { jsonLdScript, storeClaimsOpen24Hours, storeNap } from "../lib/storeNap";
 import { MESH, TIER_MESH, TWENTY_FOUR_FAQS } from "../lib/seoMesh";
 import styles from "../visit/visit.module.css";
 
@@ -68,6 +69,8 @@ function twentyFourJsonLd() {
 }
 
 export default function TwentyFourHourIslingtonSteelesPage() {
+  if (!storeClaimsOpen24Hours()) notFound();
+
   return (
     <main className={styles.main}>
       <script

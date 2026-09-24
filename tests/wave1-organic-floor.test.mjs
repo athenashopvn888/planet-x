@@ -30,7 +30,7 @@ test("homepage stays NAP hours map hub and meshes to visit geo 24h tiers", () =>
 });
 
 test("/visit keeps supporting hub role plus schema matching visible unit-1 copy", () => {
-  assert.match(visit, /canonical: storeNap\.origin/);
+  assert.match(visit, /canonical: `\$\{storeNap\.origin\}\/visit`/);
   assert.match(visit, /visitJsonLd\(\)/);
   assert.match(storeNap, /export function visitJsonLd/);
   assert.match(storeNap, /\/visit#webpage/);
@@ -71,11 +71,11 @@ test("five flower tiers have unique H1, title, and FAQ owners plus mesh", () => 
   assert.equal(new Set(titles).size, 5);
   assert.equal(new Set(faqQs).size, faqQs.length);
   assert.equal(faqQs.length >= 15, true);
-  assert.match(tiers, /Exotic cannabis flower at unit 1, Islington & Steeles/);
-  assert.match(tiers, /Premium flower for Humber Summit regulars/);
-  assert.match(tiers, /AAA\+ weed at Planet X — mid-shelf on Islington Ave/);
-  assert.match(tiers, /AA flower near Steeles West — \$4\/g at unit 1/);
-  assert.match(tiers, /Budget cannabis flower from \$3\/g at Islington & Steeles/);
+  assert.match(tiers, /Exotic Weed at Islington & Steeles in Humber Summit/);
+  assert.match(tiers, /Premium Weed for Humber Summit on Islington & Steeles/);
+  assert.match(tiers, /AAA\+ Weed at unit 1 on Islington & Steeles/);
+  assert.match(tiers, /AA Weed on the Islington & Steeles corridor/);
+  assert.match(tiers, /Budget Weed from \$3\/g at Islington & Steeles/);
   assert.match(tierPage, /SeoMesh/);
   assert.match(tierPage, /FAQPage/);
 });

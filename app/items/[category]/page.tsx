@@ -13,6 +13,7 @@ import {
   type ItemProduct,
 } from "../../lib/products";
 import { MESH } from "../../lib/seoMesh";
+import { resolveDocumentTitle } from "../../lib/storeNap";
 import styles from "./items.module.css";
 
 /* ── Generate all category pages ── */
@@ -33,9 +34,11 @@ export async function generateMetadata({
   const isVapeCategory = catSlug === "vapes" || catSlug === "vape-disposables";
 
   return {
-    title: isVapeCategory
-      ? { absolute: catInfo.config.seoTitle }
-      : catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`,
+    title: resolveDocumentTitle(
+      isVapeCategory
+        ? catInfo.config.seoTitle
+        : catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`,
+    ),
     description: isVapeCategory
       ? catInfo.config.seoDescription
       : catInfo.config.seoIntro || `Shop ${items.length} ${catInfo.config.name.toLowerCase()} at Planet x Cannabis.`,

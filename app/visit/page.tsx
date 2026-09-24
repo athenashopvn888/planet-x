@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   description:
     "How to find The Planet X Cannabis at 3005 Islington Ave unit 1, North York: plaza entrance, TTC on Islington and Steeles, parking, and Humber Summit landmarks. Homepage remains the visit hub.",
   alternates: {
-    canonical: storeNap.origin,
+    canonical: `${storeNap.origin}/visit`,
   },
   openGraph: {
-    url: storeNap.origin,
+    url: `${storeNap.origin}/visit`,
     title: "24 Hour North York Dispensary | Planet X Cannabis",
     description:
       "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",

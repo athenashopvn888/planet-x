@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { TIER_CONFIG, CATEGORY_CONFIG, allFlowers, allItems } from "./lib/products";
 import { SEO_PAGES } from "./lib/seoPages";
+import { MESH } from "./lib/seoMesh";
+import { storeClaimsOpen24Hours } from "./lib/storeNap";
 import { RESOURCE_PAGES } from "./resources/resourceData";
 
 const BASE = "https://www.theplanetx.ca";
@@ -11,8 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1 },
     { url: `${BASE}/weed-dispensary-north-york/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/24-hour-islington-steeles-dispensary`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    ...(storeClaimsOpen24Hours()
+      ? [{ url: `${BASE}/24-hour-islington-steeles-dispensary`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.85 }]
+      : []),
     { url: `${BASE}/cannabis-delivery-islington-steeles`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${BASE}${MESH.nativeCigs}`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}${MESH.nicotineVape}`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/visit`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
