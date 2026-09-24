@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { storeNap } from "../lib/storeNap";
+import { MESH } from "../lib/seoMesh";
 import styles from "../visit/visit.module.css";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: storeNap.origin,
+    canonical: `${storeNap.origin}${MESH.geo}`,
   },
   openGraph: {
     url: storeNap.origin,

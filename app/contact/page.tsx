@@ -3,11 +3,11 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import StoreMap from "../components/StoreMap";
-import { storeNap } from "../lib/storeNap";
+import { resolveDocumentTitle, storeNap } from "../lib/storeNap";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Planet x Cannabis | 3005 Islington Ave unit 1, North York",
+  title: resolveDocumentTitle("Contact Us — Planet x Cannabis | 3005 Islington Ave unit 1, North York"),
   description:
     "Visit Planet x Cannabis at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Open 24 hours, 7 days a week. Walk-ins welcome.",
   alternates: {

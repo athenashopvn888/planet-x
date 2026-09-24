@@ -31,6 +31,44 @@ export const storeNap = {
     "Accessible via TTC bus routes along Islington Avenue and Steeles Avenue West, including trips toward York University / Steeles West.",
 } as const;
 
+/** Must match the root layout title template suffix exactly. */
+export const DOCUMENT_TITLE_BRAND = "Planet X Cannabis";
+const DOCUMENT_TITLE_SUFFIX = ` | ${DOCUMENT_TITLE_BRAND}`;
+const BRAND_PATTERN = /planet x cannabis/gi;
+
+function brandMentions(value: string) {
+  return value.match(BRAND_PATTERN)?.length ?? 0;
+}
+
+/**
+ * Root layout title template is `%s | Planet X Cannabis`.
+ * A child title that already names the brand must be absolute, or the
+ * template appends the brand a second time (`Brand | Brand`).
+ */
+export function resolveDocumentTitle(
+  title: string,
+  options?: { absolute?: boolean },
+): string | { absolute: string } {
+  let normalized = title.replace(/\s+/g, " ").trim();
+  while (brandMentions(normalized) > 1 && /\|\s*planet x cannabis\s*$/i.test(normalized)) {
+    normalized = normalized.replace(/\s*\|\s*planet x cannabis\s*$/i, "").trim();
+  }
+  if (options?.absolute || brandMentions(normalized) > 0) {
+    return { absolute: normalized };
+  }
+  return normalized;
+}
+
+/** Title text after the root template is applied. Brand appears at most once. */
+export function renderedDocumentTitle(
+  title: string,
+  options?: { absolute?: boolean },
+): string {
+  const resolved = resolveDocumentTitle(title, options);
+  if (typeof resolved === "string") return `${resolved}${DOCUMENT_TITLE_SUFFIX}`;
+  return resolved.absolute;
+}
+
 export const HOME_FAQS: { q: string; a: string }[] = [
   {
     q: "What are the hours for The Planet X Cannabis?",
@@ -214,4 +252,33 @@ export function visitJsonLd() {
 
 export function jsonLdScript(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+export function faqPageJsonLd(faqs: { q: string; a: string }[], pageUrl: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+}
+
+/** True only when this site's own hours label, detail, and schema all say 24 hours. */
+export function storeClaimsOpen24Hours() {
+  const graph = storeJsonLd()["@graph"] as {
+    openingHoursSpecification?: { opens: string; closes: string }[];
+  }[];
+  const spec = graph[0]?.openingHoursSpecification?.[0];
+  const labelIs24 = /open 24 hours/i.test(storeNap.hoursLabel);
+  const detailIs24 = /open 24 hours/i.test(storeNap.hoursDetail);
+  const schemaIs24 = spec?.opens === "00:00" && spec?.closes === "23:59";
+  return labelIs24 && detailIs24 && schemaIs24;
 }

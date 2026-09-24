@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { SEO_PAGES, getSeoPageBySlug } from "../../lib/seoPages";
 import { TIER_CONFIG } from "../../lib/products";
-import { jsonLdScript, storeNap } from "../../lib/storeNap";
+import { jsonLdScript, resolveDocumentTitle, storeNap } from "../../lib/storeNap";
 import { MESH } from "../../lib/seoMesh";
 import SeoMesh from "../../components/SeoMesh";
 import styles from "./seo.module.css";
@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!page) return {};
 
   return {
-    title: page.absoluteTitle ? { absolute: page.title } : page.title,
+    title: resolveDocumentTitle(page.title, page.absoluteTitle ? { absolute: true } : undefined),
     description: page.metaDescription,
     alternates: {
       canonical: `https://www.theplanetx.ca/info/${slug}`,

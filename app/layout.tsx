@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(storeNap.origin),
   title: {
     default: "24 Hour North York Dispensary | Planet X Cannabis",
+    // Child titles that already include the brand must use resolveDocumentTitle()
+    // so this template does not append "Planet X Cannabis" a second time.
     template: "%s | Planet X Cannabis",
   },
   description:

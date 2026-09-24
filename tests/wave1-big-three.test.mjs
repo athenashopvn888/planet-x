@@ -14,6 +14,8 @@ const sitemap = readFileSync("app/sitemap.ts", "utf8");
 const geo = readFileSync("app/lib/weedDiscovery.ts", "utf8");
 const geoPage = readFileSync("app/weed-dispensary-north-york/page.tsx", "utf8");
 const info = readFileSync("app/info/[seoPage]/page.tsx", "utf8");
+const cigs = readFileSync("app/native-cigarettes-islington-steeles/page.tsx", "utf8");
+const vapes = readFileSync("app/nicotine-vape-islington-steeles/page.tsx", "utf8");
 const items = readFileSync("app/items/[category]/page.tsx", "utf8");
 const seoMeshComponent = readFileSync("app/components/SeoMesh.tsx", "utf8");
 
@@ -21,8 +23,8 @@ const publicSrc = [mesh, seoPages, delivery, hours24, home, visit, footer, navba
 
 test("Big Three neighbourhood slugs stay corridor-scoped, not city-wide Toronto", () => {
   assert.match(mesh, /delivery: "\/cannabis-delivery-islington-steeles"/);
-  assert.match(mesh, /nativeCigs: "\/info\/native-cigarettes-islington-steeles"/);
-  assert.match(mesh, /nicotineVape: "\/info\/nicotine-vapes-islington-steeles"/);
+  assert.match(mesh, /nativeCigs: "\/native-cigarettes-islington-steeles"/);
+  assert.match(mesh, /nicotineVape: "\/nicotine-vape-islington-steeles"/);
   assert.match(mesh, /vapesMenu: "\/items\/vapes"/);
   assert.match(sitemap, /\/cannabis-delivery-islington-steeles/);
   assert.doesNotMatch(delivery, /weed delivery toronto|city-wide Toronto delivery landing/i);
@@ -49,21 +51,21 @@ test("delivery LP has unique H1, title, FAQ, and meshes hub visit geo 24h Big Th
 });
 
 test("native cigarette LP is strengthened with unique H1/title/FAQ and 19+ care", () => {
-  assert.match(seoPages, /h1: "Native cigarettes at 3005 Islington Ave unit 1"/);
-  assert.match(seoPages, /Native Cigarettes at Islington & Steeles Unit 1/);
-  assert.match(seoPages, /Does Planet X at Islington & Steeles sell cigarettes\?/);
-  assert.match(seoPages, /does not make health, ceremonial, or cultural claims/);
-  assert.match(seoPages, /menuHref: "\/items\/cigarettes"/);
-  assert.match(seoPages, /Adults 19\+/);
-  assert.doesNotMatch(seoPages, /ceremonial tobacco|sacred|traditional healing/i);
+  assert.match(cigs, /<h1>Native cigarettes at unit 1 on Islington &amp; Steeles<\/h1>/);
+  assert.match(cigs, /Native Cigarettes Islington & Steeles \| Planet X Cannabis/);
+  assert.match(mesh, /Does unit 1 on Islington keep a Native cigarette shelf\?/);
+  assert.match(cigs, /does not make health, ceremonial, or cultural claims/);
+  assert.match(cigs, /MESH\.cigsMenu/);
+  assert.match(cigs, /Adults 19\+/);
+  assert.doesNotMatch(cigs, /ceremonial tobacco|sacred|traditional healing/i);
 });
 
 test("nicotine neighbourhood LP still funnels to /items/vapes with unique corridor FAQ", () => {
-  assert.match(seoPages, /slug: "nicotine-vapes-islington-steeles"/);
-  assert.match(seoPages, /menuHref: "\/items\/vapes"/);
-  assert.match(seoPages, /Is this a city-wide Toronto nicotine vape shop page\?/);
-  assert.match(seoPages, /not a city-wide Toronto vape landing/);
-  assert.match(seoPages, /Nicotine is addictive/);
+  assert.match(vapes, /nicotine-vape-islington-steeles|MESH\.nicotineVape/);
+  assert.match(vapes, /MESH\.vapesMenu/);
+  assert.match(mesh, /Is the Islington & Steeles nicotine page a Toronto-wide vape shop\?/);
+  assert.match(vapes, /not at a downtown\s+Toronto vape result/);
+  assert.match(vapes, /Nicotine is addictive/);
   assert.match(items, /MESH\.nicotineVape/);
   assert.match(items, /\/items\/vapes/);
 });
@@ -85,8 +87,8 @@ test("hub visit geo footer nav mesh include Big Three", () => {
   assert.match(home, /MESH\.nativeCigs/);
   assert.match(visit, /MESH\.delivery/);
   assert.match(geo, /\/cannabis-delivery-islington-steeles/);
-  assert.match(geo, /\/info\/native-cigarettes-islington-steeles/);
-  assert.match(geo, /\/info\/nicotine-vapes-islington-steeles/);
+  assert.match(geo, /\/native-cigarettes-islington-steeles/);
+  assert.match(geo, /\/nicotine-vape-islington-steeles/);
   assert.match(footer, /cannabis-delivery-islington-steeles/);
   assert.match(navbar, /cannabis-delivery-islington-steeles/);
   assert.match(info, /SeoMesh/);

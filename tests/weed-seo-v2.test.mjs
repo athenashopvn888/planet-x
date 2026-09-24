@@ -13,13 +13,13 @@ const tierSlugs = ["exotic-weed", "premium-weed", "aaa-weed", "aa-weed", "budget
 
 test("V2 tier owners keep live -weed slugs with unique H1s and titles", () => {
   for (const slug of tierSlugs) assert.match(products, new RegExp(`slug: "${slug}"`));
-  assert.match(tiers, /Exotic cannabis flower at unit 1, Islington & Steeles/);
-  assert.match(tiers, /Premium flower for Humber Summit regulars/);
-  assert.match(tiers, /AAA\+ weed at Planet X — mid-shelf on Islington Ave/);
-  assert.match(tiers, /AA flower near Steeles West — \$4\/g at unit 1/);
-  assert.match(tiers, /Budget cannabis flower from \$3\/g at Islington & Steeles/);
-  assert.match(tiers, /Exotic Flower at Islington & Steeles/);
-  assert.match(tiers, /Premium Weed in Humber Summit/);
+  assert.match(tiers, /Exotic Weed at Islington & Steeles in Humber Summit/);
+  assert.match(tiers, /Premium Weed for Humber Summit on Islington & Steeles/);
+  assert.match(tiers, /AAA\+ Weed at unit 1 on Islington & Steeles/);
+  assert.match(tiers, /AA Weed on the Islington & Steeles corridor/);
+  assert.match(tiers, /Budget Weed from \$3\/g at Islington & Steeles/);
+  assert.match(tiers, /Exotic Weed at Islington & Steeles \| Planet X Cannabis/);
+  assert.match(tiers, /Premium Weed on Islington & Steeles \| Planet X Cannabis/);
 });
 
 test("legacy tier and Weed resource routes redirect directly to V2 owners", () => {

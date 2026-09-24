@@ -5,8 +5,8 @@ export const MESH = {
   geo: "/weed-dispensary-north-york/",
   hours24: "/24-hour-islington-steeles-dispensary",
   delivery: "/cannabis-delivery-islington-steeles",
-  nativeCigs: "/info/native-cigarettes-islington-steeles",
-  nicotineVape: "/info/nicotine-vapes-islington-steeles",
+  nativeCigs: "/native-cigarettes-islington-steeles",
+  nicotineVape: "/nicotine-vape-islington-steeles",
   vapesMenu: "/items/vapes",
   cigsMenu: "/items/cigarettes",
   deliveryMenu: "/delivery",
@@ -102,20 +102,20 @@ export const DELIVERY_FAQS: { q: string; a: string }[] = [
 
 export const NATIVE_CIG_FAQS: { q: string; a: string }[] = [
   {
-    q: "Does Planet X at Islington & Steeles sell cigarettes?",
-    a: "Yes. Adults 19+ can browse the cigarette category at 3005 Islington Ave unit 1. This neighbourhood page is the Islington & Steeles guide; the live cigarette menu is the place to check current brands. Confirm prices and pack sizes in store.",
+    q: "Does unit 1 on Islington keep a Native cigarette shelf?",
+    a: "Yes. Adults 19+ can ask for the cigarette category at 3005 Islington Ave unit 1, the plaza door on the Islington frontage in Humber Summit. This page only explains that corridor shelf. The live mix is /items/cigarettes. Confirm a pack in the store or call +1 (289) 217-2773 before a special trip.",
   },
   {
-    q: "Are the brand cards on this page a live inventory list?",
-    a: "No. The preview cards are brand guidance only. Selection varies by store and by day. Open the cigarette menu or ask at unit 1 before a special trip.",
+    q: "Where should a Humber Summit shopper check today's cigarette mix?",
+    a: "Open the cigarette category, then match the name you want at the unit 1 counter. This Islington & Steeles page does not lock a brand, a carton count, or a price. Plaza parking and the TTC notes live on the visit page.",
   },
   {
-    q: "Is this a medical or ceremonial page?",
-    a: "No. This is an adult 19+ retail cigarette category page for the North York walk-in. It does not make health, ceremonial, or cultural claims.",
+    q: "Does the Islington & Steeles cigarette page make a health or Nation claim?",
+    a: "No. Native cigarettes here means the retail category at this one North York door. The page does not make health, ceremonial, or cultural claims, and it is not a clinic.",
   },
   {
-    q: "Can I buy cigarettes after midnight at unit 1?",
-    a: "The store is Open 24 Hours. Cigarette availability overnight still has to be confirmed in store or by calling +1 (289) 217-2773. The 24-hour page owns open-now hours; this page owns the cigarette category for the corridor.",
+    q: "Can a late Steeles West bus still stop for cigarettes at unit 1?",
+    a: "The walk-in lists Open 24 Hours, so the door is the same unit 1 entrance overnight. Cigarette selection still has to be confirmed on the shelf. Bring photo ID. Adults 19+ only. Open-now hours live on the 24-hour Islington & Steeles page.",
   },
 ];
 
@@ -160,23 +160,23 @@ export const GEO_FAQS: { q: string; a: string }[] = [
 
 export const NICOTINE_VAPE_FAQS: { q: string; a: string }[] = [
   {
-    q: "Where should I check Planet X Cannabis’s current nicotine selection?",
-    a: "Browse the relevant menu category for current product information.",
+    q: "Which menu path lists nicotine vapes for the Islington & Steeles walk-in?",
+    a: "Use /items/vapes for the nicotine category at 3005 Islington Ave unit 1. This Humber Summit page is the corridor owner. It does not replace the menu and it does not promise a named device is on the shelf tonight.",
   },
   {
-    q: "Does every featured item use the same format?",
-    a: "No format should be assumed. One featured page explicitly identifies an OVNS disposable. Read each current product page for its supported format and details.",
+    q: "Are nicotine devices at unit 1 the same shelf as THC disposables?",
+    a: "No. Nicotine vapes stay under /items/vapes. THC and cannabis vapour products stay under /items/vape-disposables. Read the category before you ride up Islington for one format.",
   },
   {
-    q: "Does this page include cannabis vapes?",
-    a: "No. It covers six nicotine products from the VAPE PENS category for adults 19+. THC and cannabis vape products are excluded.",
+    q: "Does the Humber Summit nicotine page publish a price or a puff-count promise?",
+    a: "No. A puff count in a product name only tells listings apart. Open the item page, then confirm it at unit 1. This page does not state a price, a lifespan, or a strength ranking. Nicotine is addictive.",
   },
   {
-    q: "Is this a city-wide Toronto nicotine vape shop page?",
-    a: "No. This is the Islington Avenue, Steeles Avenue West, and Humber Summit neighbourhood guide for the North York store at 3005 Islington Ave unit 1. The live nicotine category stays at /items/vapes.",
+    q: "Who can buy a nicotine vape at 3005 Islington Ave unit 1?",
+    a: "Adults 19+ with government-issued photo ID. The listed walk-in hours are Open 24 Hours. This page does not make health or cessation claims.",
   },
   {
-    q: "Who can buy nicotine vapes at unit 1?",
-    a: "Adults 19+ with valid ID. Nicotine is addictive. This page does not make health or cessation claims.",
+    q: "Is the Islington & Steeles nicotine page a Toronto-wide vape shop?",
+    a: "No. It describes one plaza door in Humber Summit — Islington Avenue at Steeles Avenue West — not a city-wide Toronto vape landing. NAP and the map stay on the homepage.",
   },
 ];

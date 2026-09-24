@@ -10,7 +10,7 @@ import {
   TIER_CONFIG,
 } from "../lib/products";
 import { TIER_SEO } from "../lib/tierSeoContent";
-import { jsonLdScript, storeNap } from "../lib/storeNap";
+import { jsonLdScript, resolveDocumentTitle, storeNap } from "../lib/storeNap";
 import styles from "./tier.module.css";
 
 /* -- Generate all tier pages at build -- */
@@ -31,7 +31,9 @@ export async function generateMetadata({
   const seo = TIER_SEO[tierInfo.key];
 
   return {
-    title: { absolute: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower | Planet X Cannabis` },
+    title: resolveDocumentTitle(
+      seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower | Planet X Cannabis`,
+    ),
     description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Planet x Cannabis.`,
     alternates: {
       canonical: `https://www.theplanetx.ca/${tierSlug}`,
@@ -61,6 +63,28 @@ export default async function TierPage({
   const regularFlowers = flowers.filter((f) => !f.isSale);
   const hotFlowers = flowers.filter((f) => f.isHot);
   const pageUrl = `https://www.theplanetx.ca/${tierSlug}`;
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: seo?.h1 || config.name,
+    description:
+      seo?.seoIntro ||
+      `${config.name} flower at Planet X Cannabis on Islington & Steeles in Humber Summit.`,
+    isPartOf: { "@type": "WebSite", "@id": `${storeNap.origin}/#website` },
+    about: { "@id": `${storeNap.origin}/#store` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: flowers.length,
+      itemListElement: flowers.map((flower, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: flower.name,
+        url: `${storeNap.origin}/flower/${flower.slug}`,
+      })),
+    },
+  };
   const faqJsonLd = seo
     ? {
         "@context": "https://schema.org",
@@ -80,6 +104,10 @@ export default async function TierPage({
 
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(collectionJsonLd) }}
+      />
       {faqJsonLd && (
         <script
           type="application/ld+json"
