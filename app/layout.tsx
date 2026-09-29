@@ -7,13 +7,13 @@ import { jsonLdScript, storeJsonLd, storeNap } from "./lib/storeNap";
 export const metadata: Metadata = {
   metadataBase: new URL(storeNap.origin),
   title: {
-    default: "24 Hour North York Dispensary | Planet X Cannabis",
+    default: "Open 24 Hours in North York | Planet X Cannabis",
     // Child titles that already include the brand must use resolveDocumentTitle()
     // so this template does not append "Planet X Cannabis" a second time.
     template: "%s | Planet X Cannabis",
   },
   description:
-    "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
+    "Open 24 hours, 7 days a week. Visit The Planet X Cannabis at 3005 Islington Ave unit 1 in North York, near Islington and Steeles. Adults 19+.",
   openGraph: {
     type: "website",
     locale: "en_CA",

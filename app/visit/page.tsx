@@ -83,6 +83,13 @@ export default function VisitPage() {
       </section>
 
       <section className={styles.section}>
+        <h2>Open 24/7</h2>
+        <p>
+          The Planet X Cannabis is open 24 hours, 7 days a week at 3005 Islington Ave unit 1 in North York. The same plaza entrance is open during the day, overnight, and after midnight. Adults 19+ should bring government photo ID.
+        </p>
+      </section>
+
+      <section className={styles.section}>
         <h2>Unit 1 in the Islington plaza</h2>
         <p>
           {storeNap.brand} is <strong>unit 1</strong> at 3005 Islington Avenue in

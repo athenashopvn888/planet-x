@@ -26,7 +26,8 @@ test("homepage schema is CannabisStore + FAQPage with FMD phone and live image",
   assert.doesNotMatch(layout, /7Clmh\.jpg|46Oi5\.jpg|wp-content\/uploads/);
   assert.doesNotMatch(storeNap, /7Clmh\.jpg|46Oi5\.jpg/);
   assert.match(layout, /canonical: storeNap\.origin/);
-  assert.match(layout, /24 Hour North York Dispensary/);
+  assert.match(layout, /Open 24 Hours in North York \| Planet X Cannabis/);
+  assert.match(layout, /Open 24 hours, 7 days a week/);
 });
 
 test("/visit is supporting how-to-reach with NAP, transit, parking, and a self canonical", () => {
@@ -39,6 +40,8 @@ test("/visit is supporting how-to-reach with NAP, transit, parking, and a self c
   assert.match(visit, /unit 1/i);
   assert.match(visit, /Humber Summit/);
   assert.match(visit, /homepage remains the visit hub|Homepage remains the visit hub|homepage visit hub/i);
+  assert.match(visit, /<h2>Open 24\/7<\/h2>/);
+  assert.match(visit, /open 24 hours, 7 days a week/);
   assert.match(sitemap, /\/visit/);
   assert.match(footer, /href="\/visit"/);
 });
