@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1 },
-    { url: `${BASE}/weed-dispensary-north-york/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/weed-dispensary-north-york`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     ...(storeClaimsOpen24Hours()
       ? [{ url: `${BASE}/24-hour-islington-steeles-dispensary`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.85 }]
       : []),
@@ -59,7 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   /* SEO landing pages */
-  const seoPages: MetadataRoute.Sitemap = SEO_PAGES.map((p) => ({
+  const redirectedSeoPages = new Set([
+    "weed-store-near-north-york",
+    "dispensary-near-me-islington-steeles",
+    "islington-steeles-weed-dispensary",
+  ]);
+  const seoPages: MetadataRoute.Sitemap = SEO_PAGES.filter((p) => !redirectedSeoPages.has(p.slug)).map((p) => ({
     url: `${BASE}/info/${p.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
