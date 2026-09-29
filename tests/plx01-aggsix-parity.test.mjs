@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { renderedDocumentTitle, storeClaimsOpen24Hours } from "../app/lib/storeNap.ts";
 
@@ -157,8 +158,8 @@ test("G6 mobile age gate stays inside the viewport and the menu has a hamburger 
 });
 
 test("G7 flower copy does not use 3.5g or 7g", () => {
-  const root = new URL("../app", import.meta.url);
-  const files = walk(root.pathname);
+  const root = fileURLToPath(new URL("../app", import.meta.url));
+  const files = walk(root);
   assert.ok(files.length > 20);
   for (const file of files) {
     if (/flowers\.json|items\.json|delivery-menu\.json/.test(file)) continue;
