@@ -16,7 +16,16 @@ const redirects = readFileSync("next.config.ts", "utf8");
 const publicSrc = [geoPage, discovery, mesh, home, visit, hours24, delivery].join("\n");
 
 test("fifth neighbourhood pillar keeps one corridor owner, not a new city/slug war", () => {
-  assert.match(sitemap, /weed-dispensary-north-york\//);
+  assert.match(sitemap, /`\$\{BASE\}\/weed-dispensary-north-york`/);
+  assert.doesNotMatch(sitemap, /`\$\{BASE\}\/weed-dispensary-north-york\/`/);
+  assert.match(geoPage, /canonical: `\$\{storeNap\.origin\}\/weed-dispensary-north-york`/);
+  for (const slug of [
+    "weed-store-near-north-york",
+    "dispensary-near-me-islington-steeles",
+    "islington-steeles-weed-dispensary",
+  ]) {
+    assert.match(sitemap, new RegExp(`redirectedSeoPages[\\s\\S]*${slug}`));
+  }
   assert.doesNotMatch(geoPage, /weed-dispensary-islington-steeles/);
   assert.doesNotMatch(redirects, /source: "\/weed-dispensary-islington-steeles"/);
   assert.match(city, /index: false/);

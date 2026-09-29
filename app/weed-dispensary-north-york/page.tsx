@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: weedOwner.metaDescription,
   alternates: {
-    canonical: PAGE_URL,
+    canonical: `${storeNap.origin}/weed-dispensary-north-york`,
   },
   robots: {
     index: true,
