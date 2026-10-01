@@ -4,6 +4,7 @@ import { SEO_PAGES } from "./lib/seoPages";
 import { MESH } from "./lib/seoMesh";
 import { storeClaimsOpen24Hours } from "./lib/storeNap";
 import { RESOURCE_PAGES } from "./resources/resourceData";
+import { GUIDE_REGISTRY } from "./lib/guideRegistry";
 
 const BASE = "https://www.theplanetx.ca";
 
@@ -77,5 +78,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.slug ? 0.65 : 0.75,
   }));
 
-  return [...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages];
+  const guidePages: MetadataRoute.Sitemap = GUIDE_REGISTRY.map((guide) => ({
+    url: `${BASE}/guides/${guide.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
+  return [
+    ...guidePages,
+    ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages];
 }
