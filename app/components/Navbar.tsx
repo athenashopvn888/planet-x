@@ -31,6 +31,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/24-hour-islington-steeles-dispensary", label: "24 Hours" },
   { href: "/weed-dispensary-north-york/", label: "North York" },
   { href: "/weed-resources", label: "Weed Resources" },
+  { href: "/guides", label: "Guides" },
 ];
 
 export default function Navbar() {
