@@ -227,7 +227,7 @@ export default function HomePage() {
         <div className={styles.welcomeBannerContainer}>
           <img
             src="/banners/welcome_banner.webp"
-            alt="Welcome to The Planet X Cannabis — 24-hour North York walk-in at 3005 Islington Ave unit 1"
+            alt="The Planet X Cannabis Dispensary Weed Delivery"
             className={styles.welcomeBannerImg}
           />
         </div>
