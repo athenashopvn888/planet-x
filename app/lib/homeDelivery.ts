@@ -1,4 +1,6 @@
 export const HOME_TITLE = "The Planet X Cannabis Dispensary Weed Delivery";
+// Document <title> / og:title / twitter:title only — H1 and schema keep HOME_TITLE.
+export const HOME_DOC_TITLE = "The Planet X Cannabis Dispensary Weed Delivery | North York";
 export const HOME_MENU_HREF = "/exotic-weed";
 export const HOME_DELIVERY_HREF = "/cannabis-delivery-islington-steeles";
 export const HOME_DELIVERY_H2 = "Cannabis Delivery in North York";
