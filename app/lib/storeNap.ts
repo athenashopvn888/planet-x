@@ -111,7 +111,7 @@ export function storeJsonLd() {
       {
         "@type": "CannabisStore",
         "@id": `${STORE_ORIGIN}/#store`,
-        name: storeNap.brand,
+        name: "The Planet X Cannabis Dispensary Weed Delivery",
         description:
           "24-hour cannabis dispensary at 3005 Islington Ave unit 1 in North York, on the Islington and Steeles edge of Humber Summit. Walk-in flower, pre-rolls, edibles, vapes, and concentrates for adults 19+.",
         url: STORE_ORIGIN,
@@ -158,7 +158,7 @@ export function storeJsonLd() {
         "@type": "WebSite",
         "@id": `${STORE_ORIGIN}/#website`,
         url: `${STORE_ORIGIN}/`,
-        name: storeNap.brand,
+        name: "The Planet X Cannabis Dispensary Weed Delivery",
         publisher: { "@id": `${STORE_ORIGIN}/#store` },
       },
       {

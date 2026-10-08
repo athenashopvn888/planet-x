@@ -1,4 +1,4 @@
-export const HOME_TITLE = "The Planet x Cannabis Dispensary - Weed Delivery in North York";
+export const HOME_TITLE = "The Planet X Cannabis Dispensary Weed Delivery";
 export const HOME_MENU_HREF = "/exotic-weed";
 export const HOME_DELIVERY_HREF = "/cannabis-delivery-islington-steeles";
 export const HOME_DELIVERY_H2 = "Cannabis Delivery in North York";
