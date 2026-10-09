@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import FlowerCard from "../components/FlowerCard";
 import SeoMesh from "../components/SeoMesh";
 import {
-  getFlowersByTier,
   getTierFromSlug,
   TIER_CONFIG,
 } from "../lib/products";
@@ -14,6 +13,10 @@ import { TIER_SEO } from "../lib/tierSeoContent";
 import { jsonLdScript, resolveDocumentTitle, storeNap } from "../lib/storeNap";
 import styles from "./tier.module.css";
 import { getTierGuideLinks } from "../lib/guideRegistry";
+import { liveFlowersByTier } from "../lib/liveMenu";
+
+// Read the live menu feed on every request (never a build-time snapshot).
+export const dynamic = "force-dynamic";
 
 /* -- Generate all tier pages at build -- */
 export function generateStaticParams() {
@@ -29,7 +32,7 @@ export async function generateMetadata({
   const { tier: tierSlug } = await params;
   const tierInfo = getTierFromSlug(tierSlug);
   if (!tierInfo) return {};
-  const flowers = getFlowersByTier(tierInfo.key);
+  const flowers = (await liveFlowersByTier(tierInfo.key));
   const seo = TIER_SEO[tierInfo.key];
 
   return {
@@ -57,7 +60,7 @@ export default async function TierPage({
   const tierInfo = getTierFromSlug(tierSlug);
   if (!tierInfo) notFound();
 
-  const flowers = getFlowersByTier(tierInfo.key);
+  const flowers = (await liveFlowersByTier(tierInfo.key));
   const { config } = tierInfo;
   const guideLinks = getTierGuideLinks(`/${tierSlug}`);
   const seo = TIER_SEO[tierInfo.key];
