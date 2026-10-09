@@ -61,6 +61,7 @@ export default function Footer() {
               <Link href="/items/vapes">Nicotine Vape</Link>
               <Link href="/items/vape-disposables">THC Vape</Link>
               <Link href="/faq">FAQ</Link>
+              <Link href="/hours">Store Hours</Link>
               <Link href="/visit">Visit / How to Reach</Link>
               {storeClaimsOpen24Hours() ? (
                 <Link href="/24-hour-islington-steeles-dispensary">
