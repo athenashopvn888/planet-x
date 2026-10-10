@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/cannabis-delivery-islington-steeles`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${BASE}${MESH.nativeCigs}`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}${MESH.nicotineVape}`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/vape-shop-islington-steeles`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
     { url: `${BASE}/visit`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

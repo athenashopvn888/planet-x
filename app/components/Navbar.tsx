@@ -25,6 +25,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/cannabis-delivery-islington-steeles", label: "Delivery Area" },
   { href: "/native-cigarettes-islington-steeles", label: "Native Cigarettes" },
   { href: "/nicotine-vape-islington-steeles", label: "Nicotine Vape Area" },
+  { href: "/vape-shop-islington-steeles", label: "Vape Shop" },
   { href: "/careers/budtender", label: "Join Team", featured: true },
   { href: "/faq", label: "FAQ" },
   { href: "/visit", label: "Visit" },
