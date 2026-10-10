@@ -6,6 +6,7 @@ import SeoMesh from "../components/SeoMesh";
 import { faqPageJsonLd, jsonLdScript, storeNap } from "../lib/storeNap";
 import { MESH, NICOTINE_VAPE_FAQS } from "../lib/seoMesh";
 import styles from "../visit/visit.module.css";
+import VapeActionPanel from "../components/VapeActionPanel";
 
 const PAGE_URL = `${storeNap.origin}${MESH.nicotineVape}`;
 
@@ -83,6 +84,7 @@ export default function NicotineVapeIslingtonSteelesPage() {
             How to find unit 1
           </Link>
         </div>
+        <VapeActionPanel compact />
       </section>
 
       <section className={styles.section} id="featured-vapes">
