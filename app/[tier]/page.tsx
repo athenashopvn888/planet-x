@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FlowerCard from "../components/FlowerCard";
+import { storeTierRange, tierRangeText } from "../lib/tierPriceRanges";
 import SeoMesh from "../components/SeoMesh";
 import {
   getTierFromSlug,
@@ -68,6 +69,7 @@ export default async function TierPage({
   const saleFlowers = flowers.filter((f) => f.isSale);
   const regularFlowers = flowers.filter((f) => !f.isSale);
   const hotFlowers = flowers.filter((f) => f.isHot);
+  const tierRange = storeTierRange(flowers, tierInfo.key);
   const pageUrl = `https://www.theplanetx.ca/${tierSlug}`;
   const collectionJsonLd = {
     "@context": "https://schema.org",
@@ -145,6 +147,8 @@ export default async function TierPage({
               </h1>
             </div>
             <p className={styles.heroTagline}>{config.tagline}</p>
+            {tierRangeText(tierRange) && <p className="tier-live-range"><small className="price-scope-label">In-store price</small>{tierRangeText(tierRange)}</p>}
+            <p className="price-rule-notice"><strong>IN-STORE PRICES ONLY.</strong> These prices do not apply to delivery orders. Delivery has its own prices. Why? <Link href="/faq#delivery-price-rule">See the FAQ</Link></p>
             <div className={styles.heroStats}>
               <span className={styles.stat}>
                 <strong>{flowers.length}</strong> strains
