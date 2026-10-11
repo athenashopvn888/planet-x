@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import menu from "./delivery-menu.json";
 import styles from "./delivery.module.css";
 import PlanetXWebChat from "./PlanetXWebChat";
+import { deliveryTierRanges, tierRangeText } from "../lib/tierPriceRanges";
 import { MESH } from "../lib/seoMesh";
 
 type Tier = "SHREDS" | "Budget" | "BC Premium" | "CRAFTS" | "Exotics";
@@ -47,6 +48,7 @@ function ProductPricing({ product }: { product: Product }) {
   const bundles = eligible && loyalty ? [{ quantity: 2, perUnitPrice: loyalty, totalPrice: loyalty * 2 }, ...suppliedBundles] : product.offers?.filter((offer) => offer.kind === "multi_ounce") ?? [];
 
   return <div className={styles.pricing}>
+    <small className="price-scope-label">Delivery price</small>
     {compact.length > 0 && <div className={styles.compactPrices}>{compact.map((option) => <span key={option.key}>{option.label} <strong>{formatCurrency(option.price)}</strong></span>)}</div>}
     <div className={styles.decisionPrices}>
       {loyalty !== null && <span className={styles.loyalty}><small>MEMBER LOYALTY 28g</small><strong>{formatCurrency(loyalty)}</strong></span>}
@@ -104,9 +106,14 @@ export default function DeliveryContent() {
     return products.filter((product) => (filter === "ALL" || product.tier === filter) && (!needle || `${product.name} ${product.category} ${product.strain}`.toLowerCase().includes(needle)))
       .sort((a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier) || entryPrice(a) - entryPrice(b) || a.name.localeCompare(b.name));
   }, [filter, products, search]);
+  const deliveryRanges = deliveryTierRanges(products);
 
   return <main className={styles.main}>
     <Navbar />
+    <p className="price-rule-notice"><strong>DELIVERY PRICES ONLY.</strong> Delivery orders are charged these prices, not in-store prices. <Link href="/faq#delivery-price-rule">See the FAQ</Link></p>
+    <section className="delivery-tier-ranges" aria-label="Delivery price ranges by flower tier">
+      {deliveryRanges.map(({ tier, range }) => { const line = tierRangeText(range); return line ? <p key={tier}><strong>{tier}</strong><small className="price-scope-label">Delivery price</small>{line}</p> : null; })}
+    </section>
     <section className={`${styles.hero} ${styles.heroPlain}`}>
       <div><p>The Planet X Cannabis · North York</p><h1>North York Delivery Menu</h1><span>Delivery is confirmed from 3005 Islington Ave unit 1 for nearby Islington, Steeles, Humber Summit, and York University area addresses. The store confirms current availability and the street before an order is accepted. This is not city-wide Toronto delivery. Corridor explainer: <Link href={MESH.delivery}>cannabis delivery Islington &amp; Steeles</Link>.</span></div>
     </section>
