@@ -10,6 +10,8 @@ import styles from "./delivery.module.css";
 import PlanetXWebChat from "./PlanetXWebChat";
 import { deliveryTierRanges, tierRangeText } from "../lib/tierPriceRanges";
 import { MESH } from "../lib/seoMesh";
+import NearMeFaq from "../components/NearMeFaq";
+import nearMeFaq from "../lib/nearMeFaq.json";
 
 type Tier = "SHREDS" | "Budget" | "BC Premium" | "CRAFTS" | "Exotics";
 type PriceOption = { key: string; label: string; price: number };
@@ -161,6 +163,7 @@ export default function DeliveryContent() {
     <div className={styles.ctaSection}><p>Walk in at <strong>3005 Islington Ave unit 1, North York</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>+1 (289) 217-2773</strong> — that is the only Planet X phone. Ignore leftover 416 or 226 numbers on directories.</p></div>
     {selected && <div className={styles.backdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}><section className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="product-title"><header><strong>Product details</strong><button type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button></header><div className={styles.drawerContent}>{selected.images.map((src, index) => <div className={styles.drawerImage} key={src}><Image src={src} alt={`${selected.name}${index ? ` alternate ${index + 1}` : ""}`} fill sizes="(max-width: 720px) 100vw, 420px" unoptimized /></div>)}<h2 id="product-title">{selected.name}</h2><p>{selected.description || "Ask the store for current product details."}</p>{selected.effects.length > 0 && <div className={styles.effects}>{selected.effects.map((effect) => <span key={effect}>{effect}</span>)}</div>}<ProductPricing product={selected} /></div></section></div>}
     <PlanetXWebChat />
+    <NearMeFaq id="delivery-near-me" q={nearMeFaq.delivery!.q} a={nearMeFaq.delivery!.a} />
     <Footer />
   </main>;
 }

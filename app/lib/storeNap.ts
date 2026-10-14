@@ -102,6 +102,10 @@ export const HOME_FAQS: { q: string; a: string }[] = [
     q: "What phone number should directories use?",
     a: "Only +1 (289) 217-2773. Ignore leftover 416 or 226 numbers on third-party listings — those are not this store's line.",
   },
+  {
+    q: "Where's a cannabis dispensary near me around Islington and Steeles?",
+    a: "The Planet X Cannabis is at 3005 Islington Ave unit 1 in North York, just south of Steeles in Humber Summit. We're open 24 hours a day, adults 19+ with valid photo ID.",
+  },
 ];
 
 export function storeJsonLd() {
