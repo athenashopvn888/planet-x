@@ -9,6 +9,9 @@ for (const expected of [
   'sod-web-chat:PX',
   'smsConsent',
   'required type="checkbox"',
+  'if (!firstMessage.trim())',
+  '<label>Order details<textarea required',
+  'disabled={busy || !smsConsent || !firstMessage.trim()}',
   'workflowVersion: "READY_V1"',
   'one READY delivery-link text for this order',
   '/api/web-chat/session',
@@ -24,6 +27,8 @@ for (const expected of [
   'requestId: crypto.randomUUID()',
   'securely retained for future identity and address verification',
 ]) assert.ok(chat.includes(expected), `Missing Web Chat contract: ${expected}`);
+
+assert.ok(!chat.includes("Order details (optional)"), "Order details must not be presented as optional");
 
 assert.ok(!chat.includes("Reply YES"), "obsolete Reply YES confirmation copy must not ship");
 
