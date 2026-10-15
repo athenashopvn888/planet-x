@@ -1,3 +1,4 @@
+import CigaretteSeasonalNotice from "../components/CigaretteSeasonalNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -30,6 +31,7 @@ export default function NativeCigarettesIslingtonSteelesPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdScript(faqPageJsonLd(NATIVE_CIG_FAQS, PAGE_URL)) }}
       />
       <Navbar />
+      <CigaretteSeasonalNotice sticky />
       <section className={styles.hero}>
         <p className={styles.kicker}>Islington &amp; Steeles · Humber Summit · Adults 19+</p>
         <h1>Native cigarettes at unit 1 on Islington &amp; Steeles</h1>
