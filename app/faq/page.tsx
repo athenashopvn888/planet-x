@@ -1,3 +1,4 @@
+import { cigaretteSafeContent } from "../lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-const FAQ_CATEGORIES = [
+const FAQ_CATEGORIES_RAW = [
   {
     title: "Store and Delivery Prices",
     faqs: [
@@ -93,6 +94,8 @@ const FAQ_CATEGORIES = [
     ],
   },
 ];
+
+const FAQ_CATEGORIES = cigaretteSafeContent(FAQ_CATEGORIES_RAW);
 
 export default function FAQPage() {
   const jsonLd = {

@@ -1,4 +1,7 @@
 "use client";
+
+import { filterCigaretteEntries } from "../lib/siteConfig";
+
 import CohortDeliveryActions from "./CohortDeliveryActions";
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -38,7 +41,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const navLinks = ALL_LINKS.filter(
+  const navLinks = filterCigaretteEntries(ALL_LINKS).filter(
     (link) => link.href !== "/24-hour-islington-steeles-dispensary" || storeClaimsOpen24Hours(),
   );
   const scrollBarRef = useRef<HTMLDivElement>(null);
