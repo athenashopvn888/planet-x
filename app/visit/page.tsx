@@ -6,6 +6,7 @@ import StoreMap from "../components/StoreMap";
 import SeoMesh from "../components/SeoMesh";
 import { jsonLdScript, storeNap, visitJsonLd, VISIT_FAQS } from "../lib/storeNap";
 import { MESH } from "../lib/seoMesh";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "./visit.module.css";
 
 export const metadata: Metadata = {
@@ -161,9 +162,17 @@ export default function VisitPage() {
           <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
           corridor page, or the{" "}
           <Link href={MESH.deliveryMenu}>North York delivery menu</Link> after
-          you know the door. Cigarettes and nicotine vapes:{" "}
-          <Link href={MESH.nativeCigs}>Native cigarettes</Link> ·{" "}
-          <Link href={MESH.nicotineVape}>nicotine vape</Link>.
+          you know the door. {SHOW_CIGARETTES ? (
+            <>
+              Cigarettes and nicotine vapes:{" "}
+              <Link href={MESH.nativeCigs}>Native cigarettes</Link> ·{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link>.
+            </>
+          ) : (
+            <>
+              Nicotine vapes: <Link href={MESH.nicotineVape}>nicotine vape</Link>.
+            </>
+          )}
         </p>
       </section>
 

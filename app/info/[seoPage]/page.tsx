@@ -8,6 +8,7 @@ import { SEO_PAGES, getSeoPageBySlug } from "../../lib/seoPages";
 import { TIER_CONFIG } from "../../lib/products";
 import { jsonLdScript, resolveDocumentTitle, storeNap } from "../../lib/storeNap";
 import { MESH } from "../../lib/seoMesh";
+import { SHOW_CIGARETTES } from "../../lib/siteConfig";
 import SeoMesh from "../../components/SeoMesh";
 import styles from "./seo.module.css";
 
@@ -193,7 +194,7 @@ export default async function SeoLandingPage({
               NAP, hours, and the map stay on the homepage at {storeNap.streetAddress}.
               Use /visit for the plaza door, the North York dispensary page for corridor
               weed intent, and the 24-hour Islington &amp; Steeles page for overnight
-              walk-ins. Cannabis delivery, Native cigarettes, and nicotine vapes each
+              walk-ins. Cannabis delivery{SHOW_CIGARETTES ? ", Native cigarettes," : ""} and nicotine vapes each
               keep their own neighbourhood URL. Live nicotine category:{" "}
               <Link href={MESH.vapesMenu}>/items/vapes</Link>.
             </p>

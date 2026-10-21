@@ -1,4 +1,7 @@
+import { SHOW_CIGARETTES } from "./siteConfig";
+
 /** Internal-link mesh for PLX01 Wave 1 Organic floor. Standalone brand only. */
+
 export const MESH = {
   home: "/",
   visit: "/visit",
@@ -32,9 +35,11 @@ export const CORE_MESH = [
   { href: MESH.hours24, label: "24-hour Islington & Steeles" },
 ] as const;
 
+const NATIVE_CIG_MESH = { href: MESH.nativeCigs, label: "Native cigarettes unit 1" } as const;
+
 export const VERTICAL_MESH = [
   { href: MESH.delivery, label: "Cannabis delivery Islington & Steeles" },
-  { href: MESH.nativeCigs, label: "Native cigarettes unit 1" },
+  ...(SHOW_CIGARETTES ? [NATIVE_CIG_MESH] : []),
   { href: MESH.nicotineVape, label: "Nicotine vape Islington & Steeles" },
 ] as const;
 

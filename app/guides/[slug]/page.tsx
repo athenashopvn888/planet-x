@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { DELIVERY_GUIDE_REGISTRY, getDeliveryGuide } from "../../lib/deliveryGuideRegistry";
 import { GUIDE_REGISTRY, GUIDE_STORE, getGuide, resolveGuideProduct, type GuideEntry } from "../../lib/guideRegistry";
+import { omitGrabbaCopy } from "../../lib/siteConfig";
 import GuideBody, { stripMarkdown } from "./GuideBody";
 import DeliveryGuidePage from "./DeliveryGuidePage";
 import styles from "./guide.module.css";
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   if (deliveryGuide) return { title: { absolute: deliveryGuide.title }, description: deliveryGuide.description, alternates: { canonical: `${BASE}/guides/${deliveryGuide.slug}` }, robots: { index: true, follow: true }, openGraph: { title: deliveryGuide.title, description: deliveryGuide.description, url: `${BASE}/guides/${deliveryGuide.slug}`, type: "website" } };
   const guide = getGuide(slug);
   if (!guide) return {};
-  const description = stripMarkdown(guide.description);
+  const description = stripMarkdown(omitGrabbaCopy(guide.description));
   return {
     title: { absolute: guide.title },
     description,
@@ -88,7 +89,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
             <Link className={styles.secondary} href={guide.preferredCategoryPath}>Browse {lane.category}</Link>
           </div>
         </header>
-        <section className={styles.section} aria-label={`${guide.name} guide`}><GuideBody markdown={guide.bodyMd} /></section>
+        <section className={styles.section} aria-label={`${guide.name} guide`}><GuideBody markdown={omitGrabbaCopy(guide.bodyMd)} /></section>
         <section className={styles.section} aria-labelledby="related-guides-heading">
           <h2 id="related-guides-heading">Related {lane.label} guides</h2>
           <div className={styles.related}>{relatedEntries(guide).map((entry) => <Link key={entry.slug} href={`/guides/${entry.slug}`}>{entry.name}<span>{laneCopy[entry.lane].label}</span></Link>)}</div>

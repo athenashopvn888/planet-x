@@ -1,6 +1,6 @@
 "use client";
 
-import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { SHOW_CIGARETTES, isPreservedSmokeItem } from "../lib/siteConfig";
 
 import { isNicotineItem } from "../tv/flashMessages";
 import { CIGARETTE_FLASH_MESSAGE, isCigaretteFlashWindow } from "../tv/flashMessages";
@@ -36,7 +36,9 @@ const CARD_CONFIG_RAW = [
 ];
 const CARD_CONFIG = SHOW_CIGARETTES
   ? CARD_CONFIG_RAW
-  : CARD_CONFIG_RAW.filter((card) => card.id !== "CIGARETTES");
+  : CARD_CONFIG_RAW.filter((card) => card.id !== "CIGARETTES").map((card) => card.id === "PREROLLS_ADDONS"
+    ? { ...card, filter: (it: Item) => it.category === "PREROLLS" || it.category === "ADD ONS" || isPreservedSmokeItem(it) }
+    : card);
 
 /* -- HELPERS -- */
 const fmtPrice = (v?:string) => { const s=String(v||"").trim(); if(!s)return""; return /^\$/.test(s)?s:"$"+s; };

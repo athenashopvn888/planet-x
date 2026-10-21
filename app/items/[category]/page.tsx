@@ -18,6 +18,7 @@ import { resolveDocumentTitle } from "../../lib/storeNap";
 import styles from "./items.module.css";
 import { getCategoryGuideGroups } from "../../lib/guideRegistry";
 import { liveItemsByCategory } from "../../lib/liveMenu";
+import { SHOW_CIGARETTES, isPreservedSmokeItem } from "../../lib/siteConfig";
 import VapeActionPanel from "../../components/VapeActionPanel";
 
 // Read the live menu feed on every request (never a build-time snapshot).
@@ -71,6 +72,11 @@ export default async function ItemsCategoryPage({
     const existingIds = new Set(items.map(i => i.sku));
     const uniqueAccessories = accessories.filter(a => !existingIds.has(a.sku));
     items = [...items, ...uniqueAccessories];
+  }
+  if (!SHOW_CIGARETTES && catInfo.key === "ADD ONS") {
+    const preserved = (await liveItemsByCategory("CIGARETTES")).filter((item) => isPreservedSmokeItem(item));
+    const existingIds = new Set(items.map((item) => item.sku));
+    items = [...items, ...preserved.filter((item) => !existingIds.has(item.sku))];
   }
   const { config } = catInfo;
   const guideGroups = getCategoryGuideGroups(`/items/${catSlug}`);
@@ -166,7 +172,7 @@ export default async function ItemsCategoryPage({
               Nicotine is addictive.
             </p>
           )}
-          {catSlug === "cigarettes" && (
+          {catSlug === "cigarettes" && SHOW_CIGARETTES && (
             <p className={styles.seoBody}>
               Neighbourhood cigarette copy lives on the{" "}
               <Link href={MESH.nativeCigs}>Native cigarettes Islington &amp; Steeles</Link>{" "}

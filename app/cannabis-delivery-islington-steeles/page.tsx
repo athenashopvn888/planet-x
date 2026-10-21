@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import SeoMesh from "../components/SeoMesh";
 import { jsonLdScript, storeNap } from "../lib/storeNap";
 import { DELIVERY_FAQS, MESH, TIER_MESH } from "../lib/seoMesh";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "../visit/visit.module.css";
 
 const PAGE_PATH = MESH.delivery;
@@ -180,11 +181,22 @@ export default function CannabisDeliveryIslingtonSteelesPage() {
           ))}
         </ul>
         <p>
-          Cigarettes and nicotine vapes are sold at this door too. Use the{" "}
-          <Link href={MESH.nativeCigs}>Native cigarettes</Link> neighbourhood
-          guide or the <Link href={MESH.nicotineVape}>nicotine vape</Link> page
-          (live category: <Link href={MESH.vapesMenu}>/items/vapes</Link>) if
-          that is the trip — then confirm in store or with the dispatcher.
+          {SHOW_CIGARETTES ? (
+            <>
+              Cigarettes and nicotine vapes are sold at this door too. Use the{" "}
+              <Link href={MESH.nativeCigs}>Native cigarettes</Link> neighbourhood
+              guide or the <Link href={MESH.nicotineVape}>nicotine vape</Link> page
+              (live category: <Link href={MESH.vapesMenu}>/items/vapes</Link>) if
+              that is the trip — then confirm in store or with the dispatcher.
+            </>
+          ) : (
+            <>
+              Nicotine vapes are sold at this door too. Use the{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link> page
+              (live category: <Link href={MESH.vapesMenu}>/items/vapes</Link>) if
+              that is the trip — then confirm in store or with the dispatcher.
+            </>
+          )}
         </p>
       </section>
 
