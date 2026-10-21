@@ -6,6 +6,7 @@ import SeoMesh from "../components/SeoMesh";
 import { jsonLdScript, storeNap } from "../lib/storeNap";
 import { GEO_FAQS, MESH, TIER_MESH } from "../lib/seoMesh";
 import { weedOwner } from "../lib/weedDiscovery";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "../visit/visit.module.css";
 
 const PAGE_PATH = MESH.geo;
@@ -164,11 +165,20 @@ export default function WeedDispensaryNorthYorkPage() {
         </ul>
         <p>
           Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories
-          sit on the same walk-in menu. Cigarettes and nicotine vapes have
-          their own neighbourhood guides:{" "}
-          <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
-          <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
-          <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+          sit on the same walk-in menu. {SHOW_CIGARETTES ? (
+            <>
+              Cigarettes and nicotine vapes have their own neighbourhood guides:{" "}
+              <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+              <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+            </>
+          ) : (
+            <>
+              Nicotine vapes have their own neighbourhood guide:{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+              <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+            </>
+          )}
         </p>
       </section>
 
@@ -192,7 +202,7 @@ export default function WeedDispensaryNorthYorkPage() {
           Homepage = address, phone, hours, map. /visit = plaza door, TTC,
           parking. This URL = weed dispensary corridor owner for Islington,
           Steeles, and Humber Summit. 24-hour URL = open-now walk-in. Big Three
-          = corridor delivery, Native cigarettes, nicotine vape. Google
+          = corridor delivery{SHOW_CIGARETTES ? ", Native cigarettes" : ""}, nicotine vape. Google
           Business Profile should keep pointing at the homepage root — not this
           geo slug.
         </p>

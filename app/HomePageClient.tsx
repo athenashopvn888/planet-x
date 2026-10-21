@@ -1,6 +1,6 @@
 "use client";
 
-import { cigaretteSafeContent } from "./lib/siteConfig";
+import { cigaretteSafeContent, SHOW_CIGARETTES } from "./lib/siteConfig";
 
 import { HOME_TITLE } from "./lib/homeDelivery";
 import CohortDeliveryActions from "./components/CohortDeliveryActions";
@@ -183,6 +183,7 @@ export default function HomePageClient({ initialFlowers }: { initialFlowers: Par
 
           const comment = row.Comment || "";
           if (!comment || comment.length < 10) return;
+          if (!SHOW_CIGARETTES && /grabba/i.test(comment)) return;
           const name = rn || "Customer";
           const dateStr = row.CreateTime || "";
           reviewsPool.push({ name, comment, date: dateStr });
@@ -377,7 +378,7 @@ export default function HomePageClient({ initialFlowers }: { initialFlowers: Par
           <div className={styles.seoPanel}>
             <h2 className={styles.seoPanelTitle}>Islington Ave &amp; Steeles Ave W&apos;s Local Cannabis Dispensary — Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href={MESH.visit}>how-to-reach page</Link> only explains the plaza door, TTC, and parking. Overnight / open-now intent lives on the <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link> page. Neighbourhood weed-dispensary copy lives on the <Link href={MESH.geo}>Islington &amp; Steeles / Humber Summit weed dispensary</Link> corridor. Corridor <Link href={MESH.delivery}>cannabis delivery</Link>, <Link href={MESH.nativeCigs}>Native cigarettes</Link>, and <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu: <Link href={MESH.vapesMenu}>/items/vapes</Link>) each keep a neighbourhood page.
+              <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href={MESH.visit}>how-to-reach page</Link> only explains the plaza door, TTC, and parking. Overnight / open-now intent lives on the <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link> page. Neighbourhood weed-dispensary copy lives on the <Link href={MESH.geo}>Islington &amp; Steeles / Humber Summit weed dispensary</Link> corridor. Corridor <Link href={MESH.delivery}>cannabis delivery</Link>{SHOW_CIGARETTES ? <>, <Link href={MESH.nativeCigs}>Native cigarettes</Link>,</> : null} and <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu: <Link href={MESH.vapesMenu}>/items/vapes</Link>) each keep a neighbourhood page.
             </p>
             <p className={styles.seoPanelText}>
               Open 24 hours, 7 days a week. Late Steeles West runs, York University night buses, and Humber Summit shift changes all land at the same unit 1 entrance. Flower is sorted into <Link href={MESH.exotic}>Exotic</Link>, <Link href={MESH.premium}>Premium</Link>, <Link href={MESH.aaa}>AAA+</Link>, <Link href={MESH.aa}>AA</Link>, and <Link href={MESH.budget}>Budget</Link> so you can compare before you talk to a budtender. Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories sit on the same live menu.

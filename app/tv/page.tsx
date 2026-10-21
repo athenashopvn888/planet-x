@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./tv.module.css";
 import { CIGARETTE_FLASH_MESSAGE, isCigaretteFlashWindow } from "./flashMessages";
+import { SHOW_CIGARETTES, isPreservedSmokeItem } from "../lib/siteConfig";
 import { getFlowerEffects } from "./flowerEffects";
 import { TOP_TIER_BUNDLE_LABELS } from "./bundleLabels";
 import HiringRibbon from "../components/HiringRibbon";
@@ -795,7 +796,7 @@ export default function TVMenuPage() {
       }
       setFlowers(grouped);
 
-      setAddOns(iData.filter(it => it.category === "ADD ONS" || it.category === "PREROLLS").slice(0, 14));
+      setAddOns(iData.filter((it) => it.category === "ADD ONS" || it.category === "PREROLLS" || (!SHOW_CIGARETTES && isPreservedSmokeItem(it))).slice(0, 14));
 
       const hi: Record<string,number> = {};
       for (const t of TIERS) hi[t] = 0;

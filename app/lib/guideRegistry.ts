@@ -78,7 +78,7 @@ export const GUIDE_REGISTRY: GuideEntry[] = SHOW_CIGARETTES
 export const getGuide = (slug: string) => GUIDE_REGISTRY.find((guide) => guide.slug === slug);
 const GUIDE_LANES: { lane: GuideLane; label: string }[] = [
   { lane: "strain", label: "Strains" },
-  { lane: "native_cig", label: "Native Cigarettes" },
+  { lane: "native_cig", label: SHOW_CIGARETTES ? "Native Cigarettes" : "Backwoods" },
   { lane: "nic_vape", label: "Nicotine Vape" },
   { lane: "thc_vape", label: "THC Vape" },
 ];

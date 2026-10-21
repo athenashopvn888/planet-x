@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import SeoMesh from "../components/SeoMesh";
 import { jsonLdScript, storeClaimsOpen24Hours, storeNap } from "../lib/storeNap";
 import { MESH, TIER_MESH, TWENTY_FOUR_FAQS } from "../lib/seoMesh";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "../visit/visit.module.css";
 
 const PAGE_PATH = MESH.hours24;
@@ -86,8 +87,7 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           {storeNap.streetAddress}, {storeNap.city}, {storeNap.region}{" "}
           {storeNap.postalCode} — {storeNap.hoursDetail}. This page is the
           first-class open-now / 24h-near-me owner for the Islington &amp;
-          Steeles door in Humber Summit, equal with corridor delivery, Native
-          cigarettes, and nicotine vape. The{" "}
+          Steeles door in Humber Summit, equal with corridor delivery{SHOW_CIGARETTES ? ", Native cigarettes," : ""} and nicotine vape. The{" "}
           <Link href={MESH.home}>homepage</Link> remains the NAP, hours, and map
           hub. <Link href={MESH.visit}>How to find unit 1</Link> covers plaza
           entrance, TTC, and parking.
@@ -155,11 +155,20 @@ export default function TwentyFourHourIslingtonSteelesPage() {
           Want a drop instead of the door? Corridor cannabis delivery from this
           same North York store lives on the{" "}
           <Link href={MESH.delivery}>Islington &amp; Steeles delivery</Link>{" "}
-          page. Confirm the street before you wait. Cigarettes and nicotine
-          vapes sold at this door have their own neighbourhood guides:{" "}
-          <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
-          <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
-          <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+          page. Confirm the street before you wait. {SHOW_CIGARETTES ? (
+            <>
+              Cigarettes and nicotine vapes sold at this door have their own neighbourhood guides:{" "}
+              <Link href={MESH.nativeCigs}>Native cigarettes</Link> and{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+              <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+            </>
+          ) : (
+            <>
+              Nicotine vapes sold at this door have their own neighbourhood guide:{" "}
+              <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu:{" "}
+              <Link href={MESH.vapesMenu}>/items/vapes</Link>).
+            </>
+          )}
         </p>
       </section>
 
