@@ -1,3 +1,4 @@
+import { cigaretteSafeContent } from "./lib/siteConfig";
 import FullNameNap from "./components/FullNameNap";
 import PinnedNavClearance from "./components/PinnedNavClearance";
 import { HOME_DOC_TITLE } from "./lib/homeDelivery";
@@ -79,7 +80,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLdScript(storeJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(cigaretteSafeContent(storeJsonLd())) }}
         />
         <script
           async

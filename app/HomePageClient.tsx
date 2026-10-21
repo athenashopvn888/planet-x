@@ -1,4 +1,7 @@
 "use client";
+
+import { cigaretteSafeContent } from "./lib/siteConfig";
+
 import { HOME_TITLE } from "./lib/homeDelivery";
 import CohortDeliveryActions from "./components/CohortDeliveryActions";
 import HomeDeliverySection from "./components/HomeDeliverySection";
@@ -72,7 +75,7 @@ const BENTO_TIERS = [
 ];
 
 /* ── Explore Categories Config (New Banners) ── */
-const EXPLORE_CATEGORIES = [
+const EXPLORE_CATEGORIES = cigaretteSafeContent([
   { name: "Nicotine Vape", slug: "items/vapes", banner: "/banners/01_Vape_Pens.webp", icon: "💨" },
   { name: "THC Vape", slug: "items/vape-disposables", banner: "/banners/02_Vape_Disposable.webp", icon: "💨" },
   { name: "Concentrates", slug: "items/concentrates", banner: "/banners/03_Concentrates.webp", icon: "💎" },
@@ -80,11 +83,11 @@ const EXPLORE_CATEGORIES = [
   { name: "Accessories", slug: "items/add-ons", banner: "/banners/05_Accessories.webp", icon: "➕" },
   { name: "Cigarettes", slug: "items/cigarettes", banner: "/banners/native-cigarette-offer-20260822.webp", icon: "🏷️" },
   { name: "Magic Stuff", slug: "items/magic", banner: "/banners/09_Magic_Stuff.webp", icon: "🍄" },
-];
+]);
 
 const LOCAL_FAQS = HOME_FAQS;
 
-const NEIGHBOURHOOD_HUB_CARDS = [
+const NEIGHBOURHOOD_HUB_CARDS = cigaretteSafeContent([
   {
     href: MESH.geo,
     kicker: "Neighbourhood",
@@ -122,7 +125,7 @@ const NEIGHBOURHOOD_HUB_CARDS = [
     title: "Visit",
     text: "Plaza parking, TTC on Islington and Steeles, and the unit 1 door in Humber Summit.",
   },
-] as const;
+] as const);
 
 interface Review {
   name: string;
