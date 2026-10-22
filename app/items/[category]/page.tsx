@@ -1,4 +1,6 @@
 import CigaretteSeasonalNotice from "../../components/CigaretteSeasonalNotice";
+import CigaretteUnavailable from "../../components/CigaretteUnavailable";
+import { getCigaretteSnapshot } from "../../lib/cigaretteFeed";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -64,6 +66,15 @@ export default async function ItemsCategoryPage({
   const { category: catSlug } = await params;
   const catInfo = getCategoryFromSlug(catSlug);
   if (!catInfo) notFound();
+  if (catSlug === "cigarettes" && !(await getCigaretteSnapshot()).web.show) {
+    return (
+      <main className={styles.main}>
+        <Navbar />
+        <CigaretteUnavailable />
+        <Footer />
+      </main>
+    );
+  }
 
   /* Pre-Rolls also shows accessories (ADD ONS) */
   let items = (await liveItemsByCategory(catInfo.key));

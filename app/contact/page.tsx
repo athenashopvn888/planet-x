@@ -4,10 +4,13 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import StoreMap from "../components/StoreMap";
+import { getFleetContent } from "../lib/fleetContent";
 import { resolveDocumentTitle, storeNap } from "../lib/storeNap";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
+export const dynamic = "force-dynamic";
+
+const CONTACT_METADATA: Metadata = {
   title: resolveDocumentTitle("Contact Us — Planet x Cannabis | 3005 Islington Ave unit 1, North York"),
   description:
     "Visit Planet x Cannabis at 3005 Islington Ave unit 1, North York, ON M9L 2K9. Open 24 hours, 7 days a week. Walk-ins welcome.",
@@ -21,7 +24,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const fleet = await getFleetContent();
+  if (!fleet.active) return CONTACT_METADATA;
+  const page = fleet.pages.Contact;
+  const description = page?.metaDescription || "";
+  const title = page?.metaTitle || "";
+  if (!description && !title) return CONTACT_METADATA;
+  if (description === CONTACT_METADATA.description && !title) return CONTACT_METADATA;
+  return {
+    ...CONTACT_METADATA,
+    ...(description && description !== CONTACT_METADATA.description ? { description } : {}),
+    ...(title ? { title: resolveDocumentTitle(title, { absolute: true }) } : {}),
+  };
+}
+
+export default async function ContactPage() {
+  const fleet = await getFleetContent();
+  const street = fleet.active ? fleet.nap.street : storeNap.streetAddress;
+  const city = fleet.active ? fleet.nap.city : storeNap.city;
+  const region = fleet.active ? fleet.nap.province : storeNap.region;
+  const postalCode = fleet.active ? fleet.nap.postalCode : storeNap.postalCode;
+  const phoneDisplay = fleet.active ? fleet.nap.phoneDisplay : storeNap.phoneDisplay;
+  const phoneTel = fleet.active ? fleet.nap.phoneTel : storeNap.phoneIntl;
   return (
     <main className={styles.main}>
       <Navbar />
@@ -43,14 +68,14 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📍</div>
               <h2 className={styles.infoTitle}>Location</h2>
               <p className={styles.infoText}>
-                {storeNap.streetAddress}
+                {street}
                 <br />
-                {storeNap.city}, {storeNap.region} {storeNap.postalCode}
+                {city}, {region} {postalCode}
                 <br />
                 <span className={styles.infoMuted}>{storeNap.intersection} · Humber Summit</span>
               </p>
               <p className={styles.infoText}>
-                <a href={`tel:${storeNap.phoneIntl}`}>{storeNap.phoneDisplay}</a>
+                <a href={`tel:${phoneTel}`}>{phoneDisplay}</a>
               </p>
               <p className={styles.infoMuted}>
                 <Link href="/visit">How to find unit 1</Link>
