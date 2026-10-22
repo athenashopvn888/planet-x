@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
+import type { ResolvedBanner } from "./lib/fleet/types";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FlowerCard from "./components/FlowerCard";
@@ -138,7 +139,7 @@ interface ReviewStats {
   avg: number;
 }
 
-export default function HomePageClient({ initialFlowers }: { initialFlowers: Parameters<typeof storeTierRange>[0] }) {
+export default function HomePageClient({ initialFlowers, contentBanners }: { initialFlowers: Parameters<typeof storeTierRange>[0]; contentBanners?: ResolvedBanner[] }) {
     const __liveFlowers = useLiveFlowers();
   const [featuredStrains, setFeaturedStrains] = useState<any[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -228,7 +229,7 @@ export default function HomePageClient({ initialFlowers }: { initialFlowers: Par
   return (
     <main className={styles.main}>
       <Navbar />
-      <FleetAnnouncementBanner title={HOME_TITLE} />
+      <FleetAnnouncementBanner title={HOME_TITLE} banners={contentBanners} />
       <HomepageTopNotices />
       {/* ── NAVBAR ── */}
 
