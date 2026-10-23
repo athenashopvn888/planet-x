@@ -125,3 +125,112 @@ test("web stays hidden when tvOn is true, including the static website gate", as
   assert.equal(hiddenItems.some((item) => /backwoods/i.test(item.name || "")), true);
   assert.equal(hiddenItems.some((item) => /pouch|velo/i.test(item.name || "")), true);
 });
+
+test("a saved cig block inside the cache window still follows tvOn, and a miss hides TV", async () => {
+  resetTvStockCache();
+  const t0 = Date.parse("2026-10-23T12:00:00.000Z");
+  const saved = await getCigaretteDataset({
+    staticFlowers: flowers,
+    staticItems: shelf,
+    now: t0,
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        flowers,
+        items: shelf,
+        stockDate: "2026-10-23T08:00:00.000Z",
+        cig: { on: true, webOn: false, tvOn: true },
+      }),
+    }),
+  });
+  assert.equal(saved.source, "live");
+  assert.equal(saved.cig.tvOn, true);
+
+  const withinWindow = await getCigaretteDataset({
+    staticFlowers: flowers,
+    staticItems: shelf,
+    now: t0 + 30_000,
+    fetchImpl: async () => {
+      throw new Error("down");
+    },
+  });
+  assert.equal(withinWindow.source, "live");
+  assert.equal(withinWindow.cig.tvOn, true);
+  assert.equal(decideCigaretteSurface({
+    cig: withinWindow.cig,
+    items: withinWindow.items,
+    surface: "tv",
+    errored: withinWindow.source !== "live" && !withinWindow.cig,
+  }).show, true);
+
+  const afterFailure = await getCigaretteDataset({
+    staticFlowers: flowers,
+    staticItems: shelf,
+    now: t0 + 61_000,
+    fetchImpl: async () => {
+      throw new Error("down");
+    },
+  });
+  assert.equal(afterFailure.source, "last-good");
+  assert.equal(afterFailure.cig.tvOn, true);
+  const savedOn = decideCigaretteSurface({
+    cig: afterFailure.cig,
+    items: afterFailure.items,
+    surface: "tv",
+    errored: afterFailure.source !== "live" && !afterFailure.cig,
+  });
+  assert.equal(savedOn.show, true);
+  assert.equal(savedOn.reason, "on");
+
+  resetTvStockCache();
+  const missing = await getCigaretteDataset({
+    staticFlowers: flowers,
+    staticItems: shelf,
+    now: t0,
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        flowers,
+        items: shelf,
+        stockDate: "2026-10-23T08:00:00.000Z",
+      }),
+    }),
+  });
+  assert.equal(missing.source, "live");
+  assert.equal(missing.cig, null);
+  const missingDecision = decideCigaretteSurface({
+    cig: missing.cig,
+    items: missing.items,
+    surface: "tv",
+    errored: missing.source !== "live" && !missing.cig,
+  });
+  assert.equal(missingDecision.show, false);
+  assert.equal(missingDecision.reason, "missing");
+  const missingItems = reconcileSurfaceItems(missing.items, missing.items, missingDecision.show);
+  assert.equal(missingItems.some((item) => isRealCigaretteItem(item)), false);
+  assert.equal(missingItems.some((item) => /backwoods|cigarillo|paper|pouch|zyn|velo|wrap/i.test(`${item.name} ${item.slug}`)), true);
+
+  resetTvStockCache();
+  const failed = await getCigaretteDataset({
+    staticFlowers: flowers,
+    staticItems: shelf,
+    now: t0,
+    fetchImpl: async () => ({ ok: false, status: 500, json: async () => ({}) }),
+  });
+  assert.notEqual(failed.source, "live");
+  assert.equal(failed.cig, null);
+  const failedDecision = decideCigaretteSurface({
+    cig: failed.cig,
+    items: failed.items,
+    surface: "tv",
+    errored: failed.source !== "live" && !failed.cig,
+  });
+  assert.equal(failedDecision.show, false);
+  assert.equal(failedDecision.reason, "error");
+  const failedItems = reconcileSurfaceItems(failed.items, failed.items, failedDecision.show);
+  assert.equal(failedItems.some((item) => isRealCigaretteItem(item)), false);
+  assert.equal(failedItems.some((item) => /backwoods/i.test(item.name || "")), true);
+  resetTvStockCache();
+});

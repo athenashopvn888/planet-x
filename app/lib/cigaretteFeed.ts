@@ -3,12 +3,13 @@ import {
   cigarettePublicHeaders,
   decideCigaretteGuide,
   decideCigaretteSurface,
+  publicWebsiteCigaretteFlag,
   reconcileSurfaceItems,
   type CigaretteSurfaceDecision,
   type CigaretteWording,
 } from "./cigDecision";
 import { allFlowers, catalogItems, type ItemProduct } from "./products";
-import { cigaretteEnvHardOff } from "./siteConfig";
+import { cigaretteEnvHardOff, SHOW_CIGARETTES } from "./siteConfig";
 
 export type CigaretteSnapshot = {
   web: CigaretteSurfaceDecision;
@@ -26,9 +27,11 @@ export type PublicCigaretteState = {
 };
 
 function snapshotFrom(cig: unknown, items: ItemProduct[], live: boolean, errored: boolean): CigaretteSnapshot {
-  const web = decideCigaretteSurface({ cig, items, surface: "web", errored });
+  const webDecision = decideCigaretteSurface({ cig, items, surface: "web", errored });
   const tv = decideCigaretteSurface({ cig, items, surface: "tv", errored });
   const guides = decideCigaretteGuide({ cig, items, errored });
+  // SHOW_CIGARETTES ? feed.web : false, and false on a feed error or a missing block.
+  const web = { ...webDecision, show: publicWebsiteCigaretteFlag(webDecision, SHOW_CIGARETTES) };
   return { web, tv, guides, wording: web.wording, live, items };
 }
 
@@ -39,9 +42,8 @@ type CigaretteDataset = {
 };
 
 export async function readCigaretteFeed(): Promise<CigaretteSnapshot> {
-  // TV follows tvOn. Web follows webOn. An explicit env hard-off still wins
-  // for both surfaces inside decideCigaretteSurface. The website's static
-  // SHOW_CIGARETTES gate stays on web pages and is not applied here.
+  // TV follows tvOn. Web follows webOn, then the static SHOW_CIGARETTES gate.
+  // An explicit env hard-off still wins for both surfaces inside decideCigaretteSurface.
   if (cigaretteEnvHardOff()) return snapshotFrom(null, [], false, false);
   try {
     const tvStock = await import("./tvStock.js") as { getCigaretteDataset?: (options: { staticFlowers: unknown[]; staticItems: ItemProduct[] }) => Promise<CigaretteDataset> };
@@ -52,7 +54,8 @@ export async function readCigaretteFeed(): Promise<CigaretteSnapshot> {
     const live = dataset?.source === "live";
     const items = Array.isArray(dataset?.items) && dataset.items.length ? dataset.items : catalogItems;
     const cig = dataset?.cig ?? null;
-    // Last-good cig is kept on the dataset. A miss with no saved cig fails open.
+    // Last-good cig inside the cache window still follows its saved tvOn.
+    // A miss with no saved cig is an error. TV hides, and the website flag stays off.
     return snapshotFrom(cig, items.length ? items : catalogItems, live, !live && !cig);
   } catch {
     return snapshotFrom(null, catalogItems, false, true);
