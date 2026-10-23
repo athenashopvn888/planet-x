@@ -84,7 +84,12 @@ export default async function RootLayout({
 }>) {
   const [cigaretteSnapshot, fleet] = await Promise.all([getCigaretteSnapshot(), getFleetContent()]);
   const fromFeed = toPublicCigaretteState(cigaretteSnapshot);
-  const cigarettes = SHOW_CIGARETTES ? fromFeed : { web: false, tv: false, wording: fromFeed.wording };
+  // Website stays on the static gate (and webOn). TV follows the feed flag.
+  const cigarettes = {
+    web: SHOW_CIGARETTES ? fromFeed.web : false,
+    tv: fromFeed.tv,
+    wording: fromFeed.wording,
+  };
   return (
     <html lang="en">
       <head>

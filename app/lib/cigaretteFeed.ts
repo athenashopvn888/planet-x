@@ -1,14 +1,14 @@
 import { cache } from "react";
 import {
-  CIG_WORDING_FALLBACK,
+  cigarettePublicHeaders,
   decideCigaretteGuide,
   decideCigaretteSurface,
   reconcileSurfaceItems,
   type CigaretteSurfaceDecision,
   type CigaretteWording,
 } from "./cigDecision";
-import { allItems, type ItemProduct } from "./products";
-import { SHOW_CIGARETTES, cigaretteEnvHardOff } from "./siteConfig";
+import { allFlowers, catalogItems, type ItemProduct } from "./products";
+import { cigaretteEnvHardOff } from "./siteConfig";
 
 export type CigaretteSnapshot = {
   web: CigaretteSurfaceDecision;
@@ -32,19 +32,6 @@ function snapshotFrom(cig: unknown, items: ItemProduct[], live: boolean, errored
   return { web, tv, guides, wording: web.wording, live, items };
 }
 
-function codedOff(): CigaretteSnapshot {
-  const wording = CIG_WORDING_FALLBACK;
-  const off = { show: false, reason: "env" as const, wording };
-  return {
-    web: off,
-    tv: off,
-    guides: { show: false, reason: "env" },
-    wording,
-    live: false,
-    items: [],
-  };
-}
-
 type CigaretteDataset = {
   source?: string;
   items?: ItemProduct[];
@@ -52,21 +39,23 @@ type CigaretteDataset = {
 };
 
 export async function readCigaretteFeed(): Promise<CigaretteSnapshot> {
-  // Coded behaviour is the build switch. An unset or non-true value keeps
-  // cigarettes hidden, which is what the existing redirects already do.
-  if (!SHOW_CIGARETTES || cigaretteEnvHardOff()) return codedOff();
+  // TV follows tvOn. Web follows webOn. An explicit env hard-off still wins
+  // for both surfaces inside decideCigaretteSurface. The website's static
+  // SHOW_CIGARETTES gate stays on web pages and is not applied here.
+  if (cigaretteEnvHardOff()) return snapshotFrom(null, [], false, false);
   try {
     const tvStock = await import("./tvStock.js") as { getCigaretteDataset?: (options: { staticFlowers: unknown[]; staticItems: ItemProduct[] }) => Promise<CigaretteDataset> };
     if (typeof tvStock.getCigaretteDataset !== "function") {
-      return snapshotFrom(null, allItems, false, true);
+      return snapshotFrom(null, catalogItems, false, true);
     }
-    const dataset = await tvStock.getCigaretteDataset({ staticFlowers: [], staticItems: allItems });
+    const dataset = await tvStock.getCigaretteDataset({ staticFlowers: allFlowers, staticItems: catalogItems });
     const live = dataset?.source === "live";
-    const items = Array.isArray(dataset?.items) && dataset.items.length ? dataset.items : allItems;
+    const items = Array.isArray(dataset?.items) && dataset.items.length ? dataset.items : catalogItems;
     const cig = dataset?.cig ?? null;
-    return snapshotFrom(cig, items, live, !live && !cig);
+    // Last-good cig is kept on the dataset. A miss with no saved cig fails open.
+    return snapshotFrom(cig, items.length ? items : catalogItems, live, !live && !cig);
   } catch {
-    return snapshotFrom(null, allItems, false, true);
+    return snapshotFrom(null, catalogItems, false, true);
   }
 }
 
@@ -74,6 +63,10 @@ export const getCigaretteSnapshot = cache(readCigaretteFeed);
 
 export function toPublicCigaretteState(snap: CigaretteSnapshot): PublicCigaretteState {
   return { web: snap.web.show, tv: snap.tv.show, wording: snap.wording };
+}
+
+export function snapshotHeaders(snap: CigaretteSnapshot): Record<string, string> {
+  return cigarettePublicHeaders({ web: snap.web.show, tv: snap.tv.show, wording: snap.wording });
 }
 
 export { reconcileSurfaceItems };

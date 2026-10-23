@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./tv.module.css";
 import { CIGARETTE_FLASH_MESSAGE, isCigaretteFlashWindow } from "./flashMessages";
-import { SHOW_CIGARETTES, isPreservedSmokeItem } from "../lib/siteConfig";
+import { readCigaretteTvHeader } from "../lib/cigDecision";
+import { tvAddonItems } from "../tv2/tv2Board";
 import FleetTvTakeover from "../components/fleet/FleetTvTakeover";
 import { useFleetTvManifest } from "../components/fleet/useFleetTvManifest";
 import { getFlowerEffects } from "./flowerEffects";
@@ -799,7 +800,8 @@ export default function TVMenuPage() {
       }
       setFlowers(grouped);
 
-      setAddOns(iData.filter((it) => it.category === "ADD ONS" || it.category === "PREROLLS" || (!SHOW_CIGARETTES && isPreservedSmokeItem(it))).slice(0, 14));
+      const showCigarettes = iRes.ok && readCigaretteTvHeader(iRes.headers).show;
+      setAddOns(tvAddonItems(iData, showCigarettes).slice(0, 14));
 
       const hi: Record<string,number> = {};
       for (const t of TIERS) hi[t] = 0;
