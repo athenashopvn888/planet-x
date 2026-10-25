@@ -4,6 +4,7 @@ import { cigaretteSafeContent, SHOW_CIGARETTES } from "./lib/siteConfig";
 import { getCigaretteSnapshot, toPublicCigaretteState } from "./lib/cigaretteFeed";
 import { getFleetContent } from "./lib/fleetContent";
 import FullNameNap from "./components/FullNameNap";
+import MobileBottomBar from "./components/MobileBottomBar";
 import PinnedNavClearance from "./components/PinnedNavClearance";
 import { HOME_DOC_TITLE } from "./lib/homeDelivery";
 import type { Metadata } from "next";
@@ -132,6 +133,7 @@ export default async function RootLayout({
             {children}
             <FullNameNap />
             <PinnedNavClearance />
+            <MobileBottomBar />
           </CigaretteStateProvider>
         </FleetContentProvider>
       </body>
