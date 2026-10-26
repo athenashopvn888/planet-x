@@ -98,6 +98,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.slug ? 0.65 : 0.75,
   }));
 
+  const terpenesArticle: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE}/resources/terpenes-on-cannabis-labels`,
+      lastModified: "2026-10-26",
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+  ];
+
   const guidePages: MetadataRoute.Sitemap = [...GUIDE_REGISTRY, ...DELIVERY_GUIDE_REGISTRY].map((guide) => ({
     url: `${BASE}/guides/${guide.slug}`,
     lastModified: now,
@@ -128,5 +137,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return withoutCigaretteUrls([
     ...guideIndex,
     ...guidePages,
-    ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...fleetArticlePages]);
+    ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...terpenesArticle, ...fleetArticlePages]);
 }
