@@ -107,6 +107,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  const spectrumArticle: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE}/resources/full-spectrum-vs-broad-spectrum-vs-isolate`,
+      lastModified: "2026-11-02",
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+  ];
+
   const guidePages: MetadataRoute.Sitemap = [...GUIDE_REGISTRY, ...DELIVERY_GUIDE_REGISTRY].map((guide) => ({
     url: `${BASE}/guides/${guide.slug}`,
     lastModified: now,
@@ -137,5 +146,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return withoutCigaretteUrls([
     ...guideIndex,
     ...guidePages,
-    ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...terpenesArticle, ...fleetArticlePages]);
+    ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...terpenesArticle, ...spectrumArticle, ...fleetArticlePages]);
 }
