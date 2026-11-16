@@ -38,6 +38,16 @@ export default function ResourceView({ page }: ResourceViewProps) {
           <article key={section.heading} className={styles.section}>
             <h2>{section.heading}</h2>
             <p>{section.body}</p>
+            {section.links && section.links.length > 0 && (
+              <ul>
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.title}</Link>
+                    <p>{link.text}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
             {section.bullets && (
               <ul>
                 {section.bullets.map((item) => (
