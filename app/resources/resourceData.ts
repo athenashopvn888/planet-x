@@ -9,6 +9,7 @@ export interface ResourceSection {
   heading: string;
   body: string;
   bullets?: string[];
+  links?: ResourceCard[];
 }
 
 export interface ResourcePage {
@@ -21,6 +22,12 @@ export interface ResourcePage {
   cards: ResourceCard[];
   sections: ResourceSection[];
 }
+
+const SPECTRUM_ARTICLE: ResourceCard = {
+  title: "Full Spectrum vs Broad Spectrum vs Isolate: What These Label Words Really Mean",
+  href: "/resources/full-spectrum-vs-broad-spectrum-vs-isolate",
+  text: "Three phrases show up on oils, capsules and vapes again and again: full spectrum, broad spectrum and isolate.",
+};
 
 const RESOURCE_PAGES_RAW: ResourcePage[] = [
   {
@@ -35,13 +42,19 @@ const RESOURCE_PAGES_RAW: ResourcePage[] = [
       { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Compare Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed." },
       { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Explore different parts of the Planet X Cannabis selection and find the categories that interest you." },
       { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Use a simple framework for comparing the current information presented while you browse Planet X Weed collections." },
-      { title: "Islington & North York Weed Guide", href: "/resources/islington-north-york-weed-visit-guide", text: "Explore Planet X Cannabis with a local North York and Islington focus." }
+      { title: "Islington & North York Weed Guide", href: "/resources/islington-north-york-weed-visit-guide", text: "Explore Planet X Cannabis with a local North York and Islington focus." },
+      SPECTRUM_ARTICLE
     ],
     sections: [
       {
         heading: "Explore Planet X Weed Flower Collections",
         body: "Explore the five Planet X Cannabis Flower collections and choose the ones that interest you.",
         bullets: ["Exotic Weed", "Premium Weed", "AAA+ Weed", "AA Weed", "Budget Weed"]
+      },
+      {
+        heading: "Latest articles",
+        body: "Adults 19+. Label reading for oils, capsules and vapes, with no effect claims.",
+        links: [SPECTRUM_ARTICLE]
       }
     ],
   },
@@ -93,7 +106,8 @@ const RESOURCE_PAGES_RAW: ResourcePage[] = [
     cards: [
       { title: "Explore Planet X Weed", href: "/weed-dispensary-north-york/", text: "Begin with broader Weed browsing in North York." },
       { title: "Weed Flower Guide", href: "/resources/weed-flower-guide", text: "Explore all five Planet X Weed flower collections." },
-      { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Use a practical framework while comparing flower collections." }
+      { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Use a practical framework while comparing flower collections." },
+      SPECTRUM_ARTICLE
     ],
     sections: [
       {
