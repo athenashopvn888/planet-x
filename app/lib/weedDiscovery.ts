@@ -15,7 +15,7 @@ export const weedOwner = {
   phoneIntl: "+12892172773",
   hoursLabel: "Open 24 Hours · 7 Days a Week",
   openingHours: "Mo-Su 00:00-23:59",
-  seoTitle: "Weed Dispensary at Islington & Steeles, Humber Summit | Planet X",
+  seoTitle: "Weed Dispensary near me at Islington & Steeles, Humber Summit | Planet X",
   metaDescription:
     "Weed dispensary at 3005 Islington Ave unit 1, North York — Islington & Steeles / Humber Summit walk-in. Adults 19+. Flower tiers on site. Not a Toronto city landing.",
   h1: "Weed dispensary at unit 1 — Islington, Steeles, Humber Summit",

@@ -6,7 +6,7 @@ import { getFleetContent } from "./lib/fleetContent";
 import FullNameNap from "./components/FullNameNap";
 import MobileBottomBar from "./components/MobileBottomBar";
 import PinnedNavClearance from "./components/PinnedNavClearance";
-import { HOME_DOC_TITLE } from "./lib/homeDelivery";
+import { ROOT_DEFAULT_TITLE } from "./lib/homeDelivery";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -15,7 +15,7 @@ import { jsonLdScript, storeJsonLd, storeNap } from "./lib/storeNap";
 const ROOT_METADATA: Metadata = {
   metadataBase: new URL(storeNap.origin),
   title: {
-    default: HOME_DOC_TITLE,
+    default: ROOT_DEFAULT_TITLE,
     // Child titles that already include the brand must use resolveDocumentTitle()
     // so this template does not append "Planet X Cannabis" a second time.
     template: "%s | Planet X Cannabis",
@@ -27,7 +27,7 @@ const ROOT_METADATA: Metadata = {
     locale: "en_CA",
     url: storeNap.origin,
     siteName: "Planet X Cannabis",
-    title: HOME_DOC_TITLE,
+    title: ROOT_DEFAULT_TITLE,
     description:
       "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: [
@@ -41,7 +41,7 @@ const ROOT_METADATA: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: HOME_DOC_TITLE,
+    title: ROOT_DEFAULT_TITLE,
     description:
       "Planet X Cannabis is a North York dispensary near Islington Ave and Steeles Ave W with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: [storeNap.imageUrl],
