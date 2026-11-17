@@ -34,7 +34,7 @@ test("fifth neighbourhood pillar keeps one corridor owner, not a new city/slug w
 
 test("geo LP has unique H1, title, FAQPage schema, and 19+ corridor copy", () => {
   assert.match(geoPage, /<h1>Weed dispensary at unit 1 — Islington, Steeles, Humber Summit<\/h1>/);
-  assert.match(discovery, /Weed Dispensary at Islington & Steeles, Humber Summit \| Planet X/);
+  assert.match(discovery, /Weed Dispensary near me at Islington & Steeles, Humber Summit \| Planet X/);
   assert.match(geoPage, /GEO_FAQS/);
   assert.match(geoPage, /FAQPage/);
   assert.match(geoPage, /Adults 19\+/);
