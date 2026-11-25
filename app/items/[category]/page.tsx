@@ -1,6 +1,6 @@
+import { getCigaretteSnapshot, toPublicCigaretteState, reconcileSurfaceItems } from "../../lib/cigaretteFeed";
 import CigaretteSeasonalNotice from "../../components/CigaretteSeasonalNotice";
 import CigaretteUnavailable from "../../components/CigaretteUnavailable";
-import { getCigaretteSnapshot } from "../../lib/cigaretteFeed";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -77,7 +77,8 @@ export default async function ItemsCategoryPage({
   }
 
   /* Pre-Rolls also shows accessories (ADD ONS) */
-  let items = (await liveItemsByCategory(catInfo.key));
+  const { web: showCigarettes } = toPublicCigaretteState(await getCigaretteSnapshot());
+  let items = reconcileSurfaceItems(await liveItemsByCategory(catInfo.key), [], showCigarettes);
   if (catInfo.key === "PREROLLS") {
     const accessories = (await liveItemsByCategory("ADD ONS"));
     const existingIds = new Set(items.map(i => i.sku));
@@ -95,11 +96,11 @@ export default async function ItemsCategoryPage({
   return (
     <main className={styles.main}>
       <Navbar />
-      {catSlug === "cigarettes" && <CigaretteSeasonalNotice sticky />}
+      {showCigarettes && catSlug === "cigarettes" && <CigaretteSeasonalNotice sticky />}
 
       {/* Hero Banner */}
       <section style={{ width: "100%", overflow: "hidden", marginTop: "92px", marginBottom: "24px" }}>
-        {config.banner ? (
+        {config.banner && (catSlug !== "cigarettes" || showCigarettes) ? (
           <>
             <img
               src={config.banner}
@@ -125,7 +126,7 @@ export default async function ItemsCategoryPage({
       </section>
 
       {(catSlug === "vapes" || catSlug === "vape-disposables") && <CategoryCoreBanners kind="vapes" />}
-      {catSlug === "cigarettes" && <CategoryCoreBanners kind="cigarettes" />}
+      {showCigarettes && catSlug === "cigarettes" && <CategoryCoreBanners kind="cigarettes" />}
 
       {(catSlug === "vapes" || catSlug === "vape-disposables") && <VapeActionPanel compact />}
 
