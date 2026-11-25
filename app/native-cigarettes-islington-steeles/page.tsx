@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { getCigaretteSnapshot, toPublicCigaretteState } from "../lib/cigaretteFeed";
 import CigaretteSeasonalNotice from "../components/CigaretteSeasonalNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -23,7 +25,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function NativeCigarettesIslingtonSteelesPage() {
+export const dynamic = "force-dynamic";
+
+export default async function NativeCigarettesIslingtonSteelesPage() {
+  if (!toPublicCigaretteState(await getCigaretteSnapshot()).web) redirect("/items/vapes");
   return (
     <main className={styles.main}>
       <script
