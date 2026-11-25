@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { CORE_MESH, TIER_MESH, VERTICAL_MESH } from "../lib/seoMesh";
+import { CORE_MESH, MESH, TIER_MESH, VERTICAL_MESH } from '../lib/seoMesh';
+import { useCigaretteState } from './CigaretteStateProvider';
 import styles from "./SeoMesh.module.css";
 
 type SeoMeshProps = {
@@ -19,11 +20,12 @@ export default function SeoMesh({
   heading = "Store pages",
   variant = "panel",
 }: SeoMeshProps) {
+  const { web: showCigarettes } = useCigaretteState();
   const links = [
     ...CORE_MESH,
     ...(includeVerticals ? VERTICAL_MESH : []),
     ...(includeTiers ? TIER_MESH.map((tier) => ({ href: tier.href, label: tier.label })) : []),
-  ].filter((link) => link.href !== current);
+  ].filter((link) => link.href !== current && (showCigarettes || link.href !== MESH.nativeCigs));
 
   return (
     <div className={styles.wrap}>

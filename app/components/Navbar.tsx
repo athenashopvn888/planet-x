@@ -44,7 +44,7 @@ export default function Navbar() {
   const { web: showCigarettes } = useCigaretteState();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const navLinks = ALL_LINKS.filter((link) => showCigarettes || link.href !== "/items/cigarettes").filter(
+  const navLinks = ALL_LINKS.filter((link) => showCigarettes || (link.href !== "/items/cigarettes" && link.href !== "/native-cigarettes-islington-steeles")).filter(
     (link) => link.href !== "/24-hour-islington-steeles-dispensary" || storeClaimsOpen24Hours(),
   );
   const scrollBarRef = useRef<HTMLDivElement>(null);

@@ -310,7 +310,7 @@ export default function HomePageClient({ initialFlowers, contentBanners }: { ini
             </p>
           </div>
           <div className={styles.hubGrid}>
-            {NEIGHBOURHOOD_HUB_CARDS.filter((card) => !("onlyWhen24h" in card) || storeClaimsOpen24Hours()).map((card) => (
+            {NEIGHBOURHOOD_HUB_CARDS.filter((card) => (!("onlyWhen24h" in card) || storeClaimsOpen24Hours()) && (showCigarettes || card.href !== MESH.nativeCigs)).map((card) => (
               <Link key={card.href} href={card.href} className={styles.hubCard}>
                 <span className={styles.hubKicker}>{card.kicker}</span>
                 <strong className={styles.hubTitle}>{card.title}</strong>
@@ -332,7 +332,7 @@ export default function HomePageClient({ initialFlowers, contentBanners }: { ini
           </div>
 
           <div className={styles.categoriesGrid}>
-            {EXPLORE_CATEGORIES.map((cat) => (
+            {EXPLORE_CATEGORIES.filter((category) => showCigarettes || category.slug !== "items/cigarettes").map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/${cat.slug}`}
@@ -385,7 +385,7 @@ export default function HomePageClient({ initialFlowers, contentBanners }: { ini
               <strong>{storeNap.brand}</strong> is the 24-hour walk-in at {storeNap.streetAddress} — unit 1 on the Islington and Steeles edge of Humber Summit, North York. This homepage is the visit hub: address, phone {storeNap.phoneDisplay}, hours, and the map live here. The supporting <Link href={MESH.visit}>how-to-reach page</Link> only explains the plaza door, TTC, and parking. Overnight / open-now intent lives on the <Link href={MESH.hours24}>24-hour Islington &amp; Steeles</Link> page. Neighbourhood weed-dispensary copy lives on the <Link href={MESH.geo}>Islington &amp; Steeles / Humber Summit weed dispensary</Link> corridor. Corridor <Link href={MESH.delivery}>cannabis delivery</Link>{showCigarettes ? <>, <Link href={MESH.nativeCigs}>Native cigarettes</Link>,</> : null} and <Link href={MESH.nicotineVape}>nicotine vape</Link> (menu: <Link href={MESH.vapesMenu}>/items/vapes</Link>) each keep a neighbourhood page.
             </p>
             <p className={styles.seoPanelText}>
-              Open 24 hours, 7 days a week. Late Steeles West runs, York University night buses, and Humber Summit shift changes all land at the same unit 1 entrance. Flower is sorted into <Link href={MESH.exotic}>Exotic</Link>, <Link href={MESH.premium}>Premium</Link>, <Link href={MESH.aaa}>AAA+</Link>, <Link href={MESH.aa}>AA</Link>, and <Link href={MESH.budget}>Budget</Link> so you can compare before you talk to a budtender. Pre-rolls, edibles, vapes, concentrates, cigarettes, and accessories sit on the same live menu.
+              Open 24 hours, 7 days a week. Late Steeles West runs, York University night buses, and Humber Summit shift changes all land at the same unit 1 entrance. Flower is sorted into <Link href={MESH.exotic}>Exotic</Link>, <Link href={MESH.premium}>Premium</Link>, <Link href={MESH.aaa}>AAA+</Link>, <Link href={MESH.aa}>AA</Link>, and <Link href={MESH.budget}>Budget</Link> so you can compare before you talk to a budtender. Pre-rolls, edibles, vapes, concentrates{showCigarettes ? ", cigarettes" : ""}, and accessories sit on the same live menu.
             </p>
             <p className={styles.seoPanelText}>
               Searching for weed near Islington &amp; Steeles, Humber Summit, or North York walk-in hours? Stay on this neighbourhood pin. City-wide Toronto head terms are the wrong war for 3005 Islington. Call{" "}
